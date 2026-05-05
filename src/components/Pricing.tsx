@@ -4,173 +4,171 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight, Zap, CheckCircle2 } from "lucide-react";
 
+const features = [
+  "Lead intake automation",
+  "Missed call text-back",
+  "Automated appointment booking",
+  "CRM setup & management",
+];
+
 export default function Pricing() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="pricing" className="py-24 lg:py-32 relative overflow-hidden">
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] rounded-full bg-[radial-gradient(ellipse,rgba(0,194,255,0.04)_0%,transparent_70%)] pointer-events-none" />
+    <section id="pricing" ref={ref} className="py-28 lg:py-36 relative overflow-hidden">
+      {/* Cyan ambient */}
+      <div className="absolute bottom-0 left-0 w-[700px] h-[400px] pointer-events-none"
+        style={{ background: "radial-gradient(ellipse at 0% 100%, rgba(0,232,135,0.04) 0%, transparent 65%)" }} />
 
-      <div className="max-w-5xl mx-auto px-6 lg:px-8" ref={ref}>
+      <div className="max-w-4xl mx-auto px-6 lg:px-8">
+
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 32 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-12 lg:mb-16"
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
+          className="text-center mb-14"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase bg-[#00c2ff]/10 text-[#00c2ff] border border-[#00c2ff]/20 mb-6">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-[0.18em] uppercase glass text-white/40 mb-8">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#00e887] animate-pulse" />
             Pricing
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-6">
+          <h2 className="text-[clamp(2.2rem,5vw,4rem)] font-extrabold tracking-tight leading-[1.06] mb-5">
             Lead Intake Automation
           </h2>
-          <p className="text-white/55 text-lg max-w-xl mx-auto leading-relaxed">
+          <p className="text-white/40 text-lg max-w-lg mx-auto leading-relaxed">
             One service, two ways to get started. Lock in the founder's rate before spots fill up.
           </p>
         </motion.div>
 
-        {/* Two-card layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+        {/* Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
 
-          {/* Option 1 — Regular Price (secondary/faded) */}
+          {/* Standard */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] as [number, number, number, number], delay: 0.1 }}
-            className="rounded-2xl bg-[#0f1117] border border-white/6 p-8 opacity-70"
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number,number,number,number], delay: 0.1 }}
+            className="rounded-2xl glass p-8 opacity-60"
           >
-            <p className="text-xs font-bold tracking-widest uppercase text-white/30 mb-6">
+            <p className="text-xs font-bold tracking-[0.18em] uppercase text-white/25 mb-7">
               Standard Pricing
             </p>
 
-            {/* Setup fee */}
-            <div className="mb-5 pb-5 border-b border-white/6">
-              <p className="text-xs text-white/30 uppercase tracking-widest mb-1">Setup Fee</p>
-              <div className="flex items-end gap-1.5">
-                <span className="text-3xl font-extrabold text-white/40">$1,500</span>
-                <span className="text-white/25 text-sm mb-1">one-time</span>
+            <div className="pb-6 mb-6 border-b border-white/[0.06]">
+              <p className="text-xs text-white/25 uppercase tracking-widest mb-2">Setup Fee</p>
+              <div className="flex items-end gap-2">
+                <span className="text-4xl font-extrabold text-white/35">$1,500</span>
+                <span className="text-white/20 text-sm mb-1">one-time</span>
               </div>
             </div>
 
-            {/* Monthly retainer */}
             <div className="mb-8">
-              <p className="text-xs text-white/30 uppercase tracking-widest mb-1">Monthly Retainer</p>
-              <div className="flex items-end gap-1.5">
-                <span className="text-3xl font-extrabold text-white/40">$600</span>
-                <span className="text-white/25 text-sm mb-1">/month</span>
+              <p className="text-xs text-white/25 uppercase tracking-widest mb-2">Monthly Retainer</p>
+              <div className="flex items-end gap-2">
+                <span className="text-4xl font-extrabold text-white/35">$600</span>
+                <span className="text-white/20 text-sm mb-1">/month</span>
               </div>
             </div>
 
-            <div className="flex flex-col gap-2.5">
-              {[
-                "Lead intake automation",
-                "Missed call text-back",
-                "Automated appointment booking",
-                "CRM setup & management",
-              ].map((f) => (
-                <div key={f} className="flex items-center gap-2.5 text-sm text-white/30">
-                  <CheckCircle2 className="w-4 h-4 text-white/20 shrink-0" />
+            <ul className="flex flex-col gap-2.5">
+              {features.map((f) => (
+                <li key={f} className="flex items-center gap-2.5 text-sm text-white/25">
+                  <CheckCircle2 className="w-4 h-4 text-white/15 shrink-0" />
                   {f}
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </motion.div>
 
-          {/* Option 2 — Founder's Deal (hero/highlighted) */}
+          {/* Founder's Deal */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] as [number, number, number, number], delay: 0.22 }}
-            className="relative rounded-2xl border border-[#00c2ff]/30 p-8 overflow-hidden"
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number,number,number,number], delay: 0.22 }}
+            className="relative rounded-2xl p-8 overflow-hidden"
             style={{
-              background: "linear-gradient(135deg, #0f1117 0%, rgba(0,194,255,0.07) 100%)",
-              boxShadow: "0 20px 60px rgba(0,194,255,0.1), 0 0 0 1px rgba(0,194,255,0.15)",
+              background: "linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(0,232,135,0.05) 100%)",
+              border: "1px solid rgba(0,232,135,0.25)",
+              boxShadow: "0 0 60px rgba(0,232,135,0.08), 0 20px 60px rgba(0,0,0,0.4)",
             }}
           >
-            {/* Badge */}
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-              <span className="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#00c2ff] text-[#08090d] text-xs font-bold whitespace-nowrap">
+            {/* Floating badge */}
+            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-10">
+              <span className="flex items-center gap-1.5 px-4 py-1.5 rounded-full btn-primary text-xs font-bold whitespace-nowrap">
                 <Zap className="w-3 h-3" fill="currentColor" />
                 Limited — 3 to 5 spots only
               </span>
             </div>
 
-            <p className="text-xs font-bold tracking-widest uppercase text-[#00c2ff] mb-4 mt-2">
+            {/* Top glow line */}
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00e887]/60 to-transparent" />
+
+            <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#00e887] mb-3 mt-2">
               Founder's Deal
             </p>
 
-            {/* Scarcity headline */}
-            <p className="text-xl sm:text-2xl font-extrabold text-white leading-snug mb-6 mt-4">
+            <p className="text-xl font-extrabold text-white leading-snug mb-6">
               ⚡ Only 3 to 5 spots available —{" "}
-              <span className="text-[#00c2ff]">ever.</span>
+              <span className="text-gradient">ever.</span>
             </p>
 
-            {/* Setup fee */}
-            <div className="mb-5 pb-5 border-b border-white/6">
-              <p className="text-xs text-white/40 uppercase tracking-widest mb-1">Setup Fee</p>
+            <div className="pb-6 mb-5 border-b border-white/[0.06]">
+              <p className="text-xs text-white/35 uppercase tracking-widest mb-2">Setup Fee</p>
               <div className="flex items-end gap-2">
-                <span className="text-4xl font-extrabold text-white">$600</span>
-                <span className="text-white/40 text-sm mb-1.5">one-time</span>
-                <span className="mb-1.5 text-xs line-through text-white/25">$1,500</span>
+                <span className="text-5xl font-extrabold text-white">$600</span>
+                <span className="text-white/35 text-sm mb-1.5">one-time</span>
+                <span className="mb-1.5 text-xs line-through text-white/20">$1,500</span>
               </div>
             </div>
 
-            {/* Monthly retainer */}
-            <div className="mb-3">
-              <p className="text-xs text-white/40 uppercase tracking-widest mb-1">Monthly Retainer</p>
+            <div className="mb-2">
+              <p className="text-xs text-white/35 uppercase tracking-widest mb-2">Monthly Retainer</p>
               <div className="flex items-end gap-2">
-                <span className="text-4xl font-extrabold text-white">$150</span>
-                <span className="text-white/40 text-sm mb-1.5">/month</span>
-                <span className="mb-1.5 text-xs line-through text-white/25">$600/mo</span>
+                <span className="text-5xl font-extrabold text-white">$150</span>
+                <span className="text-white/35 text-sm mb-1.5">/month</span>
+                <span className="mb-1.5 text-xs line-through text-white/20">$600/mo</span>
               </div>
             </div>
 
-            {/* Urgency note */}
-            <p className="text-xs text-[#00c2ff]/80 leading-relaxed mb-7">
+            <p className="text-xs text-[#00e887]/60 mb-7 leading-relaxed">
               Only available for our first few clients. Price goes up once spots are filled.
             </p>
 
-            <div className="flex flex-col gap-2.5 mb-8">
-              {[
-                "Lead intake automation",
-                "Missed call text-back",
-                "Automated appointment booking",
-                "CRM setup & management",
-              ].map((f) => (
-                <div key={f} className="flex items-center gap-2.5 text-sm text-white/70">
-                  <CheckCircle2 className="w-4 h-4 text-[#00c2ff] shrink-0" />
+            <ul className="flex flex-col gap-2.5 mb-8">
+              {features.map((f) => (
+                <li key={f} className="flex items-center gap-2.5 text-sm text-white/65">
+                  <CheckCircle2 className="w-4 h-4 text-[#00e887] shrink-0" />
                   {f}
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
 
-            {/* CTA */}
             <a
               href="https://cal.com/liem-blouin/discovery?overlayCalendar=true"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-[#00c2ff] hover:bg-white text-[#08090d] font-semibold text-sm transition-all duration-200 glow-accent"
+              className="group flex items-center justify-center gap-2 w-full py-4 rounded-xl btn-primary text-sm font-bold transition-all duration-200"
             >
               Claim Your Spot
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </a>
 
-            {/* Accent line */}
-            <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#00c2ff] to-[#7b61ff]" />
+            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00e887]/40 to-transparent" />
           </motion.div>
         </div>
 
-        {/* Coming soon footnote */}
+        {/* Footnote */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.7, delay: 0.45 }}
-          className="text-center text-sm text-white/25 mt-10"
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="text-center text-sm text-white/20 mt-10"
         >
           Custom n8n workflows and full business automation — pricing coming soon.
         </motion.p>
+
       </div>
     </section>
   );
