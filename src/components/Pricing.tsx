@@ -141,18 +141,17 @@ export default function Pricing() {
             </h3>
 
             <p className="text-white/35 text-sm leading-relaxed mb-8">
-              Missed calls, follow-ups, invoice chasing, appointment reminders, and more.
-              A complete automation system built around your business. Pricing available on call.
+              From first call to final payment — fully automated.
             </p>
 
-            {/* Placeholder feature list */}
             <ul className="flex flex-col gap-2.5 mb-8 flex-1">
               {[
-                "Everything in Founder's Deal",
-                "Custom n8n workflow automation",
-                "Invoice chasing & payment reminders",
-                "Reputation management",
-                "Full business process audit",
+                "Missed call → instant client response",
+                "Quote sent → automatic follow-up sequence",
+                "Job booked → reminders to client & crew",
+                "Job done → Google review request sent",
+                "Invoice unpaid → automated payment reminders",
+                "Every Monday → business summary delivered to you",
               ].map((f) => (
                 <li key={f} className="flex items-center gap-2.5 text-sm text-white/25">
                   <CheckCircle2 className="w-4 h-4 text-white/15 shrink-0" />
