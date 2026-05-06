@@ -56,11 +56,9 @@ export default function Contact() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 gap-3">
               {[
-                { value: "50+",    label: "Contractors served" },
-                { value: "94%",    label: "Retention rate" },
-                { value: "14 days",label: "To first results" },
+                { value: "14 days", label: "To first results" },
               ].map((s) => (
                 <div key={s.label} className="rounded-2xl glass p-4 text-center">
                   <p className="text-2xl font-extrabold text-white">{s.value}</p>

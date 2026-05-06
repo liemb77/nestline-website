@@ -147,8 +147,6 @@ export default function Hero() {
           custom={2} variants={fadeUp} initial="hidden" animate="visible"
           className="flex flex-wrap justify-center gap-x-8 gap-y-2 mt-12 text-xs text-white/30"
         >
-          <span>✦ Trusted by 50+ contractors</span>
-          <span>✦ 4.9 / 5 average rating</span>
           <span>✦ Results in 14 days</span>
         </motion.div>
       </motion.div>

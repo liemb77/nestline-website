@@ -89,6 +89,7 @@ export default function Services() {
                 "CRM entry & lead scoring",
                 "Missed call text-back",
                 "Appointment booking flow",
+                "Automated Google review requests",
               ].map((f) => (
                 <li key={f} className="flex items-center gap-2.5 text-sm text-white/55">
                   <CheckCircle2 className="w-4 h-4 text-[#00e887] shrink-0" />
@@ -161,7 +162,8 @@ export default function Services() {
               </p>
               <h3 className="text-xl font-bold text-white/35 mb-3">Business Process Automation</h3>
               <p className="text-white/25 text-sm leading-relaxed">
-                Audit your entire operation and automate the parts costing you time and money. Coming soon.
+                A fully custom automation system built around your exact business. Every workflow,
+                every process — built specifically for you. Pricing on call only.
               </p>
             </div>
           </motion.div>

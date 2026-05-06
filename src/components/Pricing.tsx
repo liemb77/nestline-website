@@ -9,6 +9,7 @@ const features = [
   "Missed call text-back",
   "Automated appointment booking",
   "CRM setup & management",
+  "Automated Google review requests",
 ];
 
 export default function Pricing() {
@@ -126,9 +127,9 @@ export default function Pricing() {
             <div className="mb-2">
               <p className="text-xs text-white/35 uppercase tracking-widest mb-2">Monthly Retainer</p>
               <div className="flex items-end gap-2">
-                <span className="text-5xl font-extrabold text-white">$150</span>
+                <span className="text-5xl font-extrabold text-white">$300</span>
                 <span className="text-white/35 text-sm mb-1.5">/month</span>
-                <span className="mb-1.5 text-xs line-through text-white/20">$600/mo</span>
+                <span className="mb-1.5 text-xs line-through text-white/20">$600/month</span>
               </div>
             </div>
 
@@ -159,15 +160,43 @@ export default function Pricing() {
           </motion.div>
         </div>
 
-        {/* Footnote */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-center text-sm text-white/20 mt-10"
+        {/* Growth Plan — Coming Soon */}
+        <motion.div
+          initial={{ opacity: 0, y: 32 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number,number,number,number], delay: 0.38 }}
+          className="mt-5 relative rounded-2xl glass p-8 overflow-hidden flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
         >
-          Custom n8n workflows and full business automation — pricing coming soon.
-        </motion.p>
+          {/* Coming soon badge */}
+          <div className="absolute top-5 right-6 flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full bg-white/5 text-white/30 border border-white/8">
+            <span className="w-1.5 h-1.5 rounded-full bg-white/20" />
+            Coming Soon
+          </div>
+
+          <div className="max-w-xl pr-8">
+            <p className="text-xs font-bold tracking-[0.18em] uppercase text-white/25 mb-2">Growth Plan</p>
+            <h3 className="text-xl font-bold text-white mb-3">Full Business Automation System</h3>
+            <p className="text-white/40 text-sm leading-relaxed">
+              Full business automation system — missed calls, follow-ups, invoice chasing, appointment
+              reminders, and more. Pricing available on call.
+            </p>
+          </div>
+
+          <a
+            href="https://cal.com/liem-blouin/discovery?overlayCalendar=true"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center gap-2 shrink-0 px-6 py-3 rounded-xl text-sm font-bold transition-all duration-200 whitespace-nowrap"
+            style={{
+              background: "rgba(255,255,255,0.05)",
+              border: "1px solid rgba(255,255,255,0.1)",
+              color: "rgba(255,255,255,0.6)",
+            }}
+          >
+            Book a Call
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </a>
+        </motion.div>
 
       </div>
     </section>
