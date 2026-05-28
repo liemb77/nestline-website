@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 :root {
+  /* ── NestLine design tokens ── */
   --bg: #050505;
   --surface: rgba(255, 255, 255, 0.028);
   --surface-hover: rgba(255, 255, 255, 0.045);
@@ -13,6 +14,28 @@
   --text: #ffffff;
   --text-dim: rgba(255, 255, 255, 0.52);
   --text-muted: rgba(255, 255, 255, 0.25);
+
+  /* ── shadcn/ui CSS variables (dark theme mapped to NestLine palette) ── */
+  --background: 0 0% 2%;
+  --foreground: 240 20% 96%;
+  --card: 0 0% 4%;
+  --card-foreground: 240 20% 96%;
+  --popover: 0 0% 4%;
+  --popover-foreground: 240 20% 96%;
+  --primary: 151 100% 46%;
+  --primary-foreground: 0 0% 2%;
+  --secondary: 0 0% 8%;
+  --secondary-foreground: 0 0% 80%;
+  --muted: 0 0% 8%;
+  --muted-foreground: 0 0% 45%;
+  --accent: 151 100% 46%;
+  --accent-foreground: 0 0% 2%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 96%;
+  --border-shadcn: 0 0% 10%;
+  --input: 0 0% 12%;
+  --ring: 151 100% 46%;
+  --radius: 0.75rem;
 }
 
 @theme inline {
