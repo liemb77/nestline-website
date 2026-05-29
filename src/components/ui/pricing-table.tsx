@@ -14,6 +14,9 @@ export interface PricingPlan {
   id: string;
   name: string;
   price: number;
+  originalPrice?: number;    // crossed-out monthly price
+  setupFee?: number;         // discounted one-time setup fee
+  originalSetupFee?: number; // crossed-out setup fee
   description: string;
   features: Feature[];
   isRecommended?: boolean;
@@ -126,17 +129,53 @@ const PlanCard: React.FC<PlanCardProps> = ({ plan, billingCycle, onSelect, isAct
       )}
       <h3 className="text-2xl font-bold text-card-foreground">{plan.name}</h3>
       <p className="mt-2 text-sm text-muted-foreground">{plan.description}</p>
-      <div className="my-6">
+      <div className="my-6 space-y-3">
         {plan.price === 0 ? (
           <span className="text-2xl font-bold text-muted-foreground">Coming Soon</span>
         ) : (
           <>
-            <span className="text-4xl font-extrabold text-card-foreground">
-              ${price}
-            </span>
-            <span className="text-lg font-medium text-muted-foreground">{cycleLabel}</span>
+            {/* Setup fee row */}
+            {plan.setupFee !== undefined && (
+              <div className="flex items-baseline gap-2">
+                <span className="text-xs uppercase tracking-widest text-muted-foreground w-20 shrink-0">
+                  Setup
+                </span>
+                <div className="flex items-baseline gap-2">
+                  {plan.originalSetupFee && (
+                    <span className="text-base font-medium text-muted-foreground line-through">
+                      ${plan.originalSetupFee}
+                    </span>
+                  )}
+                  <span className="text-2xl font-extrabold text-primary">
+                    ${plan.setupFee}
+                  </span>
+                  <span className="text-sm text-muted-foreground">one-time</span>
+                </div>
+              </div>
+            )}
+
+            {/* Monthly price row */}
+            <div className="flex items-baseline gap-2">
+              {plan.setupFee !== undefined && (
+                <span className="text-xs uppercase tracking-widest text-muted-foreground w-20 shrink-0">
+                  Monthly
+                </span>
+              )}
+              <div className="flex items-baseline gap-2">
+                {plan.originalPrice && (
+                  <span className="text-base font-medium text-muted-foreground line-through">
+                    ${plan.originalPrice}
+                  </span>
+                )}
+                <span className="text-4xl font-extrabold text-card-foreground">
+                  ${price}
+                </span>
+                <span className="text-lg font-medium text-muted-foreground">{cycleLabel}</span>
+              </div>
+            </div>
+
             {billingCycle === 'annually' && plan.price !== price && (
-              <p className="mt-1 text-xs text-muted-foreground line-through">
+              <p className="text-xs text-muted-foreground line-through">
                 ${plan.price * 12} billed annually
               </p>
             )}

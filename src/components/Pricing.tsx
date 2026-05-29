@@ -9,6 +9,9 @@ const NESTLINE_PLANS: PricingPlan[] = [
     id: "founders",
     name: "Founder's Deal",
     price: 300,
+    originalPrice: 600,
+    setupFee: 600,
+    originalSetupFee: 1500,
     description:
       "Lock in our lowest rate — ever. Only 3 to 5 spots available before the price goes up permanently.",
     features: [
@@ -88,19 +91,6 @@ export default function Pricing() {
             Lock in the founder's rate before spots fill up.
           </p>
         </motion.div>
-
-        {/* ── Founder's setup note ── */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          className="text-center text-sm text-white/30 mb-2"
-        >
-          Founder's Deal includes a{" "}
-          <span className="text-white/50 line-through">$1,500</span>{" "}
-          <span className="text-[#00e887]/70 font-semibold">$600 one-time setup fee</span>{" "}
-          + $300/mo
-        </motion.p>
 
         {/* ── Pricing table ── */}
         <motion.div
