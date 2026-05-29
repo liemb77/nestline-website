@@ -196,7 +196,7 @@ export default function WebsitesPage() {
                           <span className="text-zinc-500 text-sm ml-2">setup</span>
                         </div>
                         <div>
-                          <span className="text-2xl font-bold text-zinc-300">+ $100</span>
+                          <span className="text-2xl font-bold text-zinc-300">+ $150</span>
                           <span className="text-zinc-500 text-sm ml-2">/month maintenance</span>
                         </div>
                         <p className="text-xs text-[#00e887]/60 font-semibold pt-0.5">Updates, support & tweaks included.</p>
