@@ -1,8 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Smartphone, MapPin, Search, Gauge, Mail, Globe } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { ArrowRight, CircleCheck, Smartphone, MapPin, Search, Gauge, Mail, Globe } from "lucide-react";
 import Link from "next/link";
+import Navbar from "@/components/Navbar";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
+import { ScrollTiltWrapper } from "@/components/ui/scroll-tilt-wrapper";
 
 const features = [
   { icon: Globe,      label: "Custom design tailored to your trade" },
@@ -16,270 +22,283 @@ const features = [
 const itemVariants = {
   hidden: { opacity: 0, y: 24 },
   visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number], delay: i * 0.09 },
+    opacity: 1, y: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number,number,number,number], delay: i * 0.09 },
   }),
 };
 
+function PricingParticles() {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas?.getContext("2d");
+    if (!canvas || !ctx) return;
+    const setSize = () => {
+      const rect = canvas.parentElement?.getBoundingClientRect();
+      const w = Math.max(1, Math.floor(rect?.width ?? window.innerWidth));
+      const h = Math.max(1, Math.floor(rect?.height ?? window.innerHeight));
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.floor(w * dpr);
+      canvas.height = Math.floor(h * dpr);
+      canvas.style.width = `${w}px`;
+      canvas.style.height = `${h}px`;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+    setSize();
+    type P = { x: number; y: number; v: number; o: number };
+    let parts: P[] = [];
+    let raf = 0;
+    const make = (): P => ({
+      x: Math.random() * (canvas.width / (window.devicePixelRatio || 1)),
+      y: Math.random() * (canvas.height / (window.devicePixelRatio || 1)),
+      v: Math.random() * 0.3 + 0.05,
+      o: Math.random() * 0.25 + 0.08,
+    });
+    const init = () => {
+      parts = [];
+      const w = canvas.width / (window.devicePixelRatio || 1);
+      const h = canvas.height / (window.devicePixelRatio || 1);
+      for (let i = 0; i < Math.floor((w * h) / 10000); i++) parts.push(make());
+    };
+    const draw = () => {
+      const w = canvas.width / (window.devicePixelRatio || 1);
+      const h = canvas.height / (window.devicePixelRatio || 1);
+      ctx.clearRect(0, 0, w, h);
+      parts.forEach((p) => {
+        p.y -= p.v;
+        if (p.y < 0) { p.x = Math.random() * w; p.y = h + 40; p.v = Math.random() * 0.3 + 0.05; p.o = Math.random() * 0.25 + 0.08; }
+        ctx.fillStyle = `rgba(0,232,135,${p.o})`;
+        ctx.fillRect(p.x, p.y, 0.7, 2.2);
+      });
+      raf = requestAnimationFrame(draw);
+    };
+    const ro = new ResizeObserver(() => { setSize(); init(); });
+    ro.observe(canvas.parentElement || document.body);
+    init(); raf = requestAnimationFrame(draw);
+    return () => { ro.disconnect(); cancelAnimationFrame(raf); };
+  }, []);
+  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-60 pointer-events-none" />;
+}
+
 export default function WebsitesPage() {
+  const pricingRef = useRef(null);
+  const inView = useInView(pricingRef, { once: true, margin: "-80px" });
+
   return (
-    <div className="min-h-screen flex flex-col" style={{ background: "#050505" }}>
+    <>
+      <Navbar />
+      <main className="pt-[72px]">
 
-      {/* Navbar */}
-      <motion.nav
-        initial={{ y: -72, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
-        className="fixed top-0 left-0 right-0 z-50 bg-[#050505]/80 backdrop-blur-xl border-b border-white/[0.06]"
-      >
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-[72px]">
-          <Link href="/" className="flex items-center">
-            <img src="/logo.svg" alt="NestLine Automation" className="h-16 lg:h-20 w-auto" />
-          </Link>
-          <div className="flex items-center gap-6">
-            <Link href="/" className="text-[13px] font-medium text-white/45 hover:text-white tracking-wide transition-colors duration-200">Home</Link>
-            <Link href="/#pricing" className="text-[13px] font-medium text-white/45 hover:text-white tracking-wide transition-colors duration-200">Pricing</Link>
-            <Link href="/#contact" className="text-[13px] font-medium text-white/45 hover:text-white tracking-wide transition-colors duration-200">Contact</Link>
-            <a
-              href="https://cal.com/liem-blouin/discovery?overlayCalendar=true"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden md:inline-flex items-center px-5 py-2.5 rounded-full btn-primary text-sm"
-            >
-              Book a Call
-            </a>
-          </div>
-        </div>
-      </motion.nav>
-
-      <main className="flex-1 pt-[72px]">
-
-        {/* Hero */}
+        {/* ── Hero ── */}
         <section className="relative min-h-[55vh] flex items-center justify-center overflow-hidden py-24">
-          {/* Grid bg */}
-          <div
-            className="absolute inset-0 opacity-[0.02]"
-            style={{
-              backgroundImage:
-                "linear-gradient(rgba(0,232,135,1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,232,135,1) 1px, transparent 1px)",
-              backgroundSize: "80px 80px",
-            }}
-          />
-          {/* Glow */}
+          {/* Subtle green radial glow — same style as main page sections */}
           <div className="absolute inset-0 pointer-events-none"
-            style={{ background: "radial-gradient(ellipse at 50% 40%, rgba(0,232,135,0.07) 0%, transparent 60%)" }} />
+            style={{ background: "radial-gradient(ellipse at 50% 40%, rgba(0,232,135,0.05) 0%, transparent 65%)" }} />
 
           <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
             <motion.div initial="hidden" animate="visible" className="flex flex-col items-center gap-6">
-
-              <motion.span
-                custom={0}
-                variants={itemVariants}
-                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-[0.18em] uppercase glass text-white/40"
-              >
+              <motion.span custom={0} variants={itemVariants}
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-[0.18em] uppercase glass text-white/40">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#00e887] animate-pulse" />
                 Contractor Websites
               </motion.span>
 
-              <motion.h1
-                custom={1}
-                variants={itemVariants}
-                className="text-[clamp(2.5rem,7vw,5.5rem)] font-extrabold leading-[1.06] tracking-tight"
-              >
+              <motion.h1 custom={1} variants={itemVariants}
+                className="text-[clamp(2.5rem,7vw,5.5rem)] font-extrabold leading-[1.06] tracking-tight">
                 Sites That{" "}
                 <span className="text-gradient">Actually Convert</span>
               </motion.h1>
 
-              <motion.p
-                custom={2}
-                variants={itemVariants}
-                className="text-lg sm:text-xl text-white/40 max-w-2xl leading-relaxed"
-              >
+              <motion.p custom={2} variants={itemVariants}
+                className="text-lg sm:text-xl text-white/40 max-w-2xl leading-relaxed">
                 Fast, clean, mobile-ready websites built for contractors who want to
                 look professional and win more jobs online.
               </motion.p>
 
-              <motion.a
-                custom={3}
-                variants={itemVariants}
+              <motion.a custom={3} variants={itemVariants}
                 href="https://cal.com/liem-blouin/discovery?overlayCalendar=true"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-2.5 px-7 py-4 rounded-full btn-primary text-sm font-bold mt-2"
-              >
+                target="_blank" rel="noopener noreferrer"
+                className="group flex items-center gap-2.5 px-7 py-4 rounded-full btn-primary text-sm font-bold mt-2">
                 Get Your Website Built
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </motion.a>
-
             </motion.div>
           </div>
 
           <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#050505] to-transparent pointer-events-none" />
         </section>
 
-        {/* Pricing cards */}
-        <section className="py-16 lg:py-24">
-          <div className="max-w-4xl mx-auto px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
+        {/* ── Pricing section ── */}
+        <section ref={pricingRef} className="relative py-20 lg:py-28 overflow-hidden">
+          {/* Accent grid lines */}
+          <style>{`
+            .ws-accent{position:absolute;inset:0;pointer-events:none;opacity:.5}
+            .ws-accent .hl,.ws-accent .vl{position:absolute;background:#1a2e24}
+            .ws-accent .hl{left:0;right:0;height:1px;transform:scaleX(0);transform-origin:50% 50%;animation:wsDrawX .8s ease forwards}
+            .ws-accent .vl{top:0;bottom:0;width:1px;transform:scaleY(0);transform-origin:50% 0%;animation:wsDrawY .9s ease forwards}
+            .ws-accent .hl:nth-child(1){top:20%;animation-delay:.1s}
+            .ws-accent .hl:nth-child(2){top:55%;animation-delay:.2s}
+            .ws-accent .hl:nth-child(3){top:85%;animation-delay:.3s}
+            .ws-accent .vl:nth-child(4){left:20%;animation-delay:.25s}
+            .ws-accent .vl:nth-child(5){left:50%;animation-delay:.35s}
+            .ws-accent .vl:nth-child(6){left:80%;animation-delay:.45s}
+            @keyframes wsDrawX{to{transform:scaleX(1)}}
+            @keyframes wsDrawY{to{transform:scaleY(1)}}
+          `}</style>
+          <div aria-hidden className="ws-accent">
+            <div className="hl"/><div className="hl"/><div className="hl"/>
+            <div className="vl"/><div className="vl"/><div className="vl"/>
+          </div>
+          <PricingParticles />
+          <div className="pointer-events-none absolute inset-0 [background:radial-gradient(70%_50%_at_50%_0%,rgba(0,232,135,0.05),transparent_60%)]" />
 
-              {/* One & Done */}
+          <ScrollTiltWrapper>
+            <div className="relative max-w-4xl mx-auto px-6 lg:px-8">
+
+              {/* Header */}
               <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] as [number, number, number, number], delay: 0.15 }}
-                className="relative rounded-2xl p-8 overflow-hidden flex flex-col gap-6"
-                style={{
-                  background: "linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(0,232,135,0.05) 100%)",
-                  border: "1px solid rgba(0,232,135,0.2)",
-                  boxShadow: "0 20px 60px rgba(0,232,135,0.06)",
-                }}
+                initial={{ opacity: 0, y: 32 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
+                className="text-center mb-14"
               >
-                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00e887]/40 to-transparent" />
-
-                <div>
-                  <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#00e887] mb-3">One &amp; Done</p>
-                  <h2 className="text-xl font-extrabold text-white mb-2">Own it completely</h2>
-                  <p className="text-white/35 text-sm leading-relaxed">Full custom website built for your trade. You own it — no strings attached.</p>
-                  <p className="text-xs font-semibold text-[#00e887]/60 mt-2">No monthly fees, ever.</p>
-                </div>
-
-                <div className="pb-6 border-b border-white/[0.06]">
-                  <div className="flex items-end gap-2">
-                    <span className="text-5xl font-extrabold text-white">$1,500</span>
-                    <span className="text-white/30 text-base mb-1.5">one-time</span>
-                  </div>
-                </div>
-
-                <ul className="flex flex-col gap-3">
-                  {features.map(({ icon: Icon, label }, i) => (
-                    <motion.li
-                      key={label}
-                      custom={i}
-                      initial="hidden"
-                      animate="visible"
-                      variants={itemVariants}
-                      className="flex items-center gap-3 text-sm text-white/55"
-                    >
-                      <div className="w-7 h-7 rounded-lg bg-[#00e887]/8 border border-[#00e887]/15 flex items-center justify-center shrink-0">
-                        <Icon className="w-3.5 h-3.5 text-[#00e887]" />
-                      </div>
-                      {label}
-                    </motion.li>
-                  ))}
-                </ul>
-
-                <a
-                  href="https://cal.com/liem-blouin/discovery?overlayCalendar=true"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center justify-center gap-2.5 w-full py-4 rounded-xl btn-primary text-sm font-bold"
-                >
-                  Get Your Website Built
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </a>
-
-                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00e887]/30 to-transparent" />
+                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-[0.18em] uppercase glass text-white/40 mb-8">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00e887] animate-pulse" />
+                  Website Pricing
+                </span>
+                <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-extrabold tracking-tight leading-[1.06] mb-5">
+                  Pick your plan
+                </h2>
+                <p className="text-white/40 text-lg max-w-md mx-auto leading-relaxed">
+                  Own it outright or let us handle everything ongoing.
+                </p>
               </motion.div>
 
-              {/* Build + Care */}
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] as [number, number, number, number], delay: 0.28 }}
-                className="relative rounded-2xl glass p-8 overflow-hidden flex flex-col gap-6"
-              >
-                <div>
-                  <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#00c2ff] mb-3">Build + Care</p>
-                  <h2 className="text-xl font-extrabold text-white mb-2">We handle everything</h2>
-                  <p className="text-white/35 text-sm leading-relaxed">Same great website, plus we handle updates, support, and tweaks every month.</p>
-                </div>
+              {/* Cards */}
+              <div className="flex flex-col md:flex-row items-stretch justify-center gap-6">
 
-                <div className="pb-6 border-b border-white/[0.06]">
-                  <div className="flex items-end gap-2 mb-2">
-                    <span className="text-5xl font-extrabold text-white">$800</span>
-                    <span className="text-white/30 text-base mb-1.5">setup</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-2xl font-bold text-white/55">+$100</span>
-                    <span className="text-white/25 text-sm">/month ongoing</span>
-                  </div>
-                </div>
-
-                <ul className="flex flex-col gap-3">
-                  {features.map(({ icon: Icon, label }, i) => (
-                    <motion.li
-                      key={label}
-                      custom={i + 6}
-                      initial="hidden"
-                      animate="visible"
-                      variants={itemVariants}
-                      className="flex items-center gap-3 text-sm text-white/55"
-                    >
-                      <div className="w-7 h-7 rounded-lg bg-[#00c2ff]/8 border border-[#00c2ff]/15 flex items-center justify-center shrink-0">
-                        <Icon className="w-3.5 h-3.5 text-[#00c2ff]" />
-                      </div>
-                      {label}
-                    </motion.li>
-                  ))}
-                </ul>
-
-                <a
-                  href="https://cal.com/liem-blouin/discovery?overlayCalendar=true"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center justify-center gap-2.5 w-full py-4 rounded-xl text-sm font-bold transition-all duration-200"
-                  style={{
-                    background: "rgba(0,194,255,0.15)",
-                    border: "1px solid rgba(0,194,255,0.3)",
-                    color: "#00c2ff",
-                  }}
+                {/* One & Done */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number,number,number,number], delay: 0.15 }}
+                  className="relative flex-1 max-w-sm"
                 >
-                  Start With Care Plan
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </a>
+                  <Card className="h-full flex flex-col border-[#00e887]/30 bg-zinc-900/80 backdrop-blur"
+                    style={{ boxShadow: "0 0 60px rgba(0,232,135,0.08), 0 20px 40px rgba(0,0,0,0.4)" }}>
+                    <CardHeader>
+                      <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#00e887] mb-1">One &amp; Done</p>
+                      <CardTitle className="text-zinc-50 text-xl">Own it completely</CardTitle>
+                      <p className="text-sm text-zinc-400">Full custom website built for your trade. You own it — no strings attached.</p>
+                      <div className="pt-2">
+                        <span className="text-4xl font-extrabold text-white">$1,500</span>
+                        <span className="text-zinc-500 text-sm ml-2">one-time</span>
+                        <p className="text-xs text-[#00e887]/60 mt-1 font-semibold">No monthly fees, ever.</p>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="flex-1">
+                      <Separator className="mb-5 bg-zinc-800" />
+                      <ul className="space-y-3">
+                        {features.map(({ label }) => (
+                          <li key={label} className="flex items-center gap-2.5 text-zinc-200 text-sm">
+                            <CircleCheck className="size-4 text-[#00e887] shrink-0" />
+                            {label}
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                    <CardFooter>
+                      <Button asChild className="w-full rounded-xl bg-[#00e887] text-[#050505] font-bold hover:bg-[#00e887]/90"
+                        style={{ boxShadow: "0 0 30px rgba(0,232,135,0.3)" }}>
+                        <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noreferrer">
+                          Get Your Website Built
+                          <ArrowRight className="ml-2 size-4" />
+                        </a>
+                      </Button>
+                    </CardFooter>
+                  </Card>
+                </motion.div>
+
+                {/* Build + Care */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number,number,number,number], delay: 0.28 }}
+                  className="relative flex-1 max-w-sm md:translate-y-2"
+                >
+                  <Card className="h-full flex flex-col border-zinc-800 bg-zinc-900/50 backdrop-blur">
+                    <CardHeader>
+                      <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#00c2ff] mb-1">Build + Care</p>
+                      <CardTitle className="text-zinc-50 text-xl">We handle everything</CardTitle>
+                      <p className="text-sm text-zinc-400">Same great website, plus we handle updates, support, and tweaks every month.</p>
+                      <div className="pt-2 space-y-1">
+                        <div>
+                          <span className="text-4xl font-extrabold text-white">$800</span>
+                          <span className="text-zinc-500 text-sm ml-2">setup</span>
+                        </div>
+                        <div>
+                          <span className="text-2xl font-bold text-zinc-300">+ $100</span>
+                          <span className="text-zinc-500 text-sm ml-2">/month ongoing</span>
+                        </div>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="flex-1">
+                      <Separator className="mb-5 bg-zinc-800" />
+                      <ul className="space-y-3">
+                        {features.map(({ label }) => (
+                          <li key={label} className="flex items-center gap-2.5 text-zinc-200 text-sm">
+                            <CircleCheck className="size-4 text-[#00c2ff] shrink-0" />
+                            {label}
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                    <CardFooter>
+                      <Button asChild variant="outline"
+                        className="w-full rounded-xl border-[#00c2ff]/30 bg-[#00c2ff]/10 text-[#00c2ff] hover:bg-[#00c2ff]/20 hover:text-[#00c2ff]">
+                        <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noreferrer">
+                          Start With Care Plan
+                          <ArrowRight className="ml-2 size-4" />
+                        </a>
+                      </Button>
+                    </CardFooter>
+                  </Card>
+                </motion.div>
+
+              </div>
+
+              {/* Bundle note */}
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.45 }}
+                className="mt-8 rounded-2xl border border-zinc-800 bg-zinc-900/40 px-6 py-5 text-center backdrop-blur"
+              >
+                <p className="text-sm text-zinc-400 leading-relaxed">
+                  <span className="text-white font-semibold">Get the website + maintenance together</span>{" "}
+                  and save $150 on setup.{" "}
+                  <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noreferrer"
+                    className="text-[#00e887] hover:underline font-medium">
+                    Book a call to claim the bundle deal.
+                  </a>
+                </p>
               </motion.div>
+
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={inView ? { opacity: 1 } : {}}
+                transition={{ duration: 0.7, delay: 0.55 }}
+                className="text-center text-xs text-white/20 mt-5 leading-relaxed"
+              >
+                Need automation + a website?{" "}
+                <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noreferrer"
+                  className="text-[#00e887]/60 hover:text-[#00e887] hover:underline transition-colors">
+                  Book a call to get a custom quote.
+                </a>
+              </motion.p>
 
             </div>
-
-            {/* Bundle note */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.45 }}
-              className="mt-6 rounded-2xl glass px-6 py-5 text-center"
-            >
-              <p className="text-sm text-white/40 leading-relaxed">
-                <span className="text-white font-semibold">Get the website + maintenance together</span>{" "}
-                and save $150 on setup.{" "}
-                <a
-                  href="https://cal.com/liem-blouin/discovery?overlayCalendar=true"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#00e887] hover:underline font-medium"
-                >
-                  Book a call to claim the bundle deal.
-                </a>
-              </p>
-            </motion.div>
-
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.55 }}
-              className="text-center text-sm text-white/20 mt-5 leading-relaxed"
-            >
-              Need automation + a website?{" "}
-              <a
-                href="https://cal.com/liem-blouin/discovery?overlayCalendar=true"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#00e887]/60 hover:text-[#00e887] hover:underline transition-colors"
-              >
-                Book a call to get a custom quote.
-              </a>
-            </motion.p>
-          </div>
+          </ScrollTiltWrapper>
         </section>
 
       </main>
@@ -290,16 +309,13 @@ export default function WebsitesPage() {
           <Link href="/" className="flex items-center">
             <img src="/logo.svg" alt="NestLine Automation" className="h-10 w-auto" />
           </Link>
-          <p className="text-xs text-white/20">
-            © {new Date().getFullYear()} NestLine Automation. All rights reserved.
-          </p>
+          <p className="text-xs text-white/20">© {new Date().getFullYear()} NestLine Automation. All rights reserved.</p>
           <div className="flex items-center gap-2 text-xs text-white/20">
             <span className="w-1.5 h-1.5 rounded-full bg-[#00e887] animate-pulse" />
             All systems operational
           </div>
         </div>
       </footer>
-
-    </div>
+    </>
   );
 }
