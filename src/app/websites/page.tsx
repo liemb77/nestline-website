@@ -177,7 +177,7 @@ export default function WebsitesPage() {
               {/* Cards */}
               <div className="flex flex-col md:flex-row items-stretch justify-center gap-6">
 
-                {/* One & Done */}
+                {/* Standard */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -187,13 +187,19 @@ export default function WebsitesPage() {
                   <Card className="h-full flex flex-col border-[#00e887]/30 bg-zinc-900/80 backdrop-blur"
                     style={{ boxShadow: "0 0 60px rgba(0,232,135,0.08), 0 20px 40px rgba(0,0,0,0.4)" }}>
                     <CardHeader>
-                      <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#00e887] mb-1">One &amp; Done</p>
-                      <CardTitle className="text-zinc-50 text-xl">Own it completely</CardTitle>
-                      <p className="text-sm text-zinc-400">Full custom website built for your trade. You own it — no strings attached.</p>
-                      <div className="pt-2">
-                        <span className="text-4xl font-extrabold text-white">$1,500</span>
-                        <span className="text-zinc-500 text-sm ml-2">one-time</span>
-                        <p className="text-xs text-[#00e887]/60 mt-1 font-semibold">No monthly fees, ever.</p>
+                      <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#00e887] mb-1">Standard</p>
+                      <CardTitle className="text-zinc-50 text-xl">Built for your trade</CardTitle>
+                      <p className="text-sm text-zinc-400">Fast, clean, mobile-ready website. You own it — we handle the build.</p>
+                      <div className="pt-2 space-y-1">
+                        <div>
+                          <span className="text-4xl font-extrabold text-white">$1,500</span>
+                          <span className="text-zinc-500 text-sm ml-2">setup</span>
+                        </div>
+                        <div>
+                          <span className="text-2xl font-bold text-zinc-300">+ $100</span>
+                          <span className="text-zinc-500 text-sm ml-2">/month maintenance</span>
+                        </div>
+                        <p className="text-xs text-[#00e887]/60 font-semibold pt-0.5">Updates, support & tweaks included.</p>
                       </div>
                     </CardHeader>
                     <CardContent className="flex-1">
@@ -219,7 +225,7 @@ export default function WebsitesPage() {
                   </Card>
                 </motion.div>
 
-                {/* Build + Care */}
+                {/* Premium / Custom Quote */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -228,24 +234,27 @@ export default function WebsitesPage() {
                 >
                   <Card className="h-full flex flex-col border-zinc-800 bg-zinc-900/50 backdrop-blur">
                     <CardHeader>
-                      <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#00c2ff] mb-1">Build + Care</p>
-                      <CardTitle className="text-zinc-50 text-xl">We handle everything</CardTitle>
-                      <p className="text-sm text-zinc-400">Same great website, plus we handle updates, support, and tweaks every month.</p>
-                      <div className="pt-2 space-y-1">
-                        <div>
-                          <span className="text-4xl font-extrabold text-white">$800</span>
-                          <span className="text-zinc-500 text-sm ml-2">setup</span>
-                        </div>
-                        <div>
-                          <span className="text-2xl font-bold text-zinc-300">+ $100</span>
-                          <span className="text-zinc-500 text-sm ml-2">/month ongoing</span>
-                        </div>
+                      <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#00c2ff] mb-1">Premium</p>
+                      <CardTitle className="text-zinc-50 text-xl">High-value brands</CardTitle>
+                      <p className="text-sm text-zinc-400">
+                        For businesses that need something beyond the standard — custom scope, premium design, and a quote built around your goals.
+                      </p>
+                      <div className="pt-2">
+                        <span className="text-4xl font-extrabold text-white">Custom</span>
+                        <p className="text-xs text-zinc-500 mt-1">Pricing discussed on call · No surprises</p>
                       </div>
                     </CardHeader>
                     <CardContent className="flex-1">
                       <Separator className="mb-5 bg-zinc-800" />
                       <ul className="space-y-3">
-                        {features.map(({ label }) => (
+                        {[
+                          "Everything in Standard",
+                          "Premium custom design",
+                          "Advanced functionality & integrations",
+                          "Brand strategy consultation",
+                          "Priority turnaround",
+                          "Dedicated ongoing support",
+                        ].map((label) => (
                           <li key={label} className="flex items-center gap-2.5 text-zinc-200 text-sm">
                             <CircleCheck className="size-4 text-[#00c2ff] shrink-0" />
                             {label}
@@ -257,7 +266,7 @@ export default function WebsitesPage() {
                       <Button asChild variant="outline"
                         className="w-full rounded-xl border-[#00c2ff]/30 bg-[#00c2ff]/10 text-[#00c2ff] hover:bg-[#00c2ff]/20 hover:text-[#00c2ff]">
                         <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noreferrer">
-                          Start With Care Plan
+                          Book a Call for a Quote
                           <ArrowRight className="ml-2 size-4" />
                         </a>
                       </Button>
@@ -267,33 +276,16 @@ export default function WebsitesPage() {
 
               </div>
 
-              {/* Bundle note */}
-              <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.45 }}
-                className="mt-8 rounded-2xl border border-zinc-800 bg-zinc-900/40 px-6 py-5 text-center backdrop-blur"
-              >
-                <p className="text-sm text-zinc-400 leading-relaxed">
-                  <span className="text-white font-semibold">Get the website + maintenance together</span>{" "}
-                  and save $150 on setup.{" "}
-                  <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noreferrer"
-                    className="text-[#00e887] hover:underline font-medium">
-                    Book a call to claim the bundle deal.
-                  </a>
-                </p>
-              </motion.div>
-
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={inView ? { opacity: 1 } : {}}
-                transition={{ duration: 0.7, delay: 0.55 }}
-                className="text-center text-xs text-white/20 mt-5 leading-relaxed"
+                transition={{ duration: 0.7, delay: 0.5 }}
+                className="text-center text-xs text-white/20 mt-8 leading-relaxed"
               >
-                Need automation + a website?{" "}
+                Need a website + automation together?{" "}
                 <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noreferrer"
                   className="text-[#00e887]/60 hover:text-[#00e887] hover:underline transition-colors">
-                  Book a call to get a custom quote.
+                  Book a call for a bundled quote.
                 </a>
               </motion.p>
 
