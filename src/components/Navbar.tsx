@@ -4,8 +4,9 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-const links = [
+const baseLinks = [
   { label: "Problem",  href: "#problem" },
   { label: "Services", href: "#services" },
   { label: "Pricing",  href: "#pricing" },
@@ -14,8 +15,18 @@ const links = [
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled]   = useState(false);
-  const [menuOpen, setMenuOpen]   = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
+  // Prefix hash links with "/" when not on the home page so they
+  // navigate back to the home page and then scroll to the section.
+  const links = baseLinks.map((l) =>
+    l.href.startsWith("#") && !isHome
+      ? { ...l, href: `/${l.href}` }
+      : l
+  );
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 24);
@@ -46,7 +57,11 @@ export default function Navbar() {
             <Link
               key={l.label}
               href={l.href}
-              className="text-[13px] font-medium text-white/45 hover:text-white tracking-wide transition-colors duration-200"
+              className={`text-[13px] font-medium tracking-wide transition-colors duration-200 ${
+                (l.href === "/websites" && pathname === "/websites")
+                  ? "text-white"
+                  : "text-white/45 hover:text-white"
+              }`}
             >
               {l.label}
             </Link>
