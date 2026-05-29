@@ -23,7 +23,7 @@ export interface PricingPlan {
 
 export type BillingCycle = 'monthly' | 'annually';
 
-export interface PricingTableProps extends React.ComponentPropsWithoutRef<'div'> {
+export interface PricingTableProps extends Omit<React.ComponentPropsWithoutRef<'div'>, 'onSelect'> {
   plans: PricingPlan[];
   billingCycle: BillingCycle;
   onSelect: (planId: string) => void;
