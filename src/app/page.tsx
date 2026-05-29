@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
 import Problem from "@/components/Problem";
+import DashboardShowcase from "@/components/DashboardShowcase";
 import Services from "@/components/Services";
 import Pricing from "@/components/Pricing";
 import Contact from "@/components/Contact";
@@ -15,6 +16,7 @@ export default function Home() {
         <Hero />
         <Marquee />
         <Problem />
+        <DashboardShowcase />
         <Services />
         <Pricing />
         <Contact />
