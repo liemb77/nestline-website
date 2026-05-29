@@ -6,6 +6,7 @@ import {
   MessageSquareText, GitBranch, Settings2, CheckCircle2, Clock,
   CalendarCheck, Workflow, BarChart3, ArrowRight,
 } from "lucide-react";
+import { ScrollTiltWrapper } from "@/components/ui/scroll-tilt-wrapper";
 
 const processSteps = [
   { icon: CalendarCheck, n: "01", label: "Discovery Call",  desc: "We audit your current process" },
@@ -26,6 +27,7 @@ export default function Services() {
       <div className="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none"
         style={{ background: "radial-gradient(ellipse at 100% 0%, rgba(0,232,135,0.05) 0%, transparent 60%)" }} />
 
+      <ScrollTiltWrapper>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
         {/* Header */}
@@ -200,6 +202,7 @@ export default function Services() {
         </motion.div>
 
       </div>
+      </ScrollTiltWrapper>
     </section>
   );
 }

@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight, Mail, MapPin } from "lucide-react";
+import { ScrollTiltWrapper } from "@/components/ui/scroll-tilt-wrapper";
 
 export default function Contact() {
   const ref = useRef(null);
@@ -14,6 +15,7 @@ export default function Contact() {
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] pointer-events-none"
         style={{ background: "radial-gradient(ellipse at 100% 100%, rgba(0,232,135,0.05) 0%, transparent 65%)" }} />
 
+      <ScrollTiltWrapper>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
 
@@ -125,6 +127,7 @@ export default function Contact() {
 
         </div>
       </div>
+      </ScrollTiltWrapper>
     </section>
   );
 }

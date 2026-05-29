@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { PhoneMissed, Clock, FileX, TrendingDown } from "lucide-react";
+import { ScrollTiltWrapper } from "@/components/ui/scroll-tilt-wrapper";
 
 const problems = [
   {
@@ -45,6 +46,7 @@ export default function Problem() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full pointer-events-none"
         style={{ background: "radial-gradient(ellipse, rgba(229,57,53,0.04) 0%, transparent 70%)" }} />
 
+      <ScrollTiltWrapper>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
         {/* Header */}
@@ -120,6 +122,7 @@ export default function Problem() {
         </motion.p>
 
       </div>
+      </ScrollTiltWrapper>
     </section>
   );
 }

@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight, Zap, CheckCircle2, Clock } from "lucide-react";
+import { ScrollTiltWrapper } from "@/components/ui/scroll-tilt-wrapper";
 
 const features = [
   "Lead intake automation",
@@ -21,6 +22,7 @@ export default function Pricing() {
       <div className="absolute bottom-0 left-0 w-[700px] h-[400px] pointer-events-none"
         style={{ background: "radial-gradient(ellipse at 0% 100%, rgba(0,232,135,0.04) 0%, transparent 65%)" }} />
 
+      <ScrollTiltWrapper>
       <div className="max-w-5xl mx-auto px-6 lg:px-8">
 
         {/* Header */}
@@ -178,6 +180,7 @@ export default function Pricing() {
 
         </div>
       </div>
+      </ScrollTiltWrapper>
     </section>
   );
 }
