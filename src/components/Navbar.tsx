@@ -70,16 +70,20 @@ export default function Navbar() {
 
         {/* CTA + lang toggle + mobile button */}
         <div className="flex items-center gap-3">
-          {/* FR / EN pill */}
+          {/* Language toggle — always visible */}
           <button
             onClick={toggle}
-            className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase transition-all duration-200 border border-white/10 hover:border-white/25 hover:bg-white/5"
-            style={{ color: "rgba(255,255,255,0.5)" }}
             aria-label="Toggle language"
+            className="flex items-center gap-1 px-4 py-2 rounded-full font-bold text-sm transition-all duration-200"
+            style={{
+              background: "rgba(0,232,135,0.10)",
+              border: "1px solid rgba(0,232,135,0.35)",
+              color: "#00e887",
+            }}
           >
-            <span style={{ color: lang === "en" ? "#00e887" : "rgba(255,255,255,0.35)" }}>EN</span>
-            <span className="text-white/20">|</span>
-            <span style={{ color: lang === "fr" ? "#00e887" : "rgba(255,255,255,0.35)" }}>FR</span>
+            <span style={{ opacity: lang === "en" ? 1 : 0.4 }}>EN</span>
+            <span style={{ opacity: 0.35, margin: "0 2px" }}>|</span>
+            <span style={{ opacity: lang === "fr" ? 1 : 0.4 }}>FR</span>
           </button>
 
           <a
@@ -124,11 +128,12 @@ export default function Navbar() {
               {/* Mobile lang toggle */}
               <button
                 onClick={toggle}
-                className="self-start flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase border border-white/10"
+                className="self-start flex items-center gap-1 px-4 py-2 rounded-full font-bold text-sm transition-all duration-200"
+                style={{ background: "rgba(0,232,135,0.10)", border: "1px solid rgba(0,232,135,0.35)", color: "#00e887" }}
               >
-                <span style={{ color: lang === "en" ? "#00e887" : "rgba(255,255,255,0.35)" }}>EN</span>
-                <span className="text-white/20">|</span>
-                <span style={{ color: lang === "fr" ? "#00e887" : "rgba(255,255,255,0.35)" }}>FR</span>
+                <span style={{ opacity: lang === "en" ? 1 : 0.4 }}>EN</span>
+                <span style={{ opacity: 0.35, margin: "0 2px" }}>|</span>
+                <span style={{ opacity: lang === "fr" ? 1 : 0.4 }}>FR</span>
               </button>
               <a
                 href="https://cal.com/liem-blouin/discovery?overlayCalendar=true"
