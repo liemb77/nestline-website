@@ -9,6 +9,8 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { ScrollTiltWrapper } from "@/components/ui/scroll-tilt-wrapper";
+import { useLanguage } from "@/contexts/language-context";
+import { t } from "@/lib/translations";
 
 const features = [
   { icon: Globe,      label: "Custom design tailored to your trade" },
@@ -83,6 +85,8 @@ function PricingParticles() {
 export default function WebsitesPage() {
   const pricingRef = useRef(null);
   const inView = useInView(pricingRef, { once: true, margin: "-80px" });
+  const { lang } = useLanguage();
+  const tx = t[lang].websites;
 
   return (
     <>
@@ -100,26 +104,24 @@ export default function WebsitesPage() {
               <motion.span custom={0} variants={itemVariants}
                 className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-[0.18em] uppercase glass text-white/40">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#00e887] animate-pulse" />
-                Contractor Websites
+                {tx.badge}
               </motion.span>
 
               <motion.h1 custom={1} variants={itemVariants}
                 className="text-[clamp(2.5rem,7vw,5.5rem)] font-extrabold leading-[1.06] tracking-tight">
-                Sites That{" "}
-                <span className="text-gradient">Actually Convert</span>
+                {tx.headline}<span className="text-gradient">{tx.headlineGradient}</span>
               </motion.h1>
 
               <motion.p custom={2} variants={itemVariants}
                 className="text-lg sm:text-xl text-white/40 max-w-2xl leading-relaxed">
-                Fast, clean, mobile-ready websites built for contractors who want to
-                look professional and win more jobs online.
+                {tx.sub}
               </motion.p>
 
               <motion.a custom={3} variants={itemVariants}
                 href="https://cal.com/liem-blouin/discovery?overlayCalendar=true"
                 target="_blank" rel="noopener noreferrer"
                 className="group flex items-center gap-2.5 px-7 py-4 rounded-full btn-primary text-sm font-bold mt-2">
-                Get Your Website Built
+                {tx.heroCta}
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </motion.a>
             </motion.div>
@@ -164,13 +166,13 @@ export default function WebsitesPage() {
               >
                 <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-[0.18em] uppercase glass text-white/40 mb-8">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#00e887] animate-pulse" />
-                  Website Pricing
+                  {tx.pricingBadge}
                 </span>
                 <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-extrabold tracking-tight leading-[1.06] mb-5">
-                  Pick your plan
+                  {tx.pricingHeadline}
                 </h2>
                 <p className="text-white/40 text-lg max-w-md mx-auto leading-relaxed">
-                  Own it outright or let us handle everything ongoing.
+                  {tx.pricingDesc}
                 </p>
               </motion.div>
 
@@ -178,37 +180,33 @@ export default function WebsitesPage() {
               <div className="flex flex-col md:flex-row items-stretch justify-center gap-6">
 
                 {/* Standard */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number,number,number,number], delay: 0.15 }}
-                  className="relative flex-1 max-w-sm"
-                >
+                  className="relative flex-1 max-w-sm">
                   <Card className="h-full flex flex-col border-[#00e887]/30 bg-zinc-900/80 backdrop-blur"
                     style={{ boxShadow: "0 0 60px rgba(0,232,135,0.08), 0 20px 40px rgba(0,0,0,0.4)" }}>
                     <CardHeader>
-                      <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#00e887] mb-1">Standard</p>
-                      <CardTitle className="text-zinc-50 text-xl">Built for your trade</CardTitle>
-                      <p className="text-sm text-zinc-400">Fast, clean, mobile-ready website. You own it — we handle the build.</p>
+                      <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#00e887] mb-1">{tx.standard.tag}</p>
+                      <CardTitle className="text-zinc-50 text-xl">{tx.standard.title}</CardTitle>
+                      <p className="text-sm text-zinc-400">{tx.standard.desc}</p>
                       <div className="pt-2 space-y-1">
                         <div>
                           <span className="text-4xl font-extrabold text-white">$1,500</span>
-                          <span className="text-zinc-500 text-sm ml-2">setup</span>
+                          <span className="text-zinc-500 text-sm ml-2">{tx.standard.setupLabel}</span>
                         </div>
                         <div>
                           <span className="text-2xl font-bold text-zinc-300">+ $150</span>
-                          <span className="text-zinc-500 text-sm ml-2">/month maintenance</span>
+                          <span className="text-zinc-500 text-sm ml-2">{tx.standard.monthlyLabel}</span>
                         </div>
-                        <p className="text-xs text-[#00e887]/60 font-semibold pt-0.5">Updates, support & tweaks included.</p>
+                        <p className="text-xs text-[#00e887]/60 font-semibold pt-0.5">{tx.standard.note}</p>
                       </div>
                     </CardHeader>
                     <CardContent className="flex-1">
                       <Separator className="mb-5 bg-zinc-800" />
                       <ul className="space-y-3">
-                        {features.map(({ label }) => (
+                        {tx.standard.features.map((label) => (
                           <li key={label} className="flex items-center gap-2.5 text-zinc-200 text-sm">
-                            <CircleCheck className="size-4 text-[#00e887] shrink-0" />
-                            {label}
+                            <CircleCheck className="size-4 text-[#00e887] shrink-0" />{label}
                           </li>
                         ))}
                       </ul>
@@ -217,47 +215,33 @@ export default function WebsitesPage() {
                       <Button asChild className="w-full rounded-xl bg-[#00e887] text-[#050505] font-bold hover:bg-[#00e887]/90"
                         style={{ boxShadow: "0 0 30px rgba(0,232,135,0.3)" }}>
                         <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noreferrer">
-                          Get Your Website Built
-                          <ArrowRight className="ml-2 size-4" />
+                          {tx.standard.cta}<ArrowRight className="ml-2 size-4" />
                         </a>
                       </Button>
                     </CardFooter>
                   </Card>
                 </motion.div>
 
-                {/* Premium / Custom Quote */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                {/* Premium */}
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number,number,number,number], delay: 0.28 }}
-                  className="relative flex-1 max-w-sm md:translate-y-2"
-                >
+                  className="relative flex-1 max-w-sm md:translate-y-2">
                   <Card className="h-full flex flex-col border-zinc-800 bg-zinc-900/50 backdrop-blur">
                     <CardHeader>
-                      <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#00c2ff] mb-1">Premium</p>
-                      <CardTitle className="text-zinc-50 text-xl">High-value brands</CardTitle>
-                      <p className="text-sm text-zinc-400">
-                        For businesses that need something beyond the standard — custom scope, premium design, and a quote built around your goals.
-                      </p>
+                      <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#00c2ff] mb-1">{tx.premium.tag}</p>
+                      <CardTitle className="text-zinc-50 text-xl">{tx.premium.title}</CardTitle>
+                      <p className="text-sm text-zinc-400">{tx.premium.desc}</p>
                       <div className="pt-2">
-                        <span className="text-4xl font-extrabold text-white">Custom</span>
-                        <p className="text-xs text-zinc-500 mt-1">Pricing discussed on call · No surprises</p>
+                        <span className="text-4xl font-extrabold text-white">{tx.premium.price}</span>
+                        <p className="text-xs text-zinc-500 mt-1">{tx.premium.priceNote}</p>
                       </div>
                     </CardHeader>
                     <CardContent className="flex-1">
                       <Separator className="mb-5 bg-zinc-800" />
                       <ul className="space-y-3">
-                        {[
-                          "Everything in Standard",
-                          "Premium custom design",
-                          "Advanced functionality & integrations",
-                          "Brand strategy consultation",
-                          "Priority turnaround",
-                          "Dedicated ongoing support",
-                        ].map((label) => (
+                        {tx.premium.features.map((label) => (
                           <li key={label} className="flex items-center gap-2.5 text-zinc-200 text-sm">
-                            <CircleCheck className="size-4 text-[#00c2ff] shrink-0" />
-                            {label}
+                            <CircleCheck className="size-4 text-[#00c2ff] shrink-0" />{label}
                           </li>
                         ))}
                       </ul>
@@ -266,8 +250,7 @@ export default function WebsitesPage() {
                       <Button asChild variant="outline"
                         className="w-full rounded-xl border-[#00c2ff]/30 bg-[#00c2ff]/10 text-[#00c2ff] hover:bg-[#00c2ff]/20 hover:text-[#00c2ff]">
                         <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noreferrer">
-                          Book a Call for a Quote
-                          <ArrowRight className="ml-2 size-4" />
+                          {tx.premium.cta}<ArrowRight className="ml-2 size-4" />
                         </a>
                       </Button>
                     </CardFooter>
@@ -276,16 +259,12 @@ export default function WebsitesPage() {
 
               </div>
 
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={inView ? { opacity: 1 } : {}}
-                transition={{ duration: 0.7, delay: 0.5 }}
-                className="text-center text-xs text-white/20 mt-8 leading-relaxed"
-              >
-                Need a website + automation together?{" "}
+              <motion.p initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ duration: 0.7, delay: 0.5 }}
+                className="text-center text-xs text-white/20 mt-8 leading-relaxed">
+                {tx.footerNote}{" "}
                 <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noreferrer"
                   className="text-[#00e887]/60 hover:text-[#00e887] hover:underline transition-colors">
-                  Book a call for a bundled quote.
+                  {tx.footerLink}
                 </a>
               </motion.p>
 

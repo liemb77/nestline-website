@@ -5,27 +5,27 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-const baseLinks = [
-  { label: "Problem",  href: "#problem" },
-  { label: "Services", href: "#services" },
-  { label: "Pricing",  href: "#pricing" },
-  { label: "Websites", href: "/websites" },
-  { label: "Contact",  href: "#contact" },
-];
+import { useLanguage } from "@/contexts/language-context";
+import { t } from "@/lib/translations";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const { lang, toggle } = useLanguage();
+  const tx = t[lang].nav;
 
-  // Prefix hash links with "/" when not on the home page so they
-  // navigate back to the home page and then scroll to the section.
+  const baseLinks = [
+    { label: tx.problem,  href: "#problem" },
+    { label: tx.services, href: "#services" },
+    { label: tx.pricing,  href: "#pricing" },
+    { label: tx.websites, href: "/websites" },
+    { label: tx.contact,  href: "#contact" },
+  ];
+
   const links = baseLinks.map((l) =>
-    l.href.startsWith("#") && !isHome
-      ? { ...l, href: `/${l.href}` }
-      : l
+    l.href.startsWith("#") && !isHome ? { ...l, href: `/${l.href}` } : l
   );
 
   useEffect(() => {
@@ -58,7 +58,7 @@ export default function Navbar() {
               key={l.label}
               href={l.href}
               className={`text-[13px] font-medium tracking-wide transition-colors duration-200 ${
-                (l.href === "/websites" && pathname === "/websites")
+                l.href === "/websites" && pathname === "/websites"
                   ? "text-white"
                   : "text-white/45 hover:text-white"
               }`}
@@ -68,16 +68,29 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* CTA + mobile toggle */}
+        {/* CTA + lang toggle + mobile button */}
         <div className="flex items-center gap-3">
+          {/* FR / EN pill */}
+          <button
+            onClick={toggle}
+            className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase transition-all duration-200 border border-white/10 hover:border-white/25 hover:bg-white/5"
+            style={{ color: "rgba(255,255,255,0.5)" }}
+            aria-label="Toggle language"
+          >
+            <span style={{ color: lang === "en" ? "#00e887" : "rgba(255,255,255,0.35)" }}>EN</span>
+            <span className="text-white/20">|</span>
+            <span style={{ color: lang === "fr" ? "#00e887" : "rgba(255,255,255,0.35)" }}>FR</span>
+          </button>
+
           <a
             href="https://cal.com/liem-blouin/discovery?overlayCalendar=true"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden md:inline-flex items-center px-5 py-2.5 rounded-full btn-primary text-sm"
           >
-            Book a Call
+            {tx.bookCall}
           </a>
+
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="md:hidden p-2 text-white/50 hover:text-white transition-colors"
@@ -108,6 +121,15 @@ export default function Navbar() {
                   {l.label}
                 </Link>
               ))}
+              {/* Mobile lang toggle */}
+              <button
+                onClick={toggle}
+                className="self-start flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase border border-white/10"
+              >
+                <span style={{ color: lang === "en" ? "#00e887" : "rgba(255,255,255,0.35)" }}>EN</span>
+                <span className="text-white/20">|</span>
+                <span style={{ color: lang === "fr" ? "#00e887" : "rgba(255,255,255,0.35)" }}>FR</span>
+              </button>
               <a
                 href="https://cal.com/liem-blouin/discovery?overlayCalendar=true"
                 target="_blank"
@@ -115,7 +137,7 @@ export default function Navbar() {
                 onClick={() => setMenuOpen(false)}
                 className="mt-1 flex justify-center py-3 rounded-full btn-primary text-sm"
               >
-                Book a Call
+                {tx.bookCall}
               </a>
             </div>
           </motion.div>
