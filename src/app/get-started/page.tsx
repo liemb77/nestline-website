@@ -173,14 +173,11 @@ export default function GetStartedPage() {
     };
 
     try {
-      const res = await fetch(
-        "https://liemblouin.app.n8n.cloud/webhook-test/nestline-landing-page",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        },
-      );
+      const res = await fetch("/api/submit-lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       setSubmitted(true);
     } catch {
@@ -369,8 +366,8 @@ export default function GetStartedPage() {
                     {submitError && (
                       <p className="text-sm text-red-400/90 text-center">
                         {lang === "en"
-                          ? "Something went wrong. Contact us: liem@nestlineautomation.ca"
-                          : "Une erreur s'est produite. Contactez-nous : liem@nestlineautomation.ca"}
+                          ? <>Something went wrong. Contact us: <a href="mailto:liem@trynestline.com" className="underline hover:text-red-300">liem@trynestline.com</a></>
+                          : <>Une erreur s'est produite. Contactez-nous : <a href="mailto:liem@trynestline.com" className="underline hover:text-red-300">liem@trynestline.com</a></>}
                       </p>
                     )}
 
