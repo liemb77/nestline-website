@@ -171,27 +171,24 @@ export default function GetStartedPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // ── DEBUG LOG 1 ──────────────────────────────────────────────────────────
     console.log("Form submitted");
 
     setSubmitting(true);
     setSubmitError(false);
 
-    // Read from the mutable ref — always current, never stale
-    const v = liveValues.current;
+    // Read each field directly from the DOM via getElementById
     const payload = {
-      first_name:    v.firstName,
-      business_name: v.businessName,
-      trade:         v.trade,
-      service:       v.service,
-      monthly_leads: v.monthlyLeads,
-      problem:       v.problem,
-      phone:         v.phone,
-      email:         v.email,
+      first_name:    (document.getElementById("field_first_name")    as HTMLInputElement)?.value  ?? "",
+      business_name: (document.getElementById("field_business_name") as HTMLInputElement)?.value  ?? "",
+      trade:         (document.getElementById("field_trade")         as HTMLSelectElement)?.value ?? "",
+      service:       (document.getElementById("field_service")       as HTMLSelectElement)?.value ?? "",
+      monthly_leads: (document.getElementById("field_monthly_leads") as HTMLSelectElement)?.value ?? "",
+      problem:       (document.getElementById("field_problem")       as HTMLSelectElement)?.value ?? "",
+      phone:         (document.getElementById("field_phone")         as HTMLInputElement)?.value  ?? "",
+      email:         (document.getElementById("field_email")         as HTMLInputElement)?.value  ?? "",
       submitted_at:  new Date().toISOString(),
     };
 
-    // ── DEBUG LOG 2 ──────────────────────────────────────────────────────────
     console.log("Payload being sent:", JSON.stringify(payload, null, 2));
 
     try {
@@ -329,7 +326,7 @@ export default function GetStartedPage() {
                   <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-5">
                     {/* Service */}
                     <Field label={tx.form.serviceLabel}>
-                      <select name="service" value={form.service} onChange={set("service")} required
+                      <select id="field_service" name="service" value={form.service} onChange={set("service")} required
                         className={`${inputCls} rounded-xl px-4 py-3`} style={selectStyle}>
                         <option value="">{tx.form.placeholder.select}</option>
                         {tx.form.services.map((s) => <option key={s} value={s}>{s}</option>)}
@@ -339,12 +336,12 @@ export default function GetStartedPage() {
                     {/* First name + Business name */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <Field label={tx.form.firstNameLabel}>
-                        <input name="first_name" type="text" value={form.firstName} onChange={set("firstName")} required
+                        <input id="field_first_name" name="first_name" type="text" value={form.firstName} onChange={set("firstName")} required
                           placeholder={tx.form.placeholder.name}
                           className={inputCls} style={inputStyle} />
                       </Field>
                       <Field label={tx.form.businessLabel}>
-                        <input name="business_name" type="text" value={form.businessName} onChange={set("businessName")} required
+                        <input id="field_business_name" name="business_name" type="text" value={form.businessName} onChange={set("businessName")} required
                           placeholder={tx.form.placeholder.business}
                           className={inputCls} style={inputStyle} />
                       </Field>
@@ -352,7 +349,7 @@ export default function GetStartedPage() {
 
                     {/* Trade */}
                     <Field label={tx.form.tradeLabel}>
-                      <select name="trade" value={form.trade} onChange={set("trade")} required
+                      <select id="field_trade" name="trade" value={form.trade} onChange={set("trade")} required
                         className={inputCls} style={selectStyle}>
                         <option value="">{tx.form.placeholder.select}</option>
                         {tx.form.trades.map((s) => <option key={s} value={s}>{s}</option>)}
@@ -362,14 +359,14 @@ export default function GetStartedPage() {
                     {/* Monthly leads + Problem */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <Field label={tx.form.leadsLabel}>
-                        <select name="monthly_leads" value={form.monthlyLeads} onChange={set("monthlyLeads")} required
+                        <select id="field_monthly_leads" name="monthly_leads" value={form.monthlyLeads} onChange={set("monthlyLeads")} required
                           className={inputCls} style={selectStyle}>
                           <option value="">{tx.form.placeholder.select}</option>
                           {tx.form.leadRanges.map((s) => <option key={s} value={s}>{s}</option>)}
                         </select>
                       </Field>
                       <Field label={tx.form.problemLabel}>
-                        <select name="problem" value={form.problem} onChange={set("problem")} required
+                        <select id="field_problem" name="problem" value={form.problem} onChange={set("problem")} required
                           className={inputCls} style={selectStyle}>
                           <option value="">{tx.form.placeholder.select}</option>
                           {tx.form.problems.map((s) => <option key={s} value={s}>{s}</option>)}
@@ -380,12 +377,12 @@ export default function GetStartedPage() {
                     {/* Phone + Email */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <Field label={tx.form.phoneLabel}>
-                        <input name="phone" type="tel" value={form.phone} onChange={set("phone")} required
+                        <input id="field_phone" name="phone" type="tel" value={form.phone} onChange={set("phone")} required
                           placeholder={tx.form.placeholder.phone}
                           className={inputCls} style={inputStyle} />
                       </Field>
                       <Field label={tx.form.emailLabel}>
-                        <input name="email" type="email" value={form.email} onChange={set("email")} required
+                        <input id="field_email" name="email" type="email" value={form.email} onChange={set("email")} required
                           placeholder={tx.form.placeholder.email}
                           className={inputCls} style={inputStyle} />
                       </Field>
