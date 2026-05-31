@@ -86,14 +86,12 @@ export default function Navbar() {
             <span style={{ opacity: lang === "fr" ? 1 : 0.4 }}>FR</span>
           </button>
 
-          <a
-            href="https://cal.com/liem-blouin/discovery?overlayCalendar=true"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:inline-flex items-center px-5 py-2.5 rounded-full btn-primary text-sm"
+          <Link
+            href="/get-started"
+            className="hidden md:inline-flex items-center px-5 py-2.5 rounded-full btn-primary text-sm font-bold"
           >
-            {tx.bookCall}
-          </a>
+            {lang === "en" ? "Get Started" : "Commencer"}
+          </Link>
 
           <button
             onClick={() => setMenuOpen(!menuOpen)}
@@ -135,15 +133,13 @@ export default function Navbar() {
                 <span style={{ opacity: 0.35, margin: "0 2px" }}>|</span>
                 <span style={{ opacity: lang === "fr" ? 1 : 0.4 }}>FR</span>
               </button>
-              <a
-                href="https://cal.com/liem-blouin/discovery?overlayCalendar=true"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/get-started"
                 onClick={() => setMenuOpen(false)}
-                className="mt-1 flex justify-center py-3 rounded-full btn-primary text-sm"
+                className="mt-1 flex justify-center py-3 rounded-full btn-primary text-sm font-bold"
               >
-                {tx.bookCall}
-              </a>
+                {lang === "en" ? "Get Started" : "Commencer"}
+              </Link>
             </div>
           </motion.div>
         )}
