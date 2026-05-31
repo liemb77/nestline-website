@@ -68,7 +68,7 @@ export default function Contact() {
                     </li>
                   ))}
                 </ul>
-                <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noopener noreferrer"
+                <a href="/get-started"
                   className="group flex items-center justify-center gap-2.5 w-full py-4 rounded-xl btn-primary text-sm font-bold transition-all duration-200">
                   {tx.cta}<ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </a>

@@ -256,7 +256,7 @@ function PlanCard({ plan, index }: { plan: PricingPlan; index: number }) {
       <CardFooter className="pt-2">
         <a
           href={plan.ctaHref}
-          target="_blank"
+         
           rel="noopener noreferrer"
           className={cn(
             "group flex items-center justify-center gap-2 w-full py-4 rounded-xl text-sm font-bold transition-all duration-200",
