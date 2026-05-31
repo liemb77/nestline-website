@@ -6,7 +6,6 @@ import { CheckCircle2, ArrowRight, Check, MessageSquareText, Globe, Megaphone } 
 import Navbar from "@/components/Navbar";
 import { useLanguage } from "@/contexts/language-context";
 import { t } from "@/lib/translations";
-import emailjs from "@emailjs/browser";
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -127,7 +126,7 @@ export default function GetStartedPage() {
   const [selectedServiceIdx, setSelectedServiceIdx] = useState<number | null>(null);
   const [submitted, setSubmitted]   = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  const [emailError, setEmailError] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
 
   const formRef = useRef<HTMLFormElement>(null);
   const formSectionRef = useRef<HTMLDivElement>(null);
@@ -159,40 +158,33 @@ export default function GetStartedPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
-    setEmailError(false);
+    setSubmitError(false);
 
-    const templateParams = {
-      subject:       `New NestLine Lead — ${form.service} — ${form.businessName}`,
-      service:       form.service,
+    const payload = {
       first_name:    form.firstName,
       business_name: form.businessName,
       trade:         form.trade,
+      service:       form.service,
       monthly_leads: form.monthlyLeads,
       problem:       form.problem,
       phone:         form.phone,
-      reply_to:      form.email,
-      to_email:      "liem@nestlineautomation.ca",
+      email:         form.email,
+      submitted_at:  new Date().toISOString(),
     };
 
     try {
-      await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-        templateParams,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
+      const res = await fetch(
+        "https://liemblouin.app.n8n.cloud/webhook-test/nestline-landing-page",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        },
       );
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
       setSubmitted(true);
     } catch {
-      // Fallback: open mailto link with all data
-      setEmailError(true);
-      const body = Object.entries(templateParams)
-        .map(([k, v]) => `${k}: ${v}`)
-        .join("%0A");
-      window.open(
-        `mailto:liem@nestlineautomation.ca?subject=${encodeURIComponent(templateParams.subject)}&body=${body}`,
-      );
-      // Still show success after fallback
-      setTimeout(() => setSubmitted(true), 600);
+      setSubmitError(true);
     } finally {
       setSubmitting(false);
     }
@@ -374,11 +366,11 @@ export default function GetStartedPage() {
                       </Field>
                     </div>
 
-                    {emailError && (
-                      <p className="text-xs text-amber-400/80">
+                    {submitError && (
+                      <p className="text-sm text-red-400/90 text-center">
                         {lang === "en"
-                          ? "Email service unavailable — we opened your mail client as a fallback."
-                          : "Service courriel indisponible — votre client de messagerie s'est ouvert en solution de secours."}
+                          ? "Something went wrong. Contact us: liem@nestlineautomation.ca"
+                          : "Une erreur s'est produite. Contactez-nous : liem@nestlineautomation.ca"}
                       </p>
                     )}
 
@@ -431,12 +423,16 @@ export default function GetStartedPage() {
 
                   <motion.h2 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25, duration: 0.6, ease }}
                     className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
-                    {tx.success.headline}
+                    {lang === "en"
+                      ? <>You&apos;re all set, <span className="text-gradient">{form.firstName}</span>!</>
+                      : <>Vous êtes prêt, <span className="text-gradient">{form.firstName}</span>&nbsp;!</>}
                   </motion.h2>
 
                   <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35, duration: 0.6, ease }}
                     className="text-white/45 text-lg max-w-xl mx-auto leading-relaxed">
-                    {tx.success.sub}
+                    {lang === "en"
+                      ? "Book your free call below."
+                      : "Réservez votre appel gratuit ci-dessous."}
                   </motion.p>
                 </div>
 
