@@ -142,35 +142,48 @@ export default function GetStartedPage() {
     email: "",
   });
 
-  // When a service card is clicked, pre-fill the dropdown and scroll to form
+  // Mutable ref — always holds the latest values, no stale closure possible
+  const liveValues = useRef({
+    service: "", firstName: "", businessName: "",
+    trade: "", monthlyLeads: "", problem: "", phone: "", email: "",
+  });
+
+  // When a service card is clicked, pre-fill and scroll to form
   const handleServiceSelect = (idx: number) => {
+    const service = tx.form.services[idx] as string;
+    liveValues.current.service = service;
     setSelectedServiceIdx(idx);
-    setForm((f) => ({ ...f, service: tx.form.services[idx] }));
+    setForm((f) => ({ ...f, service }));
     setTimeout(() => {
       formSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 150);
   };
 
+  // Update both state (for UI) and the live ref (for submit) on every keystroke
   const set = (key: keyof typeof form) => (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => setForm((f) => ({ ...f, [key]: e.target.value }));
+  ) => {
+    const value = e.target.value;
+    liveValues.current[key] = value;
+    setForm((f) => ({ ...f, [key]: value }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
     setSubmitError(false);
 
-    // Read values directly from the DOM — avoids any stale closure / state issue
-    const fd = new FormData(formRef.current!);
+    // Read from the mutable ref — always current, never stale
+    const v = liveValues.current;
     const payload = {
-      first_name:    fd.get("first_name")    as string,
-      business_name: fd.get("business_name") as string,
-      trade:         fd.get("trade")         as string,
-      service:       fd.get("service")       as string,
-      monthly_leads: fd.get("monthly_leads") as string,
-      problem:       fd.get("problem")       as string,
-      phone:         fd.get("phone")         as string,
-      email:         fd.get("email")         as string,
+      first_name:    v.firstName,
+      business_name: v.businessName,
+      trade:         v.trade,
+      service:       v.service,
+      monthly_leads: v.monthlyLeads,
+      problem:       v.problem,
+      phone:         v.phone,
+      email:         v.email,
       submitted_at:  new Date().toISOString(),
     };
 
