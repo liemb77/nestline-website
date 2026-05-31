@@ -170,6 +170,10 @@ export default function GetStartedPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // ── DEBUG LOG 1 ──────────────────────────────────────────────────────────
+    console.log("Form submitted");
+
     setSubmitting(true);
     setSubmitError(false);
 
@@ -187,13 +191,22 @@ export default function GetStartedPage() {
       submitted_at:  new Date().toISOString(),
     };
 
+    // ── DEBUG LOG 2 ──────────────────────────────────────────────────────────
+    console.log("Payload being sent:", JSON.stringify(payload, null, 2));
+
     try {
       const res = await fetch("/api/submit-lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+      // ── DEBUG LOG 3 ────────────────────────────────────────────────────────
+      const responseText = await res.text();
+      console.log("Response status:", res.status);
+      console.log("Response body:", responseText);
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}: ${responseText}`);
       setSubmitted(true);
     } catch {
       setSubmitError(true);
