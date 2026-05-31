@@ -160,15 +160,17 @@ export default function GetStartedPage() {
     setSubmitting(true);
     setSubmitError(false);
 
+    // Read values directly from the DOM — avoids any stale closure / state issue
+    const fd = new FormData(formRef.current!);
     const payload = {
-      first_name:    form.firstName,
-      business_name: form.businessName,
-      trade:         form.trade,
-      service:       form.service,
-      monthly_leads: form.monthlyLeads,
-      problem:       form.problem,
-      phone:         form.phone,
-      email:         form.email,
+      first_name:    fd.get("first_name")    as string,
+      business_name: fd.get("business_name") as string,
+      trade:         fd.get("trade")         as string,
+      service:       fd.get("service")       as string,
+      monthly_leads: fd.get("monthly_leads") as string,
+      problem:       fd.get("problem")       as string,
+      phone:         fd.get("phone")         as string,
+      email:         fd.get("email")         as string,
       submitted_at:  new Date().toISOString(),
     };
 
@@ -301,7 +303,7 @@ export default function GetStartedPage() {
                   <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-5">
                     {/* Service */}
                     <Field label={tx.form.serviceLabel}>
-                      <select value={form.service} onChange={set("service")} required
+                      <select name="service" value={form.service} onChange={set("service")} required
                         className={`${inputCls} rounded-xl px-4 py-3`} style={selectStyle}>
                         <option value="">{tx.form.placeholder.select}</option>
                         {tx.form.services.map((s) => <option key={s} value={s}>{s}</option>)}
@@ -311,12 +313,12 @@ export default function GetStartedPage() {
                     {/* First name + Business name */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <Field label={tx.form.firstNameLabel}>
-                        <input type="text" value={form.firstName} onChange={set("firstName")} required
+                        <input name="first_name" type="text" value={form.firstName} onChange={set("firstName")} required
                           placeholder={tx.form.placeholder.name}
                           className={inputCls} style={inputStyle} />
                       </Field>
                       <Field label={tx.form.businessLabel}>
-                        <input type="text" value={form.businessName} onChange={set("businessName")} required
+                        <input name="business_name" type="text" value={form.businessName} onChange={set("businessName")} required
                           placeholder={tx.form.placeholder.business}
                           className={inputCls} style={inputStyle} />
                       </Field>
@@ -324,7 +326,7 @@ export default function GetStartedPage() {
 
                     {/* Trade */}
                     <Field label={tx.form.tradeLabel}>
-                      <select value={form.trade} onChange={set("trade")} required
+                      <select name="trade" value={form.trade} onChange={set("trade")} required
                         className={inputCls} style={selectStyle}>
                         <option value="">{tx.form.placeholder.select}</option>
                         {tx.form.trades.map((s) => <option key={s} value={s}>{s}</option>)}
@@ -334,14 +336,14 @@ export default function GetStartedPage() {
                     {/* Monthly leads + Problem */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <Field label={tx.form.leadsLabel}>
-                        <select value={form.monthlyLeads} onChange={set("monthlyLeads")} required
+                        <select name="monthly_leads" value={form.monthlyLeads} onChange={set("monthlyLeads")} required
                           className={inputCls} style={selectStyle}>
                           <option value="">{tx.form.placeholder.select}</option>
                           {tx.form.leadRanges.map((s) => <option key={s} value={s}>{s}</option>)}
                         </select>
                       </Field>
                       <Field label={tx.form.problemLabel}>
-                        <select value={form.problem} onChange={set("problem")} required
+                        <select name="problem" value={form.problem} onChange={set("problem")} required
                           className={inputCls} style={selectStyle}>
                           <option value="">{tx.form.placeholder.select}</option>
                           {tx.form.problems.map((s) => <option key={s} value={s}>{s}</option>)}
@@ -352,12 +354,12 @@ export default function GetStartedPage() {
                     {/* Phone + Email */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <Field label={tx.form.phoneLabel}>
-                        <input type="tel" value={form.phone} onChange={set("phone")} required
+                        <input name="phone" type="tel" value={form.phone} onChange={set("phone")} required
                           placeholder={tx.form.placeholder.phone}
                           className={inputCls} style={inputStyle} />
                       </Field>
                       <Field label={tx.form.emailLabel}>
-                        <input type="email" value={form.email} onChange={set("email")} required
+                        <input name="email" type="email" value={form.email} onChange={set("email")} required
                           placeholder={tx.form.placeholder.email}
                           className={inputCls} style={inputStyle} />
                       </Field>
