@@ -48,7 +48,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-[72px]">
         {/* Logo */}
         <Link href="/" className="flex items-center shrink-0">
-          <img src="/logo.svg" alt="NestLine" className="h-16 lg:h-20 w-auto" />
+          <img src="/logo.png" alt="NestLine" className="h-16 lg:h-20 w-auto" />
         </Link>
 
         {/* Desktop links */}

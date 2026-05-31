@@ -30,7 +30,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
           <div className="col-span-2">
             <a href="/" className="inline-flex items-center mb-5">
-              <img src="/logo.svg" alt="NestLine" className="h-12 w-auto" />
+              <img src="/logo.png" alt="NestLine" className="h-12 w-auto" />
             </a>
             <p className="text-sm text-white/30 max-w-xs leading-relaxed mb-6">{tx.tagline}</p>
             <a href="/get-started"
