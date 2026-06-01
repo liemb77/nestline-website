@@ -16,7 +16,7 @@ export default function WaitlistSection() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
-  async function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("submitting");
     try {
@@ -32,7 +32,7 @@ export default function WaitlistSection() {
   }
 
   return (
-    <section ref={ref} className="py-28 lg:py-36 relative overflow-hidden"
+    <section id="waitlist" ref={ref} className="py-28 lg:py-36 relative overflow-hidden"
       style={{ background: "linear-gradient(180deg, #050505 0%, #04080d 50%, #050505 100%)" }}>
 
       <div className="absolute inset-0 pointer-events-none">
