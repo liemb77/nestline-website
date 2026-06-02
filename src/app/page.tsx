@@ -4,7 +4,6 @@ import Marquee from "@/components/Marquee";
 import Problem from "@/components/Problem";
 import Services from "@/components/Services";
 import Pricing from "@/components/Pricing";
-import WaitlistSection from "@/components/WaitlistSection";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -18,7 +17,6 @@ export default function Home() {
         <Problem />
         <Services />
         <Pricing />
-        <WaitlistSection />
         <Contact />
       </main>
       <Footer />

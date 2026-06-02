@@ -89,7 +89,7 @@ export default function Navbar() {
           </button>
 
           <Link
-            href="/#waitlist"
+            href="/waitlist"
             className="hidden md:inline-flex items-center px-5 py-2.5 rounded-full btn-primary text-sm font-bold"
           >
             {lang === "en" ? "Join Waitlist" : "Rejoindre la liste"}
@@ -136,7 +136,7 @@ export default function Navbar() {
                 <span style={{ opacity: lang === "fr" ? 1 : 0.4 }}>FR</span>
               </button>
               <Link
-                href="/#waitlist"
+                href="/waitlist"
                 onClick={() => setMenuOpen(false)}
                 className="mt-1 flex justify-center py-3 rounded-full btn-primary text-sm font-bold"
               >
