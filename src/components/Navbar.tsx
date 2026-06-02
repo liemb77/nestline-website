@@ -21,6 +21,7 @@ export default function Navbar() {
     { label: tx.services, href: "#services" },
     { label: tx.pricing,  href: "#pricing" },
     { label: tx.websites, href: "/websites" },
+    { label: tx.ads,      href: "/ads" },
     { label: tx.contact,  href: "#contact" },
   ];
 
@@ -58,7 +59,8 @@ export default function Navbar() {
               key={l.label}
               href={l.href}
               className={`text-[13px] font-medium tracking-wide transition-colors duration-200 ${
-                l.href === "/websites" && pathname === "/websites"
+                (l.href === "/websites" && pathname === "/websites") ||
+                (l.href === "/ads" && pathname === "/ads")
                   ? "text-white"
                   : "text-white/45 hover:text-white"
               }`}

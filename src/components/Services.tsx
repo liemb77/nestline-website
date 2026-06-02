@@ -120,7 +120,7 @@ export default function Services() {
                   </li>
                 ))}
               </ul>
-              <a href="#waitlist"
+              <a href="/ads"
                 className="group/btn flex items-center gap-2 text-sm font-semibold text-[#00e887] hover:gap-3 transition-all duration-200 mt-1">
                 {tx.card3.cta}<ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
               </a>

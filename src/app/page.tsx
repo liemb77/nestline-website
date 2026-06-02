@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
 import Problem from "@/components/Problem";
 import Services from "@/components/Services";
-import AdsManagement from "@/components/AdsManagement";
 import Pricing from "@/components/Pricing";
 import WaitlistSection from "@/components/WaitlistSection";
 import Contact from "@/components/Contact";
@@ -18,7 +17,6 @@ export default function Home() {
         <Marquee />
         <Problem />
         <Services />
-        <AdsManagement />
         <Pricing />
         <WaitlistSection />
         <Contact />

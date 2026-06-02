@@ -2,7 +2,7 @@ export const t = {
   en: {
     nav: {
       problem: "Problem", services: "Services", pricing: "Pricing",
-      websites: "Websites", contact: "Contact", bookCall: "Book a Call",
+      websites: "Websites", ads: "Ads", contact: "Contact", bookCall: "Book a Call",
     },
     hero: {
       badge: "Automation for Contractors",
@@ -168,6 +168,7 @@ export const t = {
         ],
       },
       cta: "Get a quote",
+      heroCta: "Book a Strategy Call",
       whyTitle: "Why it works",
       stats: [
         { label: "Local targeting", desc: "Only spend on your actual service area" },
@@ -175,6 +176,42 @@ export const t = {
         { label: "Live in 48 hours", desc: "Campaigns up fast, leads within days" },
         { label: "Full transparency", desc: "Plain-language monthly reports" },
       ],
+      pricingBadge: "Ads Pricing",
+      pricingHeadline: "Straightforward, performance-focused",
+      pricingDesc: "No hidden fees. You always know exactly where your budget goes.",
+      starter: {
+        tag: "Starter",
+        title: "Single Platform",
+        desc: "One platform, fully managed. Perfect for contractors starting out with paid ads.",
+        priceLabel: "/ month management",
+        priceNote: "+ your ad budget (you control the spend)",
+        features: [
+          "Google Ads OR Meta Ads",
+          "Campaign setup & launch",
+          "Geo-targeted to your service area",
+          "Monthly performance report",
+          "Pause or cancel anytime",
+        ],
+        cta: "Get Started",
+      },
+      full: {
+        tag: "Full Stack",
+        title: "Google + Meta Bundle",
+        desc: "Both platforms, fully handled. More reach, more calls, more jobs.",
+        price: "Custom",
+        priceNote: "Pricing discussed on call · Built around your goals",
+        features: [
+          "Everything in Starter",
+          "Both Google Ads & Meta Ads",
+          "Cross-platform strategy",
+          "Retargeting campaigns",
+          "A/B creative testing",
+          "Dedicated monthly strategy call",
+        ],
+        cta: "Book a Call",
+      },
+      footerNote: "Want ads + automation together?",
+      footerLink: "Book a call for a bundled quote.",
     },
     websites: {
       badge: "Contractor Websites",
@@ -249,7 +286,7 @@ export const t = {
   fr: {
     nav: {
       problem: "Problème", services: "Services", pricing: "Tarifs",
-      websites: "Sites Web", contact: "Contact", bookCall: "Prendre un appel",
+      websites: "Sites Web", ads: "Publicités", contact: "Contact", bookCall: "Prendre un appel",
     },
     hero: {
       badge: "Automatisation pour entrepreneurs",
@@ -415,6 +452,7 @@ export const t = {
         ],
       },
       cta: "Obtenir un devis",
+      heroCta: "Réserver un appel stratégique",
       whyTitle: "Pourquoi ça fonctionne",
       stats: [
         { label: "Ciblage local", desc: "Ne dépensez que dans votre zone de service" },
@@ -422,6 +460,42 @@ export const t = {
         { label: "En ligne en 48 h", desc: "Campagnes lancées vite, prospects en quelques jours" },
         { label: "Transparence totale", desc: "Rapports mensuels en langage simple" },
       ],
+      pricingBadge: "Tarification publicitaire",
+      pricingHeadline: "Simple et axé sur la performance",
+      pricingDesc: "Aucuns frais cachés. Vous savez toujours exactement où va votre budget.",
+      starter: {
+        tag: "Débutant",
+        title: "Une seule plateforme",
+        desc: "Une plateforme, entièrement gérée. Idéal pour les entrepreneurs qui débutent avec les publicités payantes.",
+        priceLabel: "/ mois de gestion",
+        priceNote: "+ votre budget publicitaire (vous contrôlez la dépense)",
+        features: [
+          "Google Ads OU Meta Ads",
+          "Configuration et lancement de campagne",
+          "Ciblage géographique précis",
+          "Rapport mensuel de performance",
+          "Pause ou annulation en tout temps",
+        ],
+        cta: "Commencer",
+      },
+      full: {
+        tag: "Complet",
+        title: "Forfait Google + Meta",
+        desc: "Les deux plateformes, entièrement gérées. Plus de portée, plus d'appels, plus de contrats.",
+        price: "Sur mesure",
+        priceNote: "Tarification discutée en appel · Adapté à vos objectifs",
+        features: [
+          "Tout ce qui est inclus dans Débutant",
+          "Google Ads ET Meta Ads",
+          "Stratégie multiplateforme",
+          "Campagnes de reciblage",
+          "Tests A/B de créatifs",
+          "Appel stratégique mensuel dédié",
+        ],
+        cta: "Prendre un appel",
+      },
+      footerNote: "Vous voulez publicités + automatisation ensemble ?",
+      footerLink: "Réservez un appel pour un devis groupé.",
     },
     websites: {
       badge: "Sites Web pour Entrepreneurs",
