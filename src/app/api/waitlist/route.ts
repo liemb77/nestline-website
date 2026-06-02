@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
   try {
     const res = await fetch(WEBHOOK_URL, {
       method: "POST",
-      headers: { "Content-Type": "text/plain" },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...(body as object), type: "waitlist" }),
       signal: AbortSignal.timeout(8000),
     });
