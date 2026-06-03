@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://nestlineautomation.ca/</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://nestlineautomation.ca/"/>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://nestlineautomation.ca/"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://nestlineautomation.ca/websites</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://nestlineautomation.ca/websites"/>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://nestlineautomation.ca/websites"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nestlineautomation.ca/ads</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://nestlineautomation.ca/ads"/>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://nestlineautomation.ca/ads"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>

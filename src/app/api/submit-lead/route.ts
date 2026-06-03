@@ -2,15 +2,37 @@ import { NextRequest, NextResponse } from "next/server";
 
 const WEBHOOK_URL = "https://liemblouin.app.n8n.cloud/webhook/nestline-landing-page";
 
+const MAX_FIELD_LENGTH = 500;
+
+function sanitize(value: unknown): string {
+  if (typeof value !== "string") return "";
+  return value.trim().slice(0, MAX_FIELD_LENGTH);
+}
+
 export async function POST(req: NextRequest) {
-  let body: unknown;
+  let body: Record<string, unknown>;
 
   try {
-    body = await req.json();
+    const raw = await req.json();
+    if (typeof raw !== "object" || raw === null || Array.isArray(raw)) {
+      return NextResponse.json({ ok: false, error: "Invalid payload" }, { status: 400 });
+    }
+    body = raw as Record<string, unknown>;
   } catch {
     console.error("[submit-lead] Failed to parse request body");
     return NextResponse.json({ ok: false, error: "Invalid JSON" }, { status: 400 });
   }
+
+  const sanitized = Object.fromEntries(
+    Object.entries(body).map(([k, v]) => [sanitize(k), sanitize(v)])
+  );
+
+  const email = sanitized.email ?? sanitized.Email ?? "";
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return NextResponse.json({ ok: false, error: "Invalid email" }, { status: 400 });
+  }
+
+  body = sanitized;
 
   console.log("[submit-lead] Body received from frontend:", JSON.stringify(body, null, 2));
   console.log(`[submit-lead] Sending to: ${WEBHOOK_URL}`);
