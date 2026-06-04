@@ -68,7 +68,7 @@ export default function Pricing() {
       <div className="pointer-events-none absolute inset-0 [background:radial-gradient(70%_50%_at_50%_0%,rgba(0,232,135,0.05),transparent_60%)]" />
 
       <ScrollTiltWrapper>
-        <div className="relative max-w-5xl mx-auto px-6 lg:px-8">
+        <div className="relative max-w-6xl mx-auto px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 32 }} animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
             className="text-center mb-14">
@@ -133,7 +133,7 @@ export default function Pricing() {
             {/* Growth Plan */}
             <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number,number,number,number], delay: 0.28 }}
-              className="relative flex-1 max-w-sm md:translate-y-2 opacity-60">
+              className="relative flex-1 max-w-sm md:translate-y-2 opacity-50">
               <Card className="h-full flex flex-col border-zinc-800 bg-zinc-900/50 backdrop-blur">
                 <CardHeader>
                   <div className="flex items-center justify-between">
@@ -143,13 +143,22 @@ export default function Pricing() {
                     </span>
                   </div>
                   <p className="text-sm text-zinc-500">{tx.growth.desc}</p>
-                  <span className="text-2xl font-bold text-zinc-400 pt-1">{lang === "en" ? "Pricing TBD" : "Tarif à venir"}</span>
+                  <div className="grid grid-cols-2 gap-4 pt-2">
+                    <div>
+                      <p className="text-xs text-zinc-500 uppercase tracking-widest mb-1">{lang === "en" ? "Setup Fee" : "Mise en place"}</p>
+                      <span className="text-2xl font-bold text-zinc-400">$3,000</span>
+                    </div>
+                    <div>
+                      <p className="text-xs text-zinc-500 uppercase tracking-widest mb-1">{lang === "en" ? "Monthly" : "Mensuel"}</p>
+                      <span className="text-2xl font-bold text-zinc-400">$450<span className="text-sm font-normal">/mo</span></span>
+                    </div>
+                  </div>
                 </CardHeader>
                 <CardContent className="flex-1">
                   <Separator className="mb-5 bg-zinc-800" />
                   <ul className="space-y-3">
                     {tx.growth.features.map((f) => (
-                      <li key={f} className="flex items-center gap-2.5 text-zinc-400 text-sm">
+                      <li key={f} className="flex items-center gap-2.5 text-zinc-500 text-sm">
                         <CircleCheck className="size-4 text-zinc-600 shrink-0" />{f}
                       </li>
                     ))}
@@ -159,6 +168,50 @@ export default function Pricing() {
                   <Button asChild variant="outline" className="w-full rounded-xl border-zinc-700 bg-transparent text-zinc-400 hover:bg-zinc-800 hover:text-zinc-200">
                     <a href="/waitlist">
                       {tx.growth.cta}<ArrowRight className="ml-2 size-4" />
+                    </a>
+                  </Button>
+                </CardFooter>
+              </Card>
+            </motion.div>
+
+            {/* Enterprise Plan */}
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number,number,number,number], delay: 0.4 }}
+              className="relative flex-1 max-w-sm md:translate-y-4 opacity-40">
+              <Card className="h-full flex flex-col border-zinc-800 bg-zinc-900/50 backdrop-blur">
+                <CardHeader>
+                  <div className="flex items-center justify-between">
+                    <CardTitle className="text-zinc-300 text-xl">{tx.enterprise.tag}</CardTitle>
+                    <span className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full bg-zinc-800 text-zinc-400 border border-zinc-700">
+                      <Clock className="w-3 h-3" />{tx.enterprise.comingSoon}
+                    </span>
+                  </div>
+                  <p className="text-sm text-zinc-500">{tx.enterprise.desc}</p>
+                  <div className="grid grid-cols-2 gap-4 pt-2">
+                    <div>
+                      <p className="text-xs text-zinc-500 uppercase tracking-widest mb-1">{lang === "en" ? "Setup Fee" : "Mise en place"}</p>
+                      <span className="text-2xl font-bold text-zinc-400">$10,000</span>
+                    </div>
+                    <div>
+                      <p className="text-xs text-zinc-500 uppercase tracking-widest mb-1">{lang === "en" ? "Monthly" : "Mensuel"}</p>
+                      <span className="text-2xl font-bold text-zinc-400">$997<span className="text-sm font-normal">/mo</span></span>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="flex-1">
+                  <Separator className="mb-5 bg-zinc-800" />
+                  <ul className="space-y-3">
+                    {tx.enterprise.features.map((f) => (
+                      <li key={f} className="flex items-center gap-2.5 text-zinc-500 text-sm">
+                        <CircleCheck className="size-4 text-zinc-600 shrink-0" />{f}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+                <CardFooter>
+                  <Button asChild variant="outline" className="w-full rounded-xl border-zinc-700 bg-transparent text-zinc-400 hover:bg-zinc-800 hover:text-zinc-200">
+                    <a href="/waitlist">
+                      {tx.enterprise.cta}<ArrowRight className="ml-2 size-4" />
                     </a>
                   </Button>
                 </CardFooter>
