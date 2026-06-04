@@ -279,7 +279,7 @@ export default function AdsPage() {
                       <p className="text-sm text-zinc-400">{tx.starter.desc}</p>
                       <div className="pt-2 space-y-1">
                         <div>
-                          <span className="text-4xl font-extrabold text-white">$399</span>
+                          <span className="text-4xl font-extrabold text-white">$400</span>
                           <span className="text-zinc-500 text-sm ml-2">{tx.starter.priceLabel}</span>
                         </div>
                         <p className="text-xs text-[#00e887]/60 font-semibold pt-0.5">{tx.starter.priceNote}</p>
