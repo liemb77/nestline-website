@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { ArrowRight, CircleCheck, Smartphone, MapPin, Search, Gauge, Mail, Globe } from "lucide-react";
+import { ArrowRight, CircleCheck, Zap } from "lucide-react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -11,15 +11,6 @@ import { Button } from "@/components/ui/button";
 import { ScrollTiltWrapper } from "@/components/ui/scroll-tilt-wrapper";
 import { useLanguage } from "@/contexts/language-context";
 import { t } from "@/lib/translations";
-
-const features = [
-  { icon: Globe,      label: "Custom design tailored to your trade" },
-  { icon: Smartphone, label: "Fully mobile responsive" },
-  { icon: Mail,       label: "Built-in contact form" },
-  { icon: MapPin,     label: "Google Maps embed" },
-  { icon: Search,     label: "SEO basics included" },
-  { icon: Gauge,      label: "Fast load time, optimised images" },
-];
 
 const itemVariants = {
   hidden: { opacity: 0, y: 24 },
@@ -259,8 +250,27 @@ export default function WebsitesPage() {
 
               </div>
 
+              {/* Bundle callout */}
+              <motion.div initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.45 }}
+                className="mt-10 rounded-2xl border border-[#00e887]/20 bg-[#00e887]/5 px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-xl bg-[#00e887]/10 border border-[#00e887]/20 flex items-center justify-center shrink-0">
+                    <Zap className="w-4 h-4 text-[#00e887]" fill="currentColor" />
+                  </div>
+                  <p className="text-sm text-white/60">
+                    {tx.bundleNote}{" "}
+                    <span className="text-[#00e887] font-bold">{tx.bundleHighlight}</span>
+                  </p>
+                </div>
+                <a href="/get-started"
+                  className="shrink-0 text-xs font-bold px-4 py-2 rounded-full bg-[#00e887] text-[#050505] hover:bg-[#00e887]/90 transition-colors whitespace-nowrap">
+                  {tx.bundleCta} →
+                </a>
+              </motion.div>
+
               <motion.p initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ duration: 0.7, delay: 0.5 }}
-                className="text-center text-xs text-white/20 mt-8 leading-relaxed">
+                className="text-center text-xs text-white/20 mt-6 leading-relaxed">
                 {tx.footerNote}{" "}
                 <a href="/get-started"
                   className="text-[#00e887]/60 hover:text-[#00e887] hover:underline transition-colors">
