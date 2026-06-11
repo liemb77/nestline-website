@@ -115,7 +115,7 @@ export default function AdsPage() {
               </motion.p>
 
               <motion.a custom={3} variants={itemVariants}
-                href="/waitlist"
+                href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noopener noreferrer"
                 className="group flex items-center gap-2.5 px-7 py-4 rounded-full btn-primary text-sm font-bold mt-2">
                 {tx.heroCta}
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -159,7 +159,7 @@ export default function AdsPage() {
                       </li>
                     ))}
                   </ul>
-                  <a href="/waitlist"
+                  <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noopener noreferrer"
                     className="group/btn flex items-center gap-2 text-sm font-semibold text-[#00e887] hover:gap-3 transition-all duration-200 mt-1">
                     {tx.cta}<ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
                   </a>
@@ -188,7 +188,7 @@ export default function AdsPage() {
                       </li>
                     ))}
                   </ul>
-                  <a href="/waitlist"
+                  <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noopener noreferrer"
                     className="group/btn flex items-center gap-2 text-sm font-semibold text-[#00c2ff] hover:gap-3 transition-all duration-200 mt-1">
                     {tx.cta}<ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
                   </a>

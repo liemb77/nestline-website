@@ -33,7 +33,8 @@ export default function Footer() {
               <img src="/logo.png" alt="NestLine" className="h-12 w-auto" />
             </a>
             <p className="text-sm text-white/30 max-w-xs leading-relaxed mb-6">{tx.tagline}</p>
-            <a href="/get-started"
+            <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true"
+              target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full btn-primary text-sm font-bold">
               {tx.bookCall}
             </a>

@@ -88,12 +88,13 @@ export default function Navbar() {
             <span style={{ opacity: lang === "fr" ? 1 : 0.4 }}>FR</span>
           </button>
 
-          <Link
-            href="/waitlist"
+          <a
+            href="https://cal.com/liem-blouin/discovery?overlayCalendar=true"
+            target="_blank" rel="noopener noreferrer"
             className="hidden md:inline-flex items-center px-5 py-2.5 rounded-full btn-primary text-sm font-bold"
           >
-            {lang === "en" ? "Join Waitlist" : "Rejoindre la liste"}
-          </Link>
+            {lang === "en" ? "Book a Call" : "Prendre un appel"}
+          </a>
 
           <button
             onClick={() => setMenuOpen(!menuOpen)}
@@ -135,13 +136,14 @@ export default function Navbar() {
                 <span style={{ opacity: 0.35, margin: "0 2px" }}>|</span>
                 <span style={{ opacity: lang === "fr" ? 1 : 0.4 }}>FR</span>
               </button>
-              <Link
-                href="/waitlist"
+              <a
+                href="https://cal.com/liem-blouin/discovery?overlayCalendar=true"
+                target="_blank" rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}
                 className="mt-1 flex justify-center py-3 rounded-full btn-primary text-sm font-bold"
               >
-                {lang === "en" ? "Join Waitlist" : "Rejoindre la liste"}
-              </Link>
+                {lang === "en" ? "Book a Call" : "Prendre un appel"}
+              </a>
             </div>
           </motion.div>
         )}

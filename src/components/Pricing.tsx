@@ -108,7 +108,7 @@ export default function Pricing() {
                 </CardContent>
                 <CardFooter>
                   <Button asChild className="w-full rounded-xl bg-[#00e887] text-[#050505] font-bold hover:bg-[#00e887]/90" style={{ boxShadow: "0 0 30px rgba(0,232,135,0.3)" }}>
-                    <a href="/get-started">
+                    <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noopener noreferrer">
                       {tx.founders.cta}<ArrowRight className="ml-2 size-4" />
                     </a>
                   </Button>
@@ -143,7 +143,7 @@ export default function Pricing() {
                 </CardContent>
                 <CardFooter>
                   <Button asChild variant="outline" className="w-full rounded-xl border-zinc-600 bg-transparent text-zinc-200 hover:bg-zinc-800 hover:text-white">
-                    <a href="/get-started">
+                    <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noopener noreferrer">
                       {tx.growth.cta}<ArrowRight className="ml-2 size-4" />
                     </a>
                   </Button>
@@ -178,7 +178,7 @@ export default function Pricing() {
                 </CardContent>
                 <CardFooter>
                   <Button asChild variant="outline" className="w-full rounded-xl border-zinc-600 bg-transparent text-zinc-200 hover:bg-zinc-800 hover:text-white">
-                    <a href="/get-started">
+                    <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noopener noreferrer">
                       {tx.enterprise.cta}<ArrowRight className="ml-2 size-4" />
                     </a>
                   </Button>

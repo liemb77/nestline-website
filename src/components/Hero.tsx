@@ -76,7 +76,8 @@ export default function Hero() {
 
         <motion.div custom={1} variants={fadeUp} initial="hidden" animate="visible"
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
-          <a href="/waitlist"
+          <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true"
+            target="_blank" rel="noopener noreferrer"
             className="group flex items-center gap-2.5 px-8 py-4 rounded-full btn-primary text-[#050505] text-sm font-bold">
             {tx.cta1}
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
