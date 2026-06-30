@@ -54,7 +54,7 @@ export default function Footer() {
         </div>
         <div className="divider mb-7" />
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-white/20">© {new Date().getFullYear()} NestLine Automation. {tx.copyright}</p>
+          <p className="text-xs text-white/20">© {new Date().getFullYear()} NestLine Automation. {tx.copyright} · <a href="/privacy-policy" className="hover:text-white/50 transition-colors">{tx.privacy}</a></p>
           <div className="flex items-center gap-5">
             <a href="https://www.linkedin.com/in/liem-blouin-99212a365/" target="_blank" rel="noopener noreferrer" className="text-white/20 hover:text-white transition-colors duration-200" aria-label="LinkedIn">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
