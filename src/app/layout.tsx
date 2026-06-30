@@ -4,6 +4,7 @@ import "./globals.css";
 import { FluidParticlesBackground } from "@/components/ui/fluid-particles-background";
 import { LanguageProvider } from "@/contexts/language-context";
 import CookieConsent from "@/components/CookieConsent";
+import CookieConsent from "@/components/CookieConsent";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -157,6 +158,7 @@ export default function RootLayout({
           <div className="relative z-10 flex flex-col min-h-full">
             {children}
           </div>
+          <CookieConsent />
         </LanguageProvider>
       </body>
     </html>
