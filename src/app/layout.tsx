@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { FluidParticlesBackground } from "@/components/ui/fluid-particles-background";
 import { LanguageProvider } from "@/contexts/language-context";
+import CookieConsent from "@/components/CookieConsent";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
