@@ -149,6 +149,7 @@ export const t = {
       trades: "Trades",
       copyright: "All rights reserved.",
       status: "All systems operational",
+      privacy: "Privacy Policy",
     },
     ads: {
       badge: "Paid Ads Management",
@@ -450,6 +451,7 @@ export const t = {
       trades: "Métiers",
       copyright: "Tous droits réservés.",
       status: "Tous les systèmes opérationnels",
+      privacy: "Politique de confidentialité",
     },
     ads: {
       badge: "Gestion de publicités payantes",
