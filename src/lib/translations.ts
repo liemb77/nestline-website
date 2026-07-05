@@ -85,8 +85,8 @@ export const t = {
         bio: "Started NestLine to help business owners get their time back, with AI systems built around how you actually run things, not a generic template.",
       },
       justin: {
-        initials: "J",
-        name: "Justin",
+        initials: "JB",
+        name: "Justin Berthelette",
         role: "Sales",
         bio: "Makes sure every NestLine client gets matched with the right system for their business, then stays in their corner from kickoff to launch.",
       },
@@ -435,8 +435,8 @@ export const t = {
         bio: "A fondé NestLine pour aider les propriétaires d'entreprise à retrouver leur temps, avec des systèmes IA construits autour de votre façon de travailler, pas un gabarit générique.",
       },
       justin: {
-        initials: "J",
-        name: "Justin",
+        initials: "JB",
+        name: "Justin Berthelette",
         role: "Ventes",
         bio: "S'assure que chaque client NestLine est jumelé au bon système pour son entreprise, puis reste impliqué du démarrage jusqu'au lancement.",
       },
