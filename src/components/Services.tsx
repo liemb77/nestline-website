@@ -62,13 +62,13 @@ export default function Services() {
                   </li>
                 ))}
               </ul>
-              <a href="/get-started"
+              <a href="/ai-consulting"
                 className="group/btn flex items-center gap-2 text-sm font-semibold text-[#00e887] hover:gap-3 transition-all duration-200 mt-1">
                 {tx.card1.cta}<ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
               </a>
             </motion.div>
 
-            {/* Card 2 — Website Design */}
+            {/* Card 2 - Website Design */}
             <motion.div initial={{ opacity: 0, y: 40 }} animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number,number,number,number], delay: 0.2 }}
               className="group relative rounded-2xl glass glass-hover p-8 overflow-hidden flex flex-col gap-6">
@@ -91,13 +91,13 @@ export default function Services() {
                   </li>
                 ))}
               </ul>
-              <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noopener noreferrer"
+              <a href="/websites"
                 className="group/btn flex items-center gap-2 text-sm font-semibold text-[#00e887] hover:gap-3 transition-all duration-200 mt-1">
                 {tx.card2.cta}<ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
               </a>
             </motion.div>
 
-            {/* Card 3 — Ads Management */}
+            {/* Card 3 - Ads Management */}
             <motion.div initial={{ opacity: 0, y: 40 }} animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number,number,number,number], delay: 0.3 }}
               className="group relative rounded-2xl glass glass-hover p-8 overflow-hidden flex flex-col gap-6">
