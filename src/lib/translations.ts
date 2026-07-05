@@ -1,7 +1,7 @@
 export const t = {
   en: {
     nav: {
-      problem: "Problem", services: "Services", pricing: "Pricing",
+      problem: "Problem", services: "Services", aiConsulting: "AI Consulting",
       websites: "Websites", ads: "Ads", contact: "Contact", bookCall: "Book a Call",
     },
     hero: {
@@ -65,6 +65,13 @@ export const t = {
         { label: "Launch & Test",   desc: "Live testing with real data" },
         { label: "Optimize",        desc: "Ongoing refinement & support" },
       ],
+    },
+    aiConsulting: {
+      badge: "AI Consulting",
+      headline: "AI Systems That ",
+      headlineGradient: "Run Your Business",
+      sub: "From lead capture to full operational automation — done-for-you AI systems built around exactly how your business works, not a generic template.",
+      heroCta: "Book a Free Strategy Call",
     },
     pricing: {
       badge: "Pricing",
@@ -326,7 +333,7 @@ export const t = {
 
   fr: {
     nav: {
-      problem: "Problème", services: "Services", pricing: "Tarifs",
+      problem: "Problème", services: "Services", aiConsulting: "Consultation IA",
       websites: "Sites Web", ads: "Publicités", contact: "Contact", bookCall: "Prendre un appel",
     },
     hero: {
@@ -390,6 +397,13 @@ export const t = {
         { label: "Lancement & tests",    desc: "Tests en conditions réelles" },
         { label: "Optimisation",         desc: "Ajustements et soutien continu" },
       ],
+    },
+    aiConsulting: {
+      badge: "Consultation IA",
+      headline: "Des Systèmes IA Qui ",
+      headlineGradient: "Font Tourner Votre Entreprise",
+      sub: "De la capture de leads à l'automatisation complète des opérations — des systèmes IA sur mesure, construits autour de votre façon de travailler, pas un gabarit générique.",
+      heroCta: "Réserver un Appel Stratégique Gratuit",
     },
     pricing: {
       badge: "Tarification",

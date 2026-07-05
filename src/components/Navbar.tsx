@@ -19,7 +19,7 @@ export default function Navbar() {
   const baseLinks = [
     { label: tx.problem,  href: "#problem" },
     { label: tx.services, href: "#services" },
-    { label: tx.pricing,  href: "#pricing" },
+    { label: tx.aiConsulting, href: "/ai-consulting" },
     { label: tx.websites, href: "/websites" },
     { label: tx.ads,      href: "/ads" },
     { label: tx.contact,  href: "#contact" },
@@ -60,7 +60,8 @@ export default function Navbar() {
               href={l.href}
               className={`text-[13px] font-medium tracking-wide transition-colors duration-200 ${
                 (l.href === "/websites" && pathname === "/websites") ||
-                (l.href === "/ads" && pathname === "/ads")
+                (l.href === "/ads" && pathname === "/ads") ||
+                (l.href === "/ai-consulting" && pathname === "/ai-consulting")
                   ? "text-white"
                   : "text-white/45 hover:text-white"
               }`}
