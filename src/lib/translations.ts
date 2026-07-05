@@ -257,6 +257,16 @@ export const t = {
       bundleCta: "Get the bundle",
       footerNote: "Need a website + automation together?",
       footerLink: "Book a call for a bundled quote.",
+      showcase: {
+        badge: "Real Client, Real Results",
+        headline: "See It ",
+        headlineGradient: "Live",
+        desc: "A site we recently shipped — check it out in the wild.",
+        clientName: "OP Gestion Financière Stratégique",
+        clientDesc: "Wealth management website for a financial advisor in Beloeil, QC. Bilingual FR/EN, built and deployed in days.",
+        cta: "Visit Live Site",
+        domain: "opgestionfinancierestrategique.ca",
+      },
     },
     getStarted: {
       hero: {
@@ -559,6 +569,16 @@ export const t = {
       bundleCta: "Obtenir le forfait",
       footerNote: "Besoin d'un site + automatisation ensemble ?",
       footerLink: "Réservez un appel pour un devis groupé.",
+      showcase: {
+        badge: "Client Réel, Résultats Réels",
+        headline: "Voyez-le ",
+        headlineGradient: "En Direct",
+        desc: "Un site qu'on a livré récemment — allez y jeter un œil.",
+        clientName: "OP Gestion Financière Stratégique",
+        clientDesc: "Site web de gestion de patrimoine pour un conseiller financier à Beloeil, QC. Bilingue FR/EN, construit et déployé en quelques jours.",
+        cta: "Voir le Site en Direct",
+        domain: "opgestionfinancierestrategique.ca",
+      },
     },
     getStarted: {
       hero: {

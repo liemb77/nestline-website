@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { ArrowRight, CircleCheck, Zap } from "lucide-react";
+import { ArrowRight, CircleCheck, ExternalLink, Zap } from "lucide-react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -280,6 +280,79 @@ export default function WebsitesPage() {
 
             </div>
           </ScrollTiltWrapper>
+        </section>
+
+        {/* ── Showcase / Featured Client ── */}
+        <section className="relative py-20 lg:py-28 overflow-hidden border-t border-white/[0.05]">
+          <div className="pointer-events-none absolute inset-0 [background:radial-gradient(60%_50%_at_50%_0%,rgba(0,232,135,0.05),transparent_60%)]" />
+          <div className="relative max-w-4xl mx-auto px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
+              className="text-center mb-14"
+            >
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-[0.18em] uppercase glass text-white/40 mb-8">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#00e887] animate-pulse" />
+                {tx.showcase.badge}
+              </span>
+              <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-extrabold tracking-tight leading-[1.06] mb-5">
+                {tx.showcase.headline}<span className="text-gradient">{tx.showcase.headlineGradient}</span>
+              </h2>
+              <p className="text-white/40 text-lg max-w-md mx-auto leading-relaxed">
+                {tx.showcase.desc}
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
+            >
+              <a
+                href="https://opgestionfinancierestrategique.ca"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block rounded-2xl border border-[#00e887]/30 bg-zinc-900/80 backdrop-blur overflow-hidden cursor-pointer transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00e887]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505]"
+                style={{ boxShadow: "0 0 60px rgba(0,232,135,0.08), 0 20px 40px rgba(0,0,0,0.4)" }}
+              >
+                {/* Browser chrome */}
+                <div className="flex items-center gap-2 px-4 py-3 bg-zinc-950/80 border-b border-white/[0.06]">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
+                  <span className="ml-3 px-3 py-1 rounded-md bg-white/[0.04] text-[11px] text-white/40 font-mono truncate">
+                    {tx.showcase.domain}
+                  </span>
+                </div>
+
+                {/* Screenshot */}
+                <div className="relative aspect-[16/10] bg-zinc-950">
+                  <img
+                    src="/portfolio/op-gestion-privee.png"
+                    alt={`${tx.showcase.clientName} — website homepage screenshot`}
+                    className="w-full h-full object-cover object-top"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+
+                {/* Caption */}
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 px-6 py-6">
+                  <div>
+                    <p className="text-white font-bold text-lg">{tx.showcase.clientName}</p>
+                    <p className="text-white/40 text-sm mt-1 max-w-lg">{tx.showcase.clientDesc}</p>
+                  </div>
+                  <span className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#00e887] text-[#050505] text-sm font-bold group-hover:bg-[#00e887]/90 transition-colors whitespace-nowrap">
+                    {tx.showcase.cta}
+                    <ExternalLink className="w-4 h-4" />
+                  </span>
+                </div>
+              </a>
+            </motion.div>
+          </div>
         </section>
 
       </main>
