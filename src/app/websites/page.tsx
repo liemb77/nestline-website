@@ -333,7 +333,7 @@ export default function WebsitesPage() {
                   <div className="relative aspect-[16/10] bg-zinc-950">
                     <img
                       src={client.image}
-                      alt={`${client.clientName} — website homepage screenshot`}
+                      alt={`${client.clientName}, website homepage screenshot`}
                       className="w-full h-full object-cover object-top"
                       loading="lazy"
                     />

@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://nestlineautomation.ca"),
   title: {
-    default: "NestLine Automation — Automation Agency in Montreal, Quebec",
+    default: "NestLine Automation: Automation Agency in Montreal, Quebec",
     template: "%s | NestLine Automation",
   },
   description:
@@ -62,13 +62,13 @@ export const metadata: Metadata = {
     alternateLocale: "fr_CA",
     url: "https://nestlineautomation.ca",
     siteName: "NestLine Automation",
-    title: "NestLine Automation — Automation Agency in Montreal, Quebec",
+    title: "NestLine Automation: Automation Agency in Montreal, Quebec",
     description: "NestLine builds AI-powered automation systems for Montreal businesses. Stop losing leads, automate follow-ups, and grow on autopilot.",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "NestLine Automation" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "NestLine Automation — Automation Agency in Montreal, Quebec",
+    title: "NestLine Automation: Automation Agency in Montreal, Quebec",
     description: "NestLine builds AI-powered automation systems for Montreal businesses. Stop losing leads, automate follow-ups.",
     images: ["/og-image.png"],
   },

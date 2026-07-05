@@ -22,11 +22,11 @@ const content = {
       },
       {
         title: '4. How We Use It',
-        body: 'Your information is used only for the purposes stated above. We do not sell your personal information to third parties. We may use automated systems to reach out to potential clients — if you have received a message from us and wish to be removed from our contact list, simply reply with "STOP" and we will remove you immediately.',
+        body: 'Your information is used only for the purposes stated above. We do not sell your personal information to third parties. We may use automated systems to reach out to potential clients, if you have received a message from us and wish to be removed from our contact list, simply reply with "STOP" and we will remove you immediately.',
       },
       {
         title: '5. Who We Share It With',
-        body: 'We use the following third-party service providers who may process your information on our behalf:\n\n• Cal.com — appointment booking\n• Resend — transactional and outreach emails\n• Railway — infrastructure hosting\n• Apify — lead research (business contact information from public sources)\n\nAll providers are bound by their own privacy policies and data protection agreements.',
+        body: 'We use the following third-party service providers who may process your information on our behalf:\n\n• Cal.com, appointment booking\n• Resend, transactional and outreach emails\n• Railway, infrastructure hosting\n• Apify, lead research (business contact information from public sources)\n\nAll providers are bound by their own privacy policies and data protection agreements.',
       },
       {
         title: '6. How Long We Keep It',
@@ -50,7 +50,7 @@ const content = {
       },
       {
         title: '11. Contact Us',
-        body: 'For any privacy-related questions or requests:\n\nLiem Blouin — Privacy Officer\nNestLine Automation\nliem@nestlineautomation.ca\n+1 (514) 386-6281',
+        body: 'For any privacy-related questions or requests:\n\nLiem Blouin, Privacy Officer\nNestLine Automation\nliem@nestlineautomation.ca\n+1 (514) 386-6281',
       },
     ],
   },
@@ -73,11 +73,11 @@ const content = {
       },
       {
         title: '4. Comment nous les utilisons',
-        body: 'Vos renseignements sont utilisés uniquement aux fins mentionnées ci-dessus. Nous ne vendons pas vos renseignements personnels à des tiers. Nous pouvons utiliser des systèmes automatisés pour contacter des clients potentiels — si vous avez reçu un message de notre part et souhaitez être retiré de notre liste, répondez simplement « STOP » et nous vous retirerons immédiatement.',
+        body: 'Vos renseignements sont utilisés uniquement aux fins mentionnées ci-dessus. Nous ne vendons pas vos renseignements personnels à des tiers. Nous pouvons utiliser des systèmes automatisés pour contacter des clients potentiels, si vous avez reçu un message de notre part et souhaitez être retiré de notre liste, répondez simplement « STOP » et nous vous retirerons immédiatement.',
       },
       {
         title: '5. Avec qui nous les partageons',
-        body: 'Nous faisons appel aux fournisseurs de services tiers suivants qui peuvent traiter vos renseignements en notre nom :\n\n• Cal.com — prise de rendez-vous\n• Resend — courriels transactionnels et de prospection\n• Railway — hébergement d\'infrastructure\n• Apify — recherche de prospects (coordonnées d\'entreprises provenant de sources publiques)\n\nTous les fournisseurs sont soumis à leurs propres politiques de confidentialité.',
+        body: 'Nous faisons appel aux fournisseurs de services tiers suivants qui peuvent traiter vos renseignements en notre nom :\n\n• Cal.com, prise de rendez-vous\n• Resend, courriels transactionnels et de prospection\n• Railway, hébergement d\'infrastructure\n• Apify, recherche de prospects (coordonnées d\'entreprises provenant de sources publiques)\n\nTous les fournisseurs sont soumis à leurs propres politiques de confidentialité.',
       },
       {
         title: '6. Durée de conservation',
@@ -101,7 +101,7 @@ const content = {
       },
       {
         title: '11. Nous joindre',
-        body: 'Pour toute question ou demande relative à la confidentialité :\n\nLiem Blouin — Responsable de la protection des renseignements personnels\nNestLine Automation\nliem@nestlineautomation.ca\n+1 (514) 386-6281',
+        body: 'Pour toute question ou demande relative à la confidentialité :\n\nLiem Blouin, Responsable de la protection des renseignements personnels\nNestLine Automation\nliem@nestlineautomation.ca\n+1 (514) 386-6281',
       },
     ],
   },
