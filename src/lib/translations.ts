@@ -73,6 +73,24 @@ export const t = {
       sub: "From lead capture to full operational automation — done-for-you AI systems built around exactly how your business works, not a generic template.",
       heroCta: "Book a Free Strategy Call",
     },
+    team: {
+      badge: "Who We Are",
+      headline: "The People Behind ",
+      headlineGradient: "NestLine",
+      sub: "A small, hands-on team — no account managers, no hand-offs. You work directly with the people building your system.",
+      liem: {
+        initials: "LB",
+        name: "Liem Blouin",
+        role: "Founder",
+        bio: "Started NestLine to help business owners get their time back — with AI systems built around how you actually run things, not a generic template.",
+      },
+      justin: {
+        initials: "J",
+        name: "Justin",
+        role: "Sales",
+        bio: "Makes sure every NestLine client gets matched with the right system for their business, then stays in their corner from kickoff to launch.",
+      },
+    },
     pricing: {
       badge: "Pricing",
       headline: "Pricing built around your project",
@@ -404,6 +422,24 @@ export const t = {
       headlineGradient: "Font Tourner Votre Entreprise",
       sub: "De la capture de leads à l'automatisation complète des opérations — des systèmes IA sur mesure, construits autour de votre façon de travailler, pas un gabarit générique.",
       heroCta: "Réserver un Appel Stratégique Gratuit",
+    },
+    team: {
+      badge: "Qui Nous Sommes",
+      headline: "Les Gens Derrière ",
+      headlineGradient: "NestLine",
+      sub: "Une petite équipe, directement impliquée — pas de gestionnaire de compte, pas de transfert de dossier. Vous travaillez directement avec les gens qui construisent votre système.",
+      liem: {
+        initials: "LB",
+        name: "Liem Blouin",
+        role: "Fondateur",
+        bio: "A fondé NestLine pour aider les propriétaires d'entreprise à retrouver leur temps — avec des systèmes IA construits autour de votre façon de travailler, pas un gabarit générique.",
+      },
+      justin: {
+        initials: "J",
+        name: "Justin",
+        role: "Ventes",
+        bio: "S'assure que chaque client NestLine est jumelé au bon système pour son entreprise, puis reste impliqué du démarrage jusqu'au lancement.",
+      },
     },
     pricing: {
       badge: "Tarification",
