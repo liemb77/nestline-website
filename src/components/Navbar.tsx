@@ -17,12 +17,9 @@ export default function Navbar() {
   const tx = t[lang].nav;
 
   const baseLinks = [
-    { label: tx.problem,  href: "#problem" },
-    { label: tx.services, href: "#services" },
     { label: tx.aiConsulting, href: "/ai-consulting" },
     { label: tx.websites, href: "/websites" },
     { label: tx.ads,      href: "/ads" },
-    { label: tx.contact,  href: "#contact" },
   ];
 
   const links = baseLinks.map((l) =>
