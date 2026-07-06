@@ -299,8 +299,8 @@ export const t = {
           {
             clientName: "DJ2 Services",
             clientDesc: "Bilingual FR/EN site for an industrial procurement & contract management consultant. Fast, clean, mobile-ready.",
-            domain: "dj2-services.vercel.app",
-            url: "https://dj2-services.vercel.app",
+            domain: "dj2services.ca",
+            url: "https://dj2services.ca",
             image: "/portfolio/dj2-services.png",
           },
         ],
@@ -649,8 +649,8 @@ export const t = {
           {
             clientName: "DJ2 Services",
             clientDesc: "Site bilingue FR/EN pour une consultante en approvisionnement industriel et gestion de contrats. Rapide, propre, adapté aux mobiles.",
-            domain: "dj2-services.vercel.app",
-            url: "https://dj2-services.vercel.app",
+            domain: "dj2services.ca",
+            url: "https://dj2services.ca",
             image: "/portfolio/dj2-services.png",
           },
         ],
