@@ -14,20 +14,13 @@ export default function Footer() {
       { label: t[lang].nav.contact,   href: "#contact" },
       { label: t[lang].nav.websites,  href: "/websites" },
     ],
-    [tx.trades]: [
-      { label: lang === "en" ? "Plumbers"     : "Plombiers",      href: "#" },
-      { label: lang === "en" ? "Roofers"      : "Couvreurs",      href: "#" },
-      { label: lang === "en" ? "Landscapers"  : "Paysagistes",    href: "#" },
-      { label: "HVAC",                                              href: "#" },
-      { label: lang === "en" ? "Electricians" : "Électriciens",   href: "#" },
-    ],
   };
 
   return (
     <footer className="relative border-t border-white/[0.05] pt-16 pb-8">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-20 bg-gradient-to-b from-[#00e887]/20 to-transparent" />
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-10 mb-14">
           <div className="col-span-2">
             <a href="/" className="inline-flex items-center mb-5">
               <img src="/logo.png" alt="NestLine" className="h-12 w-auto" />
