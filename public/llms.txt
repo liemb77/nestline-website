@@ -1,0 +1,19 @@
+# NestLine Automation
+
+> AI consulting agency based in Montreal, Quebec. We build done-for-you AI systems — lead capture, voice AI receptionists, customer service chatbots, internal knowledge bases, and full business automation — for small and mid-sized businesses across Quebec and Canada.
+
+NestLine serves contractors, real estate agents, financial advisors, and other service businesses. We also build custom websites and manage Google/Meta ad campaigns. Every AI engagement includes a one-time setup fee plus a monthly retainer covering hosting, monitoring, and ongoing improvements.
+
+## Services
+
+- [AI Consulting](https://nestlineautomation.ca/ai-consulting): Done-for-you AI systems — lead capture & follow-up agents, customer service chatbots, internal knowledge base (RAG) agents, voice AI receptionists, document processing, appointment booking, and full business automation.
+- [Website Design](https://nestlineautomation.ca/websites): Custom, mobile-responsive websites built to convert, automation-ready from day one.
+- [Ads Management](https://nestlineautomation.ca/ads): Google and Meta ad campaign management with full transparency and no hidden fees.
+
+## Company
+
+- [About / Homepage](https://nestlineautomation.ca): Overview of NestLine's three core services and how we work.
+- [Contact / Book a Call](https://cal.com/liem-blouin/discovery?overlayCalendar=true): Free discovery call to discuss an AI project.
+- Founded and led by Liem Blouin (Founder) and Justin Berthelette (Sales), based in Quebec, Canada.
+- Areas served: Montreal, Laval, Longueuil, Quebec City, Gatineau, and the broader province of Quebec.
+- Contact: liem@nestlineautomation.ca

@@ -72,6 +72,15 @@ export const t = {
       headlineGradient: "Run Your Business",
       sub: "From lead capture to full operational automation, done-for-you AI systems built around exactly how your business works, not a generic template.",
       heroCta: "Book a Free Strategy Call",
+      faqTitle: "Frequently Asked Questions",
+      faq: [
+        { q: "How long does it take?", a: "It depends on the project — a website typically takes 1 to 2 weeks, while an AI agent or automation system can take 2 to 4 weeks depending on complexity." },
+        { q: "What technology do you use?", a: "For websites: Next.js, hosted on Vercel. For simple automations (trigger → action): n8n. For more complex AI systems (agents that read, decide, and act): Claude Code." },
+        { q: "Do I own the code once it's built?", a: "NestLine retains ownership of the code and infrastructure under the standard plan, which includes hosting, maintenance, and updates. Full code ownership is available for an additional fee." },
+        { q: "What's included in the monthly retainer?", a: "The monthly retainer covers hosting, monitoring, updates, and ongoing adjustments to the system — no extra charge for routine changes." },
+        { q: "Can I request changes after launch?", a: "Yes, anytime, included in the monthly retainer — no extra charge." },
+        { q: "Do you work with my type of business?", a: "NestLine has delivered projects for financial brokers and engineering/procurement consultants. We also actively target contractors, real estate agents, and other service businesses, though we don't yet have delivered clients in those specific sectors." },
+      ],
     },
     team: {
       badge: "Who We Are",
@@ -394,6 +403,15 @@ export const t = {
       headlineGradient: "Font Tourner Votre Entreprise",
       sub: "De la capture de leads à l'automatisation complète des opérations, des systèmes IA sur mesure, construits autour de votre façon de travailler, pas un gabarit générique.",
       heroCta: "Réserver un Appel Stratégique Gratuit",
+      faqTitle: "Questions Fréquentes",
+      faq: [
+        { q: "Combien de temps ça prend?", a: "Ça dépend du projet — un site web prend généralement 1 à 2 semaines, un agent IA ou système d'automatisation peut prendre 2 à 4 semaines selon la complexité." },
+        { q: "Quelle technologie utilisez-vous?", a: "Pour les sites web : Next.js, hébergé sur Vercel. Pour les automatisations simples (déclencheur → action) : n8n. Pour les systèmes IA plus complexes (agents qui lisent, pensent et agissent) : Claude Code." },
+        { q: "Est-ce que je suis propriétaire du code une fois terminé?", a: "NestLine reste propriétaire du code et de l'infrastructure dans le cadre du forfait standard, qui inclut l'hébergement, la maintenance et les mises à jour. La pleine propriété du code est possible pour un montant additionnel." },
+        { q: "Qu'est-ce qui est inclus dans le forfait mensuel?", a: "Le forfait mensuel couvre l'hébergement, le monitoring, les mises à jour, et les ajustements continus au système — pas de frais supplémentaires pour des changements courants." },
+        { q: "Est-ce que je peux demander des changements après le lancement?", a: "Oui, en tout temps, inclus dans le forfait mensuel — pas de frais supplémentaires." },
+        { q: "Travaillez-vous avec mon type d'entreprise?", a: "NestLine a livré des projets pour des courtiers financiers et des consultants en génie/approvisionnement. On cible aussi activement les entrepreneurs, agents immobiliers et autres entreprises de services, mais il n'y a pas encore de client livré dans ces secteurs précis." },
+      ],
     },
     team: {
       badge: "Qui Nous Sommes",

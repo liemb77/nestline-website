@@ -27,8 +27,22 @@ export default function AiConsultingPage() {
   const tx = t[lang].aiConsulting;
   const stx = t[lang].services;
 
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: tx.faq.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <Navbar />
       <main className="pt-[72px]">
 
@@ -108,6 +122,24 @@ export default function AiConsultingPage() {
 
         {/* ── Pricing (full tier breakdown) ── */}
         <Pricing />
+
+        {/* ── FAQ ── */}
+        <section className="py-20 lg:py-28 relative overflow-hidden">
+          <div className="max-w-3xl mx-auto px-6 lg:px-8">
+            <p className="text-center text-xs font-bold tracking-[0.2em] uppercase text-white/25 mb-10">{tx.faqTitle}</p>
+            <div className="flex flex-col gap-3">
+              {tx.faq.map((item) => (
+                <details key={item.q} className="group rounded-xl glass px-6 py-4">
+                  <summary className="flex items-center justify-between cursor-pointer list-none text-sm font-bold text-white">
+                    {item.q}
+                    <span className="text-[#00e887] text-lg leading-none transition-transform group-open:rotate-45">+</span>
+                  </summary>
+                  <p className="text-sm text-white/45 leading-relaxed mt-3">{item.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
 
       </main>
 
