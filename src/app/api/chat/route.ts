@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import Anthropic from "@anthropic-ai/sdk";
 import { KNOWLEDGE_BASE } from "@/lib/knowledgeBase";
+import { isRateLimited, getClientIp } from "@/lib/rateLimit";
 
 const MAX_MESSAGE_LENGTH = 1000;
 const MAX_HISTORY_TURNS = 6;
@@ -16,51 +17,11 @@ interface ChatMessage {
   content: string;
 }
 
-// --- Rate limiting ---
-// In-memory, scoped to a single serverless instance — resets on cold start
-// and isn't shared across concurrent instances, so this is a deterrent
-// against casual/single-source spam, not a hard guarantee under a
-// distributed attack. The real financial backstop is the spend limit set
-// directly in the Anthropic Console (Settings -> Limits) — set that too.
-const IP_WINDOW_MS = 10 * 60 * 1000;
-const MAX_REQUESTS_PER_IP = 8;
-const MAX_REQUESTS_PER_DAY = 300;
-
-const ipHits = new Map<string, number[]>();
-let dailyCount = 0;
-let dailyResetAt = nextUtcMidnight();
-
-function nextUtcMidnight(): number {
-  const d = new Date();
-  d.setUTCHours(24, 0, 0, 0);
-  return d.getTime();
-}
-
-function isRateLimited(ip: string): boolean {
-  const now = Date.now();
-
-  if (now >= dailyResetAt) {
-    dailyCount = 0;
-    dailyResetAt = nextUtcMidnight();
-  }
-  if (dailyCount >= MAX_REQUESTS_PER_DAY) return true;
-
-  const recentHits = (ipHits.get(ip) ?? []).filter((t) => now - t < IP_WINDOW_MS);
-  if (recentHits.length >= MAX_REQUESTS_PER_IP) {
-    ipHits.set(ip, recentHits);
-    return true;
-  }
-
-  recentHits.push(now);
-  ipHits.set(ip, recentHits);
-  dailyCount += 1;
-  return false;
-}
-
-function getClientIp(req: NextRequest): string {
-  const forwardedFor = req.headers.get("x-forwarded-for");
-  return forwardedFor ? forwardedFor.split(",")[0].trim() : "unknown";
-}
+// This is the only endpoint with real per-request dollar cost (Anthropic API
+// calls), so it gets the tightest limits. The real financial backstop is
+// still the spend limit set directly in the Anthropic Console (Settings ->
+// Limits) — in-memory rate limiting alone doesn't survive a distributed attack.
+const CHAT_RATE_LIMIT = { windowMs: 10 * 60 * 1000, maxPerWindow: 8, maxPerDay: 300 };
 
 export async function POST(req: NextRequest) {
   if (!process.env.CLAUDE_API_KEY) {
@@ -69,7 +30,7 @@ export async function POST(req: NextRequest) {
   }
 
   const ip = getClientIp(req);
-  if (isRateLimited(ip)) {
+  if (isRateLimited("chat", ip, CHAT_RATE_LIMIT)) {
     return NextResponse.json(
       { ok: false, error: "rate_limited" },
       { status: 429 }

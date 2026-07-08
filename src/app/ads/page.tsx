@@ -298,7 +298,7 @@ export default function AdsPage() {
                     <CardFooter>
                       <Button asChild className="w-full rounded-xl bg-[#00e887] text-[#050505] font-bold hover:bg-[#00e887]/90"
                         style={{ boxShadow: "0 0 30px rgba(0,232,135,0.3)" }}>
-                        <a href="/get-started">
+                        <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noopener noreferrer">
                           {tx.starter.cta}<ArrowRight className="ml-2 size-4" />
                         </a>
                       </Button>
@@ -333,7 +333,7 @@ export default function AdsPage() {
                     <CardFooter>
                       <Button asChild variant="outline"
                         className="w-full rounded-xl border-[#00c2ff]/30 bg-[#00c2ff]/10 text-[#00c2ff] hover:bg-[#00c2ff]/20 hover:text-[#00c2ff]">
-                        <a href="/get-started">
+                        <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noopener noreferrer">
                           {tx.full.cta}<ArrowRight className="ml-2 size-4" />
                         </a>
                       </Button>
@@ -346,7 +346,7 @@ export default function AdsPage() {
               <motion.p initial={{ opacity: 0 }} animate={pricingInView ? { opacity: 1 } : {}} transition={{ duration: 0.7, delay: 0.5 }}
                 className="text-center text-xs text-white/20 mt-8 leading-relaxed">
                 {tx.footerNote}{" "}
-                <a href="/get-started"
+                <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noopener noreferrer"
                   className="text-[#00e887]/60 hover:text-[#00e887] hover:underline transition-colors">
                   {tx.footerLink}
                 </a>
