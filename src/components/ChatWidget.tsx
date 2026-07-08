@@ -18,6 +18,7 @@ const COPY = {
     placeholder: "Type your question…",
     greeting: "Hey! Ask me anything about NestLine's services, pricing, or how we work.",
     error: "Something went wrong — try again, or book a call directly.",
+    rateLimited: "You're sending messages a bit fast — give it a minute and try again.",
   },
   fr: {
     launcherLabel: "Clavarder avec NestLine",
@@ -26,6 +27,7 @@ const COPY = {
     placeholder: "Écris ta question…",
     greeting: "Salut! Pose-moi une question sur les services, les prix, ou comment on travaille.",
     error: "Une erreur est survenue — réessaie, ou réserve un appel directement.",
+    rateLimited: "Tu envoies des messages un peu vite — attends une minute et réessaie.",
   },
 };
 
@@ -60,6 +62,10 @@ export default function ChatWidget() {
       });
       const data = await res.json();
 
+      if (res.status === 429) {
+        setMessages([...nextMessages, { role: "assistant", content: copy.rateLimited }]);
+        return;
+      }
       if (!res.ok || !data.ok) throw new Error(data.error || "Chat request failed");
 
       setMessages([...nextMessages, { role: "assistant", content: data.reply }]);
