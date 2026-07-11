@@ -12,7 +12,7 @@ const stepIcons = [CalendarCheck, Globe, Workflow, BarChart3];
 export default function Services() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
-  const { lang } = useLanguage();
+  const { lang, href } = useLanguage();
   const tx = t[lang].services;
 
   return (
@@ -62,7 +62,7 @@ export default function Services() {
                   </li>
                 ))}
               </ul>
-              <a href="/ai-consulting"
+              <a href={href("/ai-consulting")}
                 className="group/btn flex items-center gap-2 text-sm font-semibold text-[#00e887] hover:gap-3 transition-all duration-200 mt-1">
                 {tx.card1.cta}<ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
               </a>
@@ -91,7 +91,7 @@ export default function Services() {
                   </li>
                 ))}
               </ul>
-              <a href="/websites"
+              <a href={href("/websites")}
                 className="group/btn flex items-center gap-2 text-sm font-semibold text-[#00e887] hover:gap-3 transition-all duration-200 mt-1">
                 {tx.card2.cta}<ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
               </a>
@@ -120,7 +120,7 @@ export default function Services() {
                   </li>
                 ))}
               </ul>
-              <a href="/ads"
+              <a href={href("/ads")}
                 className="group/btn flex items-center gap-2 text-sm font-semibold text-[#00e887] hover:gap-3 transition-all duration-200 mt-1">
                 {tx.card3.cta}<ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
               </a>

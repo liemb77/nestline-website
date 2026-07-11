@@ -107,8 +107,8 @@ const content = {
   },
 };
 
-export default function PrivacyPolicyPage() {
-  const { lang } = useLanguage();
+export default function PrivacyPolicyClient() {
+  const { lang, href } = useLanguage();
   const tx = content[lang];
 
   return (
@@ -134,7 +134,7 @@ export default function PrivacyPolicyPage() {
         </div>
 
         <div className="mt-16 border-t border-white/[0.06] pt-8">
-          <a href="/" className="text-sm text-[#00e887]/70 hover:text-[#00e887] transition-colors">
+          <a href={href("/")} className="text-sm text-[#00e887]/70 hover:text-[#00e887] transition-colors">
             {lang === 'en' ? '← Back to home' : '← Retour à l\'accueil'}
           </a>
         </div>

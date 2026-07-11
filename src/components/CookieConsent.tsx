@@ -21,7 +21,7 @@ const copy = {
 };
 
 export default function CookieConsent() {
-  const { lang } = useLanguage();
+  const { lang, href } = useLanguage();
   const [visible, setVisible] = useState(false);
   const [animIn, setAnimIn] = useState(false);
   const tx = copy[lang];
@@ -53,7 +53,7 @@ export default function CookieConsent() {
         <p className="text-sm text-white/60 leading-relaxed mb-4">
           {tx.text}{' '}
           <a
-            href="/privacy-policy"
+            href={href("/privacy-policy")}
             className="text-[#00e887] hover:underline"
           >
             {tx.link}

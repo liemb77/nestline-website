@@ -12,19 +12,14 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
-  const isHome = pathname === "/";
-  const { lang, toggle } = useLanguage();
+  const { lang, toggle, href } = useLanguage();
   const tx = t[lang].nav;
 
-  const baseLinks = [
-    { label: tx.aiConsulting, href: "/ai-consulting" },
-    { label: tx.websites, href: "/websites" },
-    { label: tx.ads,      href: "/ads" },
+  const links = [
+    { label: tx.aiConsulting, href: href("/ai-consulting") },
+    { label: tx.websites, href: href("/websites") },
+    { label: tx.ads,      href: href("/ads") },
   ];
-
-  const links = baseLinks.map((l) =>
-    l.href.startsWith("#") && !isHome ? { ...l, href: `/${l.href}` } : l
-  );
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 24);
@@ -45,7 +40,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-[72px]">
         {/* Logo */}
-        <Link href="/" className="flex items-center shrink-0">
+        <Link href={href("/")} className="flex items-center shrink-0">
           <img src="/logo.png" alt="NestLine" className="h-16 lg:h-20 w-auto" />
         </Link>
 
@@ -56,11 +51,7 @@ export default function Navbar() {
               key={l.label}
               href={l.href}
               className={`text-[13px] font-medium tracking-wide transition-colors duration-200 ${
-                (l.href === "/websites" && pathname === "/websites") ||
-                (l.href === "/ads" && pathname === "/ads") ||
-                (l.href === "/ai-consulting" && pathname === "/ai-consulting")
-                  ? "text-white"
-                  : "text-white/45 hover:text-white"
+                pathname === l.href ? "text-white" : "text-white/45 hover:text-white"
               }`}
             >
               {l.label}

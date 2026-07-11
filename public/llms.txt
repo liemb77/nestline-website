@@ -6,14 +6,14 @@ NestLine serves contractors, real estate agents, financial advisors, and other s
 
 ## Services
 
-- [AI Consulting](https://nestlineautomation.ca/ai-consulting): Done-for-you AI systems — lead capture & follow-up agents, customer service chatbots, internal knowledge base (RAG) agents, voice AI receptionists, document processing, appointment booking, and full business automation.
-- [Website Design](https://nestlineautomation.ca/websites): Custom, mobile-responsive websites built to convert, automation-ready from day one.
-- [Ads Management](https://nestlineautomation.ca/ads): Google and Meta ad campaign management with full transparency and no hidden fees.
+- [AI Consulting](https://nestlineautomation.ca/en/ai-consulting): Done-for-you AI systems — lead capture & follow-up agents, customer service chatbots, internal knowledge base (RAG) agents, voice AI receptionists, document processing, appointment booking, and full business automation. Custom-quoted after a free discovery call; initial build often takes 2–5 days once access and inputs are available, though testing, revisions, and approval can extend the total timeline.
+- [Website Design](https://nestlineautomation.ca/en/websites): Custom, mobile-responsive websites built to convert, automation-ready from day one. Starting from $1,500 setup + $150/month.
+- [Ads Management](https://nestlineautomation.ca/en/ads): Google and Meta ad campaign management with full transparency and no hidden fees.
 
 ## Company
 
-- [About / Homepage](https://nestlineautomation.ca): Overview of NestLine's three core services and how we work.
-- [Contact / Book a Call](https://cal.com/liem-blouin/discovery?overlayCalendar=true): Free discovery call to discuss an AI project.
-- Founded and led by Liem Blouin (Founder) and Justin Berthelette (Sales), based in Quebec, Canada.
+- [About / Homepage](https://nestlineautomation.ca/en): Overview of NestLine's three core services and how we work. Also available in French at [nestlineautomation.ca/fr](https://nestlineautomation.ca/fr).
+- [Contact / Book a Call](https://cal.com/liem-blouin/discovery?overlayCalendar=true): Free discovery call to discuss a project.
+- Founded and led by Liem Blouin (Founder) and Justin Berthelette (Sales), based in Montreal, Quebec, Canada.
 - Areas served: Montreal, Laval, Longueuil, Quebec City, Gatineau, and the broader province of Quebec.
 - Contact: liem@nestlineautomation.ca

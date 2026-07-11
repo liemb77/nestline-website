@@ -33,7 +33,7 @@ export default function Contact() {
               <p className="text-white/40 text-lg leading-relaxed mb-10 max-w-md">{tx.sub}</p>
               <div className="flex flex-col gap-3 mb-10">
                 {[
-                  { Icon: Mail,   text: "liem@trynestline.com" },
+                  { Icon: Mail,   text: "liem@nestlineautomation.ca" },
                   { Icon: MapPin, text: tx.location },
                 ].map(({ Icon, text }) => (
                   <div key={text} className="flex items-center gap-3 text-sm text-white/40">
@@ -46,7 +46,7 @@ export default function Contact() {
               </div>
               <div className="grid grid-cols-1 gap-3">
                 <div className="rounded-2xl glass p-4 text-center">
-                  <p className="text-2xl font-extrabold text-white">14 {lang === "en" ? "days" : "jours"}</p>
+                  <p className="text-2xl font-extrabold text-white">2–5 {lang === "en" ? "days" : "jours"}</p>
                   <p className="text-xs text-white/30 mt-1">{tx.statLabel}</p>
                 </div>
               </div>

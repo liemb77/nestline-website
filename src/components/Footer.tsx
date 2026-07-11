@@ -4,15 +4,15 @@ import { useLanguage } from "@/contexts/language-context";
 import { t } from "@/lib/translations";
 
 export default function Footer() {
-  const { lang } = useLanguage();
+  const { lang, href } = useLanguage();
   const tx = t[lang].footer;
 
   const links = {
     [tx.company]: [
       { label: t[lang].nav.services,  href: "#services" },
-      { label: t[lang].nav.aiConsulting, href: "/ai-consulting" },
+      { label: t[lang].nav.aiConsulting, href: href("/ai-consulting") },
       { label: t[lang].nav.contact,   href: "#contact" },
-      { label: t[lang].nav.websites,  href: "/websites" },
+      { label: t[lang].nav.websites,  href: href("/websites") },
     ],
   };
 
@@ -22,7 +22,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-10 mb-14">
           <div className="col-span-2">
-            <a href="/" className="inline-flex items-center mb-5">
+            <a href={href("/")} className="inline-flex items-center mb-5">
               <img src="/logo.png" alt="NestLine" className="h-12 w-auto" />
             </a>
             <p className="text-sm text-white/30 max-w-xs leading-relaxed mb-6">{tx.tagline}</p>
@@ -47,7 +47,7 @@ export default function Footer() {
         </div>
         <div className="divider mb-7" />
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-white/20">© {new Date().getFullYear()} NestLine Automation. {tx.copyright} · <a href="/privacy-policy" className="hover:text-white/50 transition-colors">{tx.privacy}</a></p>
+          <p className="text-xs text-white/20">© {new Date().getFullYear()} NestLine Automation. {tx.copyright} · <a href={href("/privacy-policy")} className="hover:text-white/50 transition-colors">{tx.privacy}</a></p>
           <div className="flex items-center gap-5">
             <a href="https://www.linkedin.com/in/liem-blouin-99212a365/" target="_blank" rel="noopener noreferrer" className="text-white/20 hover:text-white transition-colors duration-200" aria-label="LinkedIn">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">

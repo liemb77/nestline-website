@@ -122,6 +122,15 @@ export const FluidParticlesBackground = ({
     const ctx = canvas.getContext("2d", { alpha: true });
     if (!ctx) return;
 
+    // Respect the user's motion preference — skip the animated canvas entirely.
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
+    // Cut particle count on smaller/mobile viewports — this canvas redraws every
+    // frame on every page, and it's the single heaviest thing running on mobile.
+    const isMobile = window.innerWidth < 768;
+    const effectiveParticleCount = isMobile ? Math.round(particleCount * 0.35) : particleCount;
+
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -129,7 +138,7 @@ export const FluidParticlesBackground = ({
 
     resizeCanvas();
 
-    const particles: Particle[] = Array.from({ length: particleCount }, () => ({
+    const particles: Particle[] = Array.from({ length: effectiveParticleCount }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       size:

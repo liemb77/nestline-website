@@ -75,12 +75,12 @@ function PricingParticles() {
   return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-60 pointer-events-none" />;
 }
 
-export default function AdsPage() {
+export default function AdsClient() {
   const platformRef = useRef(null);
   const pricingRef = useRef(null);
   const platformInView = useInView(platformRef, { once: true, margin: "-80px" });
   const pricingInView = useInView(pricingRef, { once: true, margin: "-80px" });
-  const { lang } = useLanguage();
+  const { lang, href } = useLanguage();
   const tx = t[lang].ads;
 
   return (
@@ -360,7 +360,7 @@ export default function AdsPage() {
 
       <footer className="border-t border-white/[0.05] py-8">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <Link href="/" className="flex items-center">
+          <Link href={href("/")} className="flex items-center">
             <img src="/logo.png" alt="NestLine Automation" className="h-10 w-auto" />
           </Link>
           <p className="text-xs text-white/20">© {new Date().getFullYear()} NestLine Automation. All rights reserved.</p>

@@ -9,43 +9,43 @@ NestLine builds AI systems that do real work inside your business — not just c
 
 ## 1. Lead Capture & Follow-Up Agent
 Best for: Contractors, service businesses. Captures every website or form lead the moment it comes in and follows up automatically by email/SMS until they book a call — so no lead goes cold from a slow response.
-Setup: $1,500 | Monthly: $600/mo
+Pricing: Custom-quoted after a discovery call — setup fee plus monthly retainer.
 
 ## 2. Customer Service AI (Chatbot)
 Best for: Contractors, service businesses. Answers customer questions on your website 24/7, qualifies visitors, and hands off to you only when it's a real opportunity.
-Setup: $3,000 | Monthly: $800/mo
+Pricing: Custom-quoted after a discovery call — setup fee plus monthly retainer.
 
 ## 3. Internal Knowledge Base (RAG Agent)
 Best for: Real estate teams, larger contractors, firms with a lot of documentation. An AI that instantly answers staff or client questions by searching your own documents, pricing, and policies.
-Setup: $2,000 | Monthly: $500/mo
+Pricing: Custom-quoted after a discovery call — setup fee plus monthly retainer.
 
 ## 4. Sales Email Personalization
 Best for: Contractors, agencies. Writes personalized outreach and follow-up emails automatically based on each prospect's details, instead of generic templates.
-Setup: $1,000 | Monthly: $400/mo
+Pricing: Custom-quoted after a discovery call — setup fee plus monthly retainer.
 
 ## 5. Document Processing Agent
 Best for: Accounting, law, trades. Reads, sorts, and extracts data from contracts, invoices, or forms automatically.
-Setup: $750 | Monthly: $250/mo
+Pricing: Custom-quoted after a discovery call — setup fee plus monthly retainer.
 
 ## 6. Appointment Booking Agent
 Best for: Any service business. Books, confirms, and reminds clients automatically, synced directly to your calendar.
-Setup: $1,000 | Monthly: $400/mo
+Pricing: Custom-quoted after a discovery call — setup fee plus monthly retainer.
 
 ## 7. Social Content Generation
 Best for: Real estate, trades. Turns your business activity and case studies into ready-to-post social content automatically.
-Setup: $1,250 | Monthly: $400/mo
+Pricing: Custom-quoted after a discovery call — setup fee plus monthly retainer.
 
 ## 8. Voice AI Receptionist
 Best for: Trades, real estate, barbers, any business that lives on the phone. An AI phone agent that answers every call, books appointments, and routes urgent calls — 24/7.
-Setup: $3,000 | Monthly: $750/mo
+Pricing: Custom-quoted after a discovery call — setup fee plus monthly retainer.
 
 ## 9. Data Reporting Agent
 Best for: Any business owner. Pulls data from your systems and delivers a plain-English report on demand.
-Setup: $1,750 | Monthly: $450/mo
+Pricing: Custom-quoted after a discovery call — setup fee plus monthly retainer.
 
 ## 10. Onboarding Automation
 Best for: Agencies, consultants. Walks new clients or employees through onboarding automatically.
-Setup: $2,500 | Monthly: $800/mo
+Pricing: Custom-quoted after a discovery call — setup fee plus monthly retainer.
 
 ## Premium Tier: AI Operating System
 For businesses ready to go further than one agent — a custom dashboard combining multiple agents into a single system you can see, track, and talk to. Price scoped per engagement.
@@ -55,7 +55,7 @@ For businesses ready to go further than one agent — a custom dashboard combini
 # FAQ
 
 Q: Combien de temps ça prend?
-A: Ça dépend du projet — un site web prend généralement 1 à 2 semaines, un agent IA ou système d'automatisation peut prendre 2 à 4 semaines selon la complexité.
+A: Ça dépend du projet. La construction initiale prend souvent 2 à 5 jours une fois qu'on a accès et les informations nécessaires, mais les tests, corrections, révisions et l'approbation du client peuvent allonger le délai total.
 
 Q: Quelle technologie utilises-tu?
 A: Pour les sites web : Next.js, hébergé sur Vercel. Pour les automatisations simples : n8n. Pour les systèmes IA plus complexes (agents qui lisent, pensent et agissent) : Claude Code.
