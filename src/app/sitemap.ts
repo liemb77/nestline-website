@@ -5,9 +5,7 @@ const LOCALES = ["en", "fr"] as const;
 
 const PAGES: Array<{ path: string; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]; priority: number }> = [
   { path: "", changeFrequency: "weekly", priority: 1.0 },
-  { path: "/ai-consulting", changeFrequency: "monthly", priority: 0.9 },
   { path: "/websites", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/ads", changeFrequency: "monthly", priority: 0.8 },
   { path: "/privacy-policy", changeFrequency: "yearly", priority: 0.3 },
 ];
 

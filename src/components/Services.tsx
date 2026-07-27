@@ -2,12 +2,12 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { MessageSquareText, Globe, Megaphone, CheckCircle2, CalendarCheck, Workflow, BarChart3, ArrowRight } from "lucide-react";
+import { MessageSquareText, Globe, Megaphone, CheckCircle2, CalendarCheck, Workflow, ArrowRight } from "lucide-react";
 import { ScrollTiltWrapper } from "@/components/ui/scroll-tilt-wrapper";
 import { useLanguage } from "@/contexts/language-context";
 import { t } from "@/lib/translations";
 
-const stepIcons = [CalendarCheck, Globe, Workflow, BarChart3];
+const stepIcons = [Megaphone, MessageSquareText, CalendarCheck, Workflow];
 
 export default function Services() {
   const ref = useRef(null);
@@ -38,8 +38,8 @@ export default function Services() {
             <p className="text-white/40 text-lg max-w-xl mx-auto leading-relaxed">{tx.sub}</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-16">
-            {/* Card 1 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-16 max-w-4xl mx-auto">
+            {/* Card 1 - Ads + AI Automation (core offer) */}
             <motion.div initial={{ opacity: 0, y: 40 }} animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number,number,number,number], delay: 0.1 }}
               className="group relative rounded-2xl glass glass-hover p-8 overflow-hidden flex flex-col gap-6">
@@ -62,7 +62,7 @@ export default function Services() {
                   </li>
                 ))}
               </ul>
-              <a href={href("/ai-consulting")}
+              <a href="#pricing"
                 className="group/btn flex items-center gap-2 text-sm font-semibold text-[#00e887] hover:gap-3 transition-all duration-200 mt-1">
                 {tx.card1.cta}<ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
               </a>
@@ -94,35 +94,6 @@ export default function Services() {
               <a href={href("/websites")}
                 className="group/btn flex items-center gap-2 text-sm font-semibold text-[#00e887] hover:gap-3 transition-all duration-200 mt-1">
                 {tx.card2.cta}<ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-              </a>
-            </motion.div>
-
-            {/* Card 3 - Ads Management */}
-            <motion.div initial={{ opacity: 0, y: 40 }} animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number,number,number,number], delay: 0.3 }}
-              className="group relative rounded-2xl glass glass-hover p-8 overflow-hidden flex flex-col gap-6">
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00e887]/50 to-transparent" />
-              <div className="flex items-start justify-between">
-                <div className="w-12 h-12 rounded-xl bg-[#00e887]/10 border border-[#00e887]/20 flex items-center justify-center">
-                  <Megaphone className="w-5 h-5 text-[#00e887]" />
-                </div>
-                <span className="text-xs font-bold px-3 py-1 rounded-full bg-[#00e887]/10 text-[#00e887] border border-[#00e887]/20">{tx.card3.badge}</span>
-              </div>
-              <div>
-                <p className="text-xs font-semibold tracking-widest uppercase text-[#00e887]/60 mb-2">{tx.card3.tag}</p>
-                <h3 className="text-xl font-bold text-white mb-3">{tx.card3.title}</h3>
-                <p className="text-white/40 text-sm leading-relaxed">{tx.card3.desc}</p>
-              </div>
-              <ul className="flex flex-col gap-2.5 mt-auto">
-                {tx.card3.features.map((f) => (
-                  <li key={f} className="flex items-center gap-2.5 text-sm text-white/55">
-                    <CheckCircle2 className="w-4 h-4 text-[#00e887] shrink-0" />{f}
-                  </li>
-                ))}
-              </ul>
-              <a href={href("/ads")}
-                className="group/btn flex items-center gap-2 text-sm font-semibold text-[#00e887] hover:gap-3 transition-all duration-200 mt-1">
-                {tx.card3.cta}<ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
               </a>
             </motion.div>
           </div>
