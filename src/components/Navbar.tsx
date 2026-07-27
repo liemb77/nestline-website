@@ -16,9 +16,7 @@ export default function Navbar() {
   const tx = t[lang].nav;
 
   const links = [
-    { label: tx.aiConsulting, href: href("/ai-consulting") },
     { label: tx.websites, href: href("/websites") },
-    { label: tx.ads,      href: href("/ads") },
   ];
 
   useEffect(() => {

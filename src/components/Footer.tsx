@@ -10,7 +10,6 @@ export default function Footer() {
   const links = {
     [tx.company]: [
       { label: t[lang].nav.services,  href: "#services" },
-      { label: t[lang].nav.aiConsulting, href: href("/ai-consulting") },
       { label: t[lang].nav.contact,   href: "#contact" },
       { label: t[lang].nav.websites,  href: href("/websites") },
     ],
