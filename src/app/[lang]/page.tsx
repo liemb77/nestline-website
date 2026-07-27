@@ -4,7 +4,6 @@ import Founder from "@/components/Founder";
 import Marquee from "@/components/Marquee";
 import Problem from "@/components/Problem";
 import Services from "@/components/Services";
-import CaseStudies from "@/components/CaseStudies";
 import WhyNestline from "@/components/WhyNestline";
 import BookingProcess from "@/components/BookingProcess";
 import Team from "@/components/Team";
@@ -21,7 +20,6 @@ export default function Home() {
         <Marquee />
         <Problem />
         <Services />
-        <CaseStudies />
         <WhyNestline />
         <BookingProcess />
         <Team />
