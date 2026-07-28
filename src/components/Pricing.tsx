@@ -79,113 +79,43 @@ export default function Pricing() {
             <p className="text-white/40 text-lg max-w-lg mx-auto leading-relaxed">{tx.sub}</p>
           </motion.div>
 
-          <div className="flex flex-col md:flex-row items-stretch justify-center gap-6">
-            {/* Starter */}
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number,number,number,number], delay: 0.15 }}
-              className="relative flex-1 max-w-sm">
-              <Card className="h-full flex flex-col border-[#00e887]/30 bg-zinc-900/80 backdrop-blur"
-                style={{ boxShadow: "0 0 60px rgba(0,232,135,0.08), 0 20px 40px rgba(0,0,0,0.4)" }}>
-                <CardHeader className="pt-8">
-                  <span className="text-xs font-bold tracking-widest uppercase text-[#00e887]/70 mb-1">{tx.founders.tag}</span>
-                  <CardTitle className="text-zinc-50 text-xl">{tx.founders.headline}</CardTitle>
-                  <p className="text-sm text-zinc-400">{tx.founders.note}</p>
-                  <div className="pt-3">
-                    <p className="text-xs text-zinc-500 uppercase tracking-widest mb-1">{tx.founders.fromLabel}</p>
-                    <span className="text-3xl font-extrabold text-white">{tx.founders.fromPrice}</span>
-                    <span className="text-zinc-500 text-xs ml-2">{tx.founders.priceNote}</span>
-                  </div>
-                </CardHeader>
-                <CardContent className="flex-1">
-                  <Separator className="mb-5 bg-zinc-800" />
-                  <ul className="space-y-3">
-                    {tx.founders.features.map((f) => (
-                      <li key={f} className="flex items-center gap-2.5 text-zinc-200 text-sm">
-                        <CircleCheck className="size-4 text-[#00e887] shrink-0" />{f}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <Button asChild className="w-full rounded-xl bg-[#00e887] text-[#050505] font-bold hover:bg-[#00e887]/90" style={{ boxShadow: "0 0 30px rgba(0,232,135,0.3)" }}>
-                    <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noopener noreferrer">
-                      {tx.founders.cta}<ArrowRight className="ml-2 size-4" />
-                    </a>
-                  </Button>
-                </CardFooter>
-              </Card>
-            </motion.div>
-
-            {/* Growth Plan */}
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number,number,number,number], delay: 0.28 }}
-              className="relative flex-1 max-w-sm">
-              <Card className="h-full flex flex-col border-zinc-700 bg-zinc-900/70 backdrop-blur">
-                <CardHeader>
-                  <span className="text-xs font-bold tracking-widest uppercase text-zinc-500 mb-1">{tx.growth.tag}</span>
-                  <CardTitle className="text-zinc-50 text-xl">{tx.growth.title}</CardTitle>
-                  <p className="text-sm text-zinc-400">{tx.growth.desc}</p>
-                  <div className="pt-3">
-                    <p className="text-xs text-zinc-500 uppercase tracking-widest mb-1">{tx.growth.fromLabel}</p>
-                    <span className="text-3xl font-extrabold text-white">{tx.growth.fromPrice}</span>
-                    <span className="text-zinc-500 text-xs ml-2">{tx.growth.priceNote}</span>
-                  </div>
-                </CardHeader>
-                <CardContent className="flex-1">
-                  <Separator className="mb-5 bg-zinc-800" />
-                  <ul className="space-y-3">
-                    {tx.growth.features.map((f) => (
-                      <li key={f} className="flex items-center gap-2.5 text-zinc-200 text-sm">
-                        <CircleCheck className="size-4 text-[#00e887] shrink-0" />{f}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <Button asChild variant="outline" className="w-full rounded-xl border-zinc-600 bg-transparent text-zinc-200 hover:bg-zinc-800 hover:text-white">
-                    <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noopener noreferrer">
-                      {tx.growth.cta}<ArrowRight className="ml-2 size-4" />
-                    </a>
-                  </Button>
-                </CardFooter>
-              </Card>
-            </motion.div>
-
-            {/* Enterprise Plan */}
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number,number,number,number], delay: 0.4 }}
-              className="relative flex-1 max-w-sm">
-              <Card className="h-full flex flex-col border-zinc-700 bg-zinc-900/70 backdrop-blur">
-                <CardHeader>
-                  <span className="text-xs font-bold tracking-widest uppercase text-zinc-500 mb-1">{tx.enterprise.tag}</span>
-                  <CardTitle className="text-zinc-50 text-xl">{tx.enterprise.title}</CardTitle>
-                  <p className="text-sm text-zinc-400">{tx.enterprise.desc}</p>
-                  <div className="pt-3">
-                    <p className="text-xs text-zinc-500 uppercase tracking-widest mb-1">{tx.enterprise.fromLabel}</p>
-                    <span className="text-3xl font-extrabold text-white">{tx.enterprise.fromPrice}</span>
-                    <span className="text-zinc-500 text-xs ml-2">{tx.enterprise.priceNote}</span>
-                  </div>
-                </CardHeader>
-                <CardContent className="flex-1">
-                  <Separator className="mb-5 bg-zinc-800" />
-                  <ul className="space-y-3">
-                    {tx.enterprise.features.map((f) => (
-                      <li key={f} className="flex items-center gap-2.5 text-zinc-200 text-sm">
-                        <CircleCheck className="size-4 text-[#00e887] shrink-0" />{f}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <Button asChild variant="outline" className="w-full rounded-xl border-zinc-600 bg-transparent text-zinc-200 hover:bg-zinc-800 hover:text-white">
-                    <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noopener noreferrer">
-                      {tx.enterprise.cta}<ArrowRight className="ml-2 size-4" />
-                    </a>
-                  </Button>
-                </CardFooter>
-              </Card>
-            </motion.div>
-          </div>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number,number,number,number], delay: 0.15 }}
+            className="relative max-w-2xl mx-auto">
+            <Card className="border-[#00e887]/30 bg-zinc-900/80 backdrop-blur"
+              style={{ boxShadow: "0 0 60px rgba(0,232,135,0.08), 0 20px 40px rgba(0,0,0,0.4)" }}>
+              <CardHeader className="pt-8 text-center">
+                <CardTitle className="text-zinc-50 text-2xl">{tx.title}</CardTitle>
+                <p className="text-sm text-zinc-400 max-w-md mx-auto">{tx.note}</p>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 py-2">
+                  {[tx.monthly, tx.setup, tx.adSpend].map((item) => (
+                    <div key={item.label} className="text-center sm:text-left">
+                      <p className="text-xs text-zinc-500 uppercase tracking-widest mb-1">{item.label}</p>
+                      <span className="text-3xl font-extrabold text-white">{item.price}</span>
+                      <p className="text-zinc-500 text-xs mt-1">{item.unit}</p>
+                    </div>
+                  ))}
+                </div>
+                <Separator className="my-6 bg-zinc-800" />
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+                  {tx.features.map((f) => (
+                    <li key={f} className="flex items-center gap-2.5 text-zinc-200 text-sm">
+                      <CircleCheck className="size-4 text-[#00e887] shrink-0" />{f}
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+              <CardFooter>
+                <Button asChild className="w-full rounded-xl bg-[#00e887] text-[#050505] font-bold hover:bg-[#00e887]/90" style={{ boxShadow: "0 0 30px rgba(0,232,135,0.3)" }}>
+                  <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noopener noreferrer">
+                    {tx.cta}<ArrowRight className="ml-2 size-4" />
+                  </a>
+                </Button>
+              </CardFooter>
+            </Card>
+          </motion.div>
 
           <motion.p initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ duration: 0.6, delay: 0.5 }}
             className="text-center text-xs text-white/20 mt-10">{tx.footer}</motion.p>
