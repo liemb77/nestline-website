@@ -214,41 +214,6 @@ export default function WebsitesClient() {
                   </Card>
                 </motion.div>
 
-                {/* Premium */}
-                <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number,number,number,number], delay: 0.28 }}
-                  className="relative flex-1 max-w-sm md:translate-y-2">
-                  <Card className="h-full flex flex-col border-zinc-800 bg-zinc-900/50 backdrop-blur">
-                    <CardHeader>
-                      <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#00c2ff] mb-1">{tx.premium.tag}</p>
-                      <CardTitle className="text-zinc-50 text-xl">{tx.premium.title}</CardTitle>
-                      <p className="text-sm text-zinc-400">{tx.premium.desc}</p>
-                      <div className="pt-2">
-                        <span className="text-4xl font-extrabold text-white">{tx.premium.price}</span>
-                        <p className="text-xs text-zinc-500 mt-1">{tx.premium.priceNote}</p>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="flex-1">
-                      <Separator className="mb-5 bg-zinc-800" />
-                      <ul className="space-y-3">
-                        {tx.premium.features.map((label) => (
-                          <li key={label} className="flex items-center gap-2.5 text-zinc-200 text-sm">
-                            <CircleCheck className="size-4 text-[#00c2ff] shrink-0" />{label}
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                    <CardFooter>
-                      <Button asChild variant="outline"
-                        className="w-full rounded-xl border-[#00c2ff]/30 bg-[#00c2ff]/10 text-[#00c2ff] hover:bg-[#00c2ff]/20 hover:text-[#00c2ff]">
-                        <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noopener noreferrer">
-                          {tx.premium.cta}<ArrowRight className="ml-2 size-4" />
-                        </a>
-                      </Button>
-                    </CardFooter>
-                  </Card>
-                </motion.div>
-
               </div>
 
               {/* Bundle callout */}
