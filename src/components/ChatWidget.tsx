@@ -10,13 +10,19 @@ interface ChatMessage {
   content: string;
 }
 
+const NUDGE_DELAY_MS = 7000;
+const NUDGE_AUTO_HIDE_MS = 16000;
+const NUDGE_SEEN_KEY = "nestline_chat_nudge_seen";
+
 const COPY = {
   en: {
     launcherLabel: "Chat with NestLine",
     title: "NestLine Assistant",
     subtitle: "Ask about pricing, timelines, or how it works",
     placeholder: "Type your question…",
-    greeting: "Hey! Ask me anything about NestLine's services, pricing, or how we work.",
+    greeting: "Hey! What's slowing you down in your business right now? Tell me a bit about it and I can tell you if we're a fit.",
+    nudge: "Not sure if we're a fit? Ask me anything — takes 30 seconds.",
+    nudgeDismissLabel: "Dismiss",
     error: "Something went wrong — try again, or book a call directly.",
     rateLimited: "You're sending messages a bit fast — give it a minute and try again.",
   },
@@ -25,7 +31,9 @@ const COPY = {
     title: "Assistant NestLine",
     subtitle: "Pose-moi une question sur les prix, les délais, ou comment ça marche",
     placeholder: "Écris ta question…",
-    greeting: "Salut! Pose-moi une question sur les services, les prix, ou comment on travaille.",
+    greeting: "Salut! Qu'est-ce qui te ralentit le plus dans ton entreprise en ce moment? Raconte-moi un peu, je peux te dire si on est un bon fit.",
+    nudge: "Pas sûr qu'on soit un bon fit? Pose-moi une question — ça prend 30 secondes.",
+    nudgeDismissLabel: "Fermer",
     error: "Une erreur est survenue — réessaie, ou réserve un appel directement.",
     rateLimited: "Tu envoies des messages un peu vite — attends une minute et réessaie.",
   },
@@ -39,11 +47,34 @@ export default function ChatWidget() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showNudge, setShowNudge] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
   }, [messages, loading]);
+
+  useEffect(() => {
+    if (sessionStorage.getItem(NUDGE_SEEN_KEY)) return;
+
+    const showTimer = setTimeout(() => {
+      setShowNudge(true);
+      sessionStorage.setItem(NUDGE_SEEN_KEY, "1");
+    }, NUDGE_DELAY_MS);
+
+    return () => clearTimeout(showTimer);
+  }, []);
+
+  useEffect(() => {
+    if (!showNudge) return;
+    const hideTimer = setTimeout(() => setShowNudge(false), NUDGE_AUTO_HIDE_MS);
+    return () => clearTimeout(hideTimer);
+  }, [showNudge]);
+
+  function openFromNudge() {
+    setShowNudge(false);
+    setOpen(true);
+  }
 
   async function sendMessage() {
     const text = input.trim();
@@ -140,8 +171,37 @@ export default function ChatWidget() {
         )}
       </AnimatePresence>
 
+      <AnimatePresence>
+        {showNudge && !open && (
+          <motion.div
+            initial={{ opacity: 0, y: 8, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 8, scale: 0.96 }}
+            transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="w-[min(280px,calc(100vw-2rem))] rounded-2xl glass px-4 py-3 flex items-start gap-2.5 cursor-pointer"
+            style={{ border: "1px solid rgba(46,230,166,0.2)" }}
+            onClick={openFromNudge}
+          >
+            <p className="flex-1 text-sm leading-relaxed text-white/80">{copy.nudge}</p>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowNudge(false);
+              }}
+              aria-label={copy.nudgeDismissLabel}
+              className="shrink-0 text-white/30 hover:text-white/60 transition-colors"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <button
-        onClick={() => setOpen((o) => !o)}
+        onClick={() => {
+          setShowNudge(false);
+          setOpen((o) => !o);
+        }}
         aria-label={copy.launcherLabel}
         className="w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-105"
         style={{ background: "#2ee6a6" }}
