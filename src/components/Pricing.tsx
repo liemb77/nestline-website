@@ -33,7 +33,7 @@ function PricingParticles() {
     const draw = () => {
       const w = canvas.width / (window.devicePixelRatio || 1); const h = canvas.height / (window.devicePixelRatio || 1);
       ctx.clearRect(0, 0, w, h);
-      parts.forEach((p) => { p.y -= p.v; if (p.y < 0) { p.x = Math.random() * w; p.y = h + 40; p.v = Math.random() * 0.3 + 0.05; p.o = Math.random() * 0.25 + 0.08; } ctx.fillStyle = `rgba(0,232,135,${p.o})`; ctx.fillRect(p.x, p.y, 0.7, 2.2); });
+      parts.forEach((p) => { p.y -= p.v; if (p.y < 0) { p.x = Math.random() * w; p.y = h + 40; p.v = Math.random() * 0.3 + 0.05; p.o = Math.random() * 0.25 + 0.08; } ctx.fillStyle = `rgba(46,230,166,${p.o})`; ctx.fillRect(p.x, p.y, 0.7, 2.2); });
       raf = requestAnimationFrame(draw);
     };
     const ro = new ResizeObserver(() => { setSize(); init(); }); ro.observe(canvas.parentElement || document.body);
@@ -65,7 +65,7 @@ export default function Pricing() {
         <div className="vl"/><div className="vl"/><div className="vl"/>
       </div>
       <PricingParticles />
-      <div className="pointer-events-none absolute inset-0 [background:radial-gradient(70%_50%_at_50%_0%,rgba(0,232,135,0.05),transparent_60%)]" />
+      <div className="pointer-events-none absolute inset-0 [background:radial-gradient(70%_50%_at_50%_0%,rgba(46,230,166,0.05),transparent_60%)]" />
 
       <ScrollTiltWrapper>
         <div className="relative max-w-6xl mx-auto px-6 lg:px-8">
@@ -73,19 +73,19 @@ export default function Pricing() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
             className="text-center mb-14">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-[0.18em] uppercase glass text-white/40 mb-8">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#00e887] animate-pulse" />{tx.badge}
+              <span className="w-1.5 h-1.5 rounded-full bg-[#2ee6a6] animate-pulse" />{tx.badge}
             </span>
-            <h2 className="text-[clamp(2.2rem,5vw,4rem)] font-extrabold tracking-tight leading-[1.06] mb-5">{tx.headline}</h2>
+            <h2 className="font-heading text-[clamp(2.2rem,5vw,4rem)] leading-[1.06] mb-5">{tx.headline}</h2>
             <p className="text-white/40 text-lg max-w-lg mx-auto leading-relaxed">{tx.sub}</p>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number,number,number,number], delay: 0.15 }}
             className="relative max-w-2xl mx-auto">
-            <Card className="border-[#00e887]/30 bg-zinc-900/80 backdrop-blur"
-              style={{ boxShadow: "0 0 60px rgba(0,232,135,0.08), 0 20px 40px rgba(0,0,0,0.4)" }}>
+            <Card className="border-[#2ee6a6]/30 bg-zinc-900/80 backdrop-blur"
+              style={{ boxShadow: "0 0 60px rgba(46,230,166,0.08), 0 20px 40px rgba(0,0,0,0.4)" }}>
               <CardHeader className="pt-8 text-center">
-                <CardTitle className="text-zinc-50 text-2xl">{tx.title}</CardTitle>
+                <CardTitle className="font-heading text-zinc-50 text-2xl">{tx.title}</CardTitle>
                 <p className="text-sm text-zinc-400 max-w-md mx-auto">{tx.note}</p>
               </CardHeader>
               <CardContent>
@@ -93,7 +93,7 @@ export default function Pricing() {
                   {[tx.monthly, tx.setup, tx.adSpend].map((item) => (
                     <div key={item.label} className="text-center sm:text-left">
                       <p className="text-xs text-zinc-500 uppercase tracking-widest mb-1">{item.label}</p>
-                      <span className="text-3xl font-extrabold text-white">{item.price}</span>
+                      <span className="font-heading text-3xl text-white">{item.price}</span>
                       <p className="text-zinc-500 text-xs mt-1">{item.unit}</p>
                     </div>
                   ))}
@@ -102,13 +102,13 @@ export default function Pricing() {
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
                   {tx.features.map((f) => (
                     <li key={f} className="flex items-center gap-2.5 text-zinc-200 text-sm">
-                      <CircleCheck className="size-4 text-[#00e887] shrink-0" />{f}
+                      <CircleCheck className="size-4 text-[#2ee6a6] shrink-0" />{f}
                     </li>
                   ))}
                 </ul>
               </CardContent>
               <CardFooter>
-                <Button asChild className="w-full rounded-xl bg-[#00e887] text-[#050505] font-bold hover:bg-[#00e887]/90" style={{ boxShadow: "0 0 30px rgba(0,232,135,0.3)" }}>
+                <Button asChild className="w-full rounded-xl bg-[#2ee6a6] text-[#050505] font-bold hover:bg-[#2ee6a6]/90" style={{ boxShadow: "0 0 30px rgba(46,230,166,0.3)" }}>
                   <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noopener noreferrer">
                     {tx.cta}<ArrowRight className="ml-2 size-4" />
                   </a>

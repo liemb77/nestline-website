@@ -17,7 +17,7 @@ export default function Footer() {
 
   return (
     <footer className="relative border-t border-white/[0.05] pt-16 pb-8">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-20 bg-gradient-to-b from-[#00e887]/20 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-20 bg-gradient-to-b from-[#2ee6a6]/20 to-transparent" />
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-10 mb-14">
           <div className="col-span-2">
@@ -65,7 +65,7 @@ export default function Footer() {
             </a>
             <a href="mailto:liem@nestlineautomation.ca" className="text-xs text-white/20 hover:text-white transition-colors duration-200">liem@nestlineautomation.ca</a>
             <div className="flex items-center gap-2 text-xs text-white/20">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#00e887] animate-pulse" />{tx.status}
+              <span className="w-1.5 h-1.5 rounded-full bg-[#2ee6a6] animate-pulse" />{tx.status}
             </div>
           </div>
         </div>

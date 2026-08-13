@@ -28,7 +28,7 @@ export default function Team() {
   return (
     <section id="team" ref={ref} className="py-28 lg:py-36 relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, rgba(0,232,135,0.04) 0%, transparent 70%)" }} />
+        style={{ background: "radial-gradient(ellipse, rgba(46,230,166,0.04) 0%, transparent 70%)" }} />
 
       <ScrollTiltWrapper>
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
@@ -38,10 +38,10 @@ export default function Team() {
             className="text-center mb-16 lg:mb-20"
           >
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-[0.18em] uppercase glass text-white/40 mb-8">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#00e887] animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#2ee6a6] animate-pulse" />
               {tx.badge}
             </span>
-            <h2 className="text-[clamp(2.2rem,5vw,4rem)] font-extrabold tracking-tight leading-[1.06] mb-5">
+            <h2 className="font-heading text-[clamp(2.2rem,5vw,4rem)] leading-[1.06] mb-5">
               {tx.headline}<span className="text-gradient">{tx.headlineGradient}</span>
             </h2>
             <p className="text-white/45 text-lg leading-relaxed max-w-xl mx-auto">{tx.sub}</p>
@@ -54,26 +54,26 @@ export default function Team() {
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number], delay: 0.15 + i * 0.12 }}
                 className="group relative rounded-2xl glass glass-hover p-8 flex flex-col items-center text-center gap-4 overflow-hidden"
               >
-                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00e887]/50 to-transparent" />
-                <div className="w-20 h-20 rounded-full overflow-hidden relative shrink-0 ring-2 ring-[#00e887]/40">
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#2ee6a6]/50 to-transparent" />
+                <div className="w-20 h-20 rounded-full overflow-hidden relative shrink-0 ring-2 ring-[#2ee6a6]/40">
                   <Image src={member.photo} alt={member.name} fill sizes="80px" className="object-cover" />
                 </div>
                 <div>
-                  <p className="text-lg font-bold text-white">{member.name}</p>
-                  <p className="text-xs font-semibold tracking-widest uppercase text-[#00e887]/70 mt-1">{member.role}</p>
+                  <p className="font-heading text-lg text-white">{member.name}</p>
+                  <p className="text-xs font-semibold tracking-widest uppercase text-[#2ee6a6]/70 mt-1">{member.role}</p>
                 </div>
                 <p className="text-white/40 text-sm leading-relaxed">{member.bio}</p>
 
                 <div className="flex items-center gap-3 mt-1">
                   {member.email && (
                     <a href={`mailto:${member.email}`} aria-label={`Email ${member.name}`}
-                      className="w-9 h-9 rounded-full glass glass-hover flex items-center justify-center text-white/50 hover:text-[#00e887] transition-colors">
+                      className="w-9 h-9 rounded-full glass glass-hover flex items-center justify-center text-white/50 hover:text-[#2ee6a6] transition-colors">
                       <Mail className="w-4 h-4" />
                     </a>
                   )}
                   {member.instagram && (
                     <a href={member.instagram} target="_blank" rel="noopener noreferrer" aria-label={`${member.name} on Instagram`}
-                      className="w-9 h-9 rounded-full glass glass-hover flex items-center justify-center text-white/50 hover:text-[#00e887] transition-colors">
+                      className="w-9 h-9 rounded-full glass glass-hover flex items-center justify-center text-white/50 hover:text-[#2ee6a6] transition-colors">
                       <InstagramIcon className="w-4 h-4" />
                     </a>
                   )}

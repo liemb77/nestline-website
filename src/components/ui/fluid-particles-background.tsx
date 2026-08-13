@@ -186,7 +186,7 @@ export const FluidParticlesBackground = ({
         if (particle.y > canvas.height) particle.y = 0;
 
         // Use the site's green accent colour for particles to match the design system
-        ctx.fillStyle = `rgba(0, 232, 135, ${opacity})`;
+        ctx.fillStyle = `rgba(46,230,166, ${opacity})`;
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
         ctx.fill();

@@ -18,7 +18,7 @@ export default function Marquee() {
       <div className="animate-marquee flex gap-12 w-max">
         {doubled.map((item, i) => (
           <span key={i} className="flex items-center gap-3 text-xs font-semibold tracking-[0.16em] uppercase text-white/25 whitespace-nowrap">
-            <span className="w-1 h-1 rounded-full bg-[#00e887]/50" />
+            <span className="w-1 h-1 rounded-full bg-[#2ee6a6]/50" />
             {item}
           </span>
         ))}

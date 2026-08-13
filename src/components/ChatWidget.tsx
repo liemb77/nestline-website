@@ -87,7 +87,7 @@ export default function ChatWidget() {
             exit={{ opacity: 0, y: 16, scale: 0.96 }}
             transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="w-[min(360px,calc(100vw-2rem))] h-[min(480px,calc(100vh-8rem))] rounded-2xl glass flex flex-col overflow-hidden"
-            style={{ border: "1px solid rgba(0,232,135,0.2)" }}
+            style={{ border: "1px solid rgba(46,230,166,0.2)" }}
           >
             <div className="px-5 py-4 shrink-0" style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
               <p className="text-sm font-bold text-white">{copy.title}</p>
@@ -106,7 +106,7 @@ export default function ChatWidget() {
                       ? "self-end text-black"
                       : "self-start bg-white/5 text-white/70"
                   }`}
-                  style={m.role === "user" ? { background: "#00e887" } : undefined}
+                  style={m.role === "user" ? { background: "#2ee6a6" } : undefined}
                 >
                   {m.content}
                 </div>
@@ -124,14 +124,14 @@ export default function ChatWidget() {
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && sendMessage()}
                 placeholder={copy.placeholder}
-                className="flex-1 bg-white/5 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder:text-white/25 outline-none focus:ring-1 focus:ring-[#00e887]/40"
+                className="flex-1 bg-white/5 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder:text-white/25 outline-none focus:ring-1 focus:ring-[#2ee6a6]/40"
               />
               <button
                 onClick={sendMessage}
                 disabled={loading || !input.trim()}
                 aria-label="Send"
                 className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 disabled:opacity-30 transition-opacity"
-                style={{ background: "#00e887" }}
+                style={{ background: "#2ee6a6" }}
               >
                 <Send className="w-4 h-4 text-black" />
               </button>
@@ -144,7 +144,7 @@ export default function ChatWidget() {
         onClick={() => setOpen((o) => !o)}
         aria-label={copy.launcherLabel}
         className="w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-105"
-        style={{ background: "#00e887" }}
+        style={{ background: "#2ee6a6" }}
       >
         {open ? <X className="w-6 h-6 text-black" /> : <MessageCircle className="w-6 h-6 text-black" />}
       </button>

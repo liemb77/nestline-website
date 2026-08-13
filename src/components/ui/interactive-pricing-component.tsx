@@ -103,24 +103,24 @@ function PlanCard({ plan, index }: { plan: PricingPlan; index: number }) {
         // Base glass surface
         "bg-transparent border-0",
         // Highlight card gets green border + glow
-        isHighlight && "ring-1 ring-[#00e887]/30 shadow-[0_0_80px_rgba(0,232,135,0.1),0_20px_60px_rgba(0,0,0,0.4)]",
+        isHighlight && "ring-1 ring-[#2ee6a6]/30 shadow-[0_0_80px_rgba(46,230,166,0.1),0_20px_60px_rgba(0,0,0,0.4)]",
         // Coming soon card is dimmed
         isComingSoon && "opacity-70",
         // Index-based animation delay handled inline
       )}
       style={{
         background: isHighlight
-          ? "linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(0,232,135,0.06) 100%)"
+          ? "linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(46,230,166,0.06) 100%)"
           : "rgba(255,255,255,0.028)",
         border: isHighlight
-          ? "1px solid rgba(0,232,135,0.25)"
+          ? "1px solid rgba(46,230,166,0.25)"
           : "1px solid rgba(255,255,255,0.07)",
         animationDelay: `${index * 0.12}s`,
       }}
     >
       {/* Top shimmer line */}
       {isHighlight && (
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00e887]/60 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#2ee6a6]/60 to-transparent" />
       )}
 
       {/* Floating top badge */}
@@ -151,7 +151,7 @@ function PlanCard({ plan, index }: { plan: PricingPlan; index: number }) {
         <p
           className={cn(
             "text-xs font-bold tracking-[0.18em] uppercase mb-2",
-            isHighlight ? "text-[#00e887]" : "text-white/25",
+            isHighlight ? "text-[#2ee6a6]" : "text-white/25",
           )}
         >
           {plan.tag}
@@ -210,7 +210,7 @@ function PlanCard({ plan, index }: { plan: PricingPlan; index: number }) {
         <p
           className={cn(
             "text-sm leading-relaxed",
-            isHighlight ? "text-[#00e887]/60" : "text-white/35",
+            isHighlight ? "text-[#2ee6a6]/60" : "text-white/35",
           )}
         >
           {plan.description}
@@ -225,7 +225,7 @@ function PlanCard({ plan, index }: { plan: PricingPlan; index: number }) {
                   "mt-0.5 shrink-0",
                   feature.included
                     ? isHighlight
-                      ? "text-[#00e887]"
+                      ? "text-[#2ee6a6]"
                       : "text-white/20"
                     : "text-white/15",
                 )}
@@ -272,7 +272,7 @@ function PlanCard({ plan, index }: { plan: PricingPlan; index: number }) {
 
       {/* Bottom shimmer line */}
       {isHighlight && (
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00e887]/40 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#2ee6a6]/40 to-transparent" />
       )}
     </Card>
   );

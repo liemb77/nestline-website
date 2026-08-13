@@ -54,7 +54,7 @@ export default function CookieConsent() {
           {tx.text}{' '}
           <a
             href={href("/privacy-policy")}
-            className="text-[#00e887] hover:underline"
+            className="text-[#2ee6a6] hover:underline"
           >
             {tx.link}
           </a>
@@ -63,7 +63,7 @@ export default function CookieConsent() {
         <div className="flex gap-3">
           <button
             onClick={() => dismiss('accepted')}
-            className="flex-1 py-2 rounded-full bg-[#00e887] text-black text-sm font-bold hover:bg-[#00e887]/90 transition-colors"
+            className="flex-1 py-2 rounded-full bg-[#2ee6a6] text-black text-sm font-bold hover:bg-[#2ee6a6]/90 transition-colors"
           >
             {tx.accept}
           </button>

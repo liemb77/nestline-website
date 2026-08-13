@@ -26,10 +26,10 @@ export default function BookingProcess() {
             className="text-center mb-14"
           >
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-[0.18em] uppercase glass text-white/40 mb-8">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#00e887] animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#2ee6a6] animate-pulse" />
               {tx.badge}
             </span>
-            <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-extrabold tracking-tight leading-[1.06]">
+            <h2 className="font-heading text-[clamp(2rem,5vw,3.5rem)] leading-[1.06]">
               {tx.headline}
             </h2>
           </motion.div>
@@ -44,10 +44,10 @@ export default function BookingProcess() {
                   className="relative rounded-2xl glass glass-hover p-6 flex flex-col gap-4"
                 >
                   <div className="flex items-center justify-between">
-                    <div className="w-11 h-11 rounded-xl bg-[#00e887]/10 border border-[#00e887]/20 flex items-center justify-center">
-                      <Icon className="w-5 h-5 text-[#00e887]" />
+                    <div className="w-11 h-11 rounded-xl bg-[#2ee6a6]/10 border border-[#2ee6a6]/20 flex items-center justify-center">
+                      <Icon className="w-5 h-5 text-[#2ee6a6]" />
                     </div>
-                    <span className="text-[10px] font-bold text-[#00e887]/50">0{i + 1}</span>
+                    <span className="text-[10px] font-bold text-[#2ee6a6]/50">0{i + 1}</span>
                   </div>
                   <div>
                     <p className="text-sm font-bold text-white mb-1.5">{step.title}</p>

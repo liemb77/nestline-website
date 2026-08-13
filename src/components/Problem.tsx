@@ -31,7 +31,7 @@ export default function Problem() {
               <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
               {tx.badge}
             </span>
-            <h2 className="text-[clamp(2.2rem,5vw,4rem)] font-extrabold tracking-tight leading-[1.06] mb-5">
+            <h2 className="font-heading text-[clamp(2.2rem,5vw,4rem)] leading-[1.06] mb-5">
               {tx.headline1}
               <br />
               <span className="text-white/25">{tx.headline2}</span>
@@ -52,7 +52,7 @@ export default function Problem() {
                     <Icon className="w-5 h-5 text-red-400" />
                   </div>
                   <div>
-                    <p className="text-4xl font-extrabold text-white tracking-tight">{p.stat}</p>
+                    <p className="font-heading text-4xl text-white">{p.stat}</p>
                     <p className="text-xs text-white/30 mt-1">{p.statLabel}</p>
                   </div>
                   <div>
@@ -68,7 +68,7 @@ export default function Problem() {
           <motion.p initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ duration: 0.8, delay: 0.6 }}
             className="mt-12 text-white/30 text-sm text-center">
             {tx.bridgeText}{" "}
-            <a href="#services" className="text-[#00e887] hover:underline">{tx.bridgeLink}</a>
+            <a href="#services" className="text-[#2ee6a6] hover:underline">{tx.bridgeLink}</a>
           </motion.p>
         </div>
       </ScrollTiltWrapper>

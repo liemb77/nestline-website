@@ -11,7 +11,7 @@ export default function CaseStudies() {
 
   return (
     <section id="case-studies" className="relative py-20 lg:py-28 overflow-hidden border-t border-white/[0.05]">
-      <div className="pointer-events-none absolute inset-0 [background:radial-gradient(60%_50%_at_50%_0%,rgba(0,232,135,0.05),transparent_60%)]" />
+      <div className="pointer-events-none absolute inset-0 [background:radial-gradient(60%_50%_at_50%_0%,rgba(46,230,166,0.05),transparent_60%)]" />
       <div className="relative max-w-6xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 32 }}
@@ -21,7 +21,7 @@ export default function CaseStudies() {
           className="text-center mb-14"
         >
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-[0.18em] uppercase glass text-white/40 mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00e887] animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#2ee6a6] animate-pulse" />
             {tx.badge}
           </span>
           <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-extrabold tracking-tight leading-[1.06] mb-5">
@@ -38,8 +38,8 @@ export default function CaseStudies() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
-              className="rounded-2xl border border-[#00e887]/30 bg-zinc-900/80 backdrop-blur overflow-hidden"
-              style={{ boxShadow: "0 0 60px rgba(0,232,135,0.08), 0 20px 40px rgba(0,0,0,0.4)" }}
+              className="rounded-2xl border border-[#2ee6a6]/30 bg-zinc-900/80 backdrop-blur overflow-hidden"
+              style={{ boxShadow: "0 0 60px rgba(46,230,166,0.08), 0 20px 40px rgba(0,0,0,0.4)" }}
             >
               {/* Browser chrome + screenshot, click through to live site */}
               <a href={item.url} target="_blank" rel="noopener noreferrer" className="group block">
@@ -86,7 +86,7 @@ export default function CaseStudies() {
                     <p className="text-white/55 leading-relaxed">{item.solution}</p>
                   </div>
                   <div>
-                    <p className="text-[10px] font-bold tracking-[0.16em] uppercase text-[#00e887]/60 mb-1">
+                    <p className="text-[10px] font-bold tracking-[0.16em] uppercase text-[#2ee6a6]/60 mb-1">
                       {lang === "en" ? "Result" : "Résultat"}
                     </p>
                     <p className="text-white/70 leading-relaxed">{item.result}</p>
@@ -94,7 +94,7 @@ export default function CaseStudies() {
                 </div>
 
                 <a href={item.url} target="_blank" rel="noopener noreferrer"
-                  className="self-start inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#00e887] text-[#050505] text-sm font-bold hover:bg-[#00e887]/90 transition-colors">
+                  className="self-start inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#2ee6a6] text-[#050505] text-sm font-bold hover:bg-[#2ee6a6]/90 transition-colors">
                   {tx.cta}<ExternalLink className="w-4 h-4" />
                 </a>
               </div>

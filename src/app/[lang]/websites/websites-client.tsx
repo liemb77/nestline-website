@@ -61,7 +61,7 @@ function PricingParticles() {
       parts.forEach((p) => {
         p.y -= p.v;
         if (p.y < 0) { p.x = Math.random() * w; p.y = h + 40; p.v = Math.random() * 0.3 + 0.05; p.o = Math.random() * 0.25 + 0.08; }
-        ctx.fillStyle = `rgba(0,232,135,${p.o})`;
+        ctx.fillStyle = `rgba(46,230,166,${p.o})`;
         ctx.fillRect(p.x, p.y, 0.7, 2.2);
       });
       raf = requestAnimationFrame(draw);
@@ -89,18 +89,18 @@ export default function WebsitesClient() {
         <section className="relative min-h-[55vh] flex items-center justify-center overflow-hidden py-24">
           {/* Subtle green radial glow — same style as main page sections */}
           <div className="absolute inset-0 pointer-events-none"
-            style={{ background: "radial-gradient(ellipse at 50% 40%, rgba(0,232,135,0.05) 0%, transparent 65%)" }} />
+            style={{ background: "radial-gradient(ellipse at 50% 40%, rgba(46,230,166,0.05) 0%, transparent 65%)" }} />
 
           <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
             <motion.div initial="hidden" animate="visible" className="flex flex-col items-center gap-6">
               <motion.span custom={0} variants={itemVariants}
                 className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-[0.18em] uppercase glass text-white/40">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00e887] animate-pulse" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#2ee6a6] animate-pulse" />
                 {tx.badge}
               </motion.span>
 
               <motion.h1 custom={1} variants={itemVariants}
-                className="text-[clamp(2.5rem,7vw,5.5rem)] font-extrabold leading-[1.06] tracking-tight">
+                className="font-heading text-[clamp(2.5rem,7vw,5.5rem)] leading-[1.06]">
                 {tx.headline}<span className="text-gradient">{tx.headlineGradient}</span>
               </motion.h1>
 
@@ -144,7 +144,7 @@ export default function WebsitesClient() {
             <div className="vl"/><div className="vl"/><div className="vl"/>
           </div>
           <PricingParticles />
-          <div className="pointer-events-none absolute inset-0 [background:radial-gradient(70%_50%_at_50%_0%,rgba(0,232,135,0.05),transparent_60%)]" />
+          <div className="pointer-events-none absolute inset-0 [background:radial-gradient(70%_50%_at_50%_0%,rgba(46,230,166,0.05),transparent_60%)]" />
 
           <ScrollTiltWrapper>
             <div className="relative max-w-4xl mx-auto px-6 lg:px-8">
@@ -157,10 +157,10 @@ export default function WebsitesClient() {
                 className="text-center mb-14"
               >
                 <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-[0.18em] uppercase glass text-white/40 mb-8">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#00e887] animate-pulse" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#2ee6a6] animate-pulse" />
                   {tx.pricingBadge}
                 </span>
-                <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-extrabold tracking-tight leading-[1.06] mb-5">
+                <h2 className="font-heading text-[clamp(2rem,5vw,3.5rem)] leading-[1.06] mb-5">
                   {tx.pricingHeadline}
                 </h2>
                 <p className="text-white/40 text-lg max-w-md mx-auto leading-relaxed">
@@ -175,22 +175,22 @@ export default function WebsitesClient() {
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number,number,number,number], delay: 0.15 }}
                   className="relative flex-1 max-w-sm">
-                  <Card className="h-full flex flex-col border-[#00e887]/30 bg-zinc-900/80 backdrop-blur"
-                    style={{ boxShadow: "0 0 60px rgba(0,232,135,0.08), 0 20px 40px rgba(0,0,0,0.4)" }}>
+                  <Card className="h-full flex flex-col border-[#2ee6a6]/30 bg-zinc-900/80 backdrop-blur"
+                    style={{ boxShadow: "0 0 60px rgba(46,230,166,0.08), 0 20px 40px rgba(0,0,0,0.4)" }}>
                     <CardHeader>
-                      <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#00e887] mb-1">{tx.standard.tag}</p>
-                      <CardTitle className="text-zinc-50 text-xl">{tx.standard.title}</CardTitle>
+                      <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#2ee6a6] mb-1">{tx.standard.tag}</p>
+                      <CardTitle className="font-heading text-zinc-50 text-xl">{tx.standard.title}</CardTitle>
                       <p className="text-sm text-zinc-400">{tx.standard.desc}</p>
                       <div className="pt-2 space-y-1">
                         <div>
-                          <span className="text-4xl font-extrabold text-white">$1,500</span>
+                          <span className="font-heading text-4xl text-white">$1,500</span>
                           <span className="text-zinc-500 text-sm ml-2">{tx.standard.setupLabel}</span>
                         </div>
                         <div>
                           <span className="text-2xl font-bold text-zinc-300">+ $150</span>
                           <span className="text-zinc-500 text-sm ml-2">{tx.standard.monthlyLabel}</span>
                         </div>
-                        <p className="text-xs text-[#00e887]/60 font-semibold pt-0.5">{tx.standard.note}</p>
+                        <p className="text-xs text-[#2ee6a6]/60 font-semibold pt-0.5">{tx.standard.note}</p>
                       </div>
                     </CardHeader>
                     <CardContent className="flex-1">
@@ -198,14 +198,14 @@ export default function WebsitesClient() {
                       <ul className="space-y-3">
                         {tx.standard.features.map((label) => (
                           <li key={label} className="flex items-center gap-2.5 text-zinc-200 text-sm">
-                            <CircleCheck className="size-4 text-[#00e887] shrink-0" />{label}
+                            <CircleCheck className="size-4 text-[#2ee6a6] shrink-0" />{label}
                           </li>
                         ))}
                       </ul>
                     </CardContent>
                     <CardFooter>
-                      <Button asChild className="w-full rounded-xl bg-[#00e887] text-[#050505] font-bold hover:bg-[#00e887]/90"
-                        style={{ boxShadow: "0 0 30px rgba(0,232,135,0.3)" }}>
+                      <Button asChild className="w-full rounded-xl bg-[#2ee6a6] text-[#050505] font-bold hover:bg-[#2ee6a6]/90"
+                        style={{ boxShadow: "0 0 30px rgba(46,230,166,0.3)" }}>
                         <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noopener noreferrer">
                           {tx.standard.cta}<ArrowRight className="ml-2 size-4" />
                         </a>
@@ -219,18 +219,18 @@ export default function WebsitesClient() {
               {/* Bundle callout */}
               <motion.div initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.45 }}
-                className="mt-10 rounded-2xl border border-[#00e887]/20 bg-[#00e887]/5 px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+                className="mt-10 rounded-2xl border border-[#2ee6a6]/20 bg-[#2ee6a6]/5 px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-[#00e887]/10 border border-[#00e887]/20 flex items-center justify-center shrink-0">
-                    <Zap className="w-4 h-4 text-[#00e887]" fill="currentColor" />
+                  <div className="w-9 h-9 rounded-xl bg-[#2ee6a6]/10 border border-[#2ee6a6]/20 flex items-center justify-center shrink-0">
+                    <Zap className="w-4 h-4 text-[#2ee6a6]" fill="currentColor" />
                   </div>
                   <p className="text-sm text-white/60">
                     {tx.bundleNote}{" "}
-                    <span className="text-[#00e887] font-bold">{tx.bundleHighlight}</span>
+                    <span className="text-[#2ee6a6] font-bold">{tx.bundleHighlight}</span>
                   </p>
                 </div>
                 <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noopener noreferrer"
-                  className="shrink-0 text-xs font-bold px-4 py-2 rounded-full bg-[#00e887] text-[#050505] hover:bg-[#00e887]/90 transition-colors whitespace-nowrap">
+                  className="shrink-0 text-xs font-bold px-4 py-2 rounded-full bg-[#2ee6a6] text-[#050505] hover:bg-[#2ee6a6]/90 transition-colors whitespace-nowrap">
                   {tx.bundleCta} →
                 </a>
               </motion.div>
@@ -239,7 +239,7 @@ export default function WebsitesClient() {
                 className="text-center text-xs text-white/20 mt-6 leading-relaxed">
                 {tx.footerNote}{" "}
                 <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noopener noreferrer"
-                  className="text-[#00e887]/60 hover:text-[#00e887] hover:underline transition-colors">
+                  className="text-[#2ee6a6]/60 hover:text-[#2ee6a6] hover:underline transition-colors">
                   {tx.footerLink}
                 </a>
               </motion.p>
@@ -260,7 +260,7 @@ export default function WebsitesClient() {
           </Link>
           <p className="text-xs text-white/20">© {new Date().getFullYear()} NestLine Automation. All rights reserved.</p>
           <div className="flex items-center gap-2 text-xs text-white/20">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00e887] animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#2ee6a6] animate-pulse" />
             All systems operational
           </div>
         </div>

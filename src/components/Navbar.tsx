@@ -65,9 +65,9 @@ export default function Navbar() {
             aria-label="Toggle language"
             className="flex items-center gap-1 px-4 py-2 rounded-full font-bold text-sm transition-all duration-200"
             style={{
-              background: "rgba(0,232,135,0.10)",
-              border: "1px solid rgba(0,232,135,0.35)",
-              color: "#00e887",
+              background: "rgba(46,230,166,0.10)",
+              border: "1px solid rgba(46,230,166,0.35)",
+              color: "#2ee6a6",
             }}
           >
             <span style={{ opacity: lang === "en" ? 1 : 0.4 }}>EN</span>
@@ -117,7 +117,7 @@ export default function Navbar() {
               <button
                 onClick={toggle}
                 className="self-start flex items-center gap-1 px-4 py-2 rounded-full font-bold text-sm transition-all duration-200"
-                style={{ background: "rgba(0,232,135,0.10)", border: "1px solid rgba(0,232,135,0.35)", color: "#00e887" }}
+                style={{ background: "rgba(46,230,166,0.10)", border: "1px solid rgba(46,230,166,0.35)", color: "#2ee6a6" }}
               >
                 <span style={{ opacity: lang === "en" ? 1 : 0.4 }}>EN</span>
                 <span style={{ opacity: 0.35, margin: "0 2px" }}>|</span>

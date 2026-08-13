@@ -73,12 +73,12 @@ export default function Hero() {
       >
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15 }}
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-semibold tracking-[0.18em] uppercase text-white/50 mb-10">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#00e887] animate-pulse" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#2ee6a6] animate-pulse" />
           {tx.badge}
         </motion.div>
 
         <motion.h1 variants={container} initial="hidden" animate="visible"
-          className="text-[clamp(3rem,8vw,7rem)] font-extrabold leading-[1.02] tracking-tight mb-8 flex flex-wrap justify-center gap-x-[0.3em]">
+          className="font-heading text-[clamp(3rem,8vw,7rem)] leading-[0.95] mb-8 flex flex-wrap justify-center gap-x-[0.3em]">
           {tx.words.map((w, i) => (
             <motion.span key={i} variants={word} className={i === tx.words.length - 1 ? "text-gradient" : ""}>
               {w}
@@ -95,7 +95,7 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
           <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true"
             target="_blank" rel="noopener noreferrer"
-            className="group flex items-center gap-2.5 px-8 py-4 rounded-full btn-primary text-[#050505] text-sm font-bold">
+            className="group flex items-center gap-2.5 px-8 py-4 rounded-full btn-primary text-sm font-bold">
             {tx.cta1}
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </a>
