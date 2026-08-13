@@ -6,6 +6,7 @@ import { FluidParticlesBackground } from "@/components/ui/fluid-particles-backgr
 import { LanguageProvider, type Lang } from "@/contexts/language-context";
 import CookieConsent from "@/components/CookieConsent";
 import ChatWidget from "@/components/ChatWidget";
+import CursorGlow from "@/components/CursorGlow";
 
 // Defined locally rather than imported from the "use client" language-context
 // module — importing that const array into generateStaticParams broke Next's
@@ -183,6 +184,10 @@ export default async function LangLayout({
           <div className="relative z-10 flex flex-col min-h-full">
             {children}
           </div>
+
+          {/* Cursor-follow light + hidden grid reveal — sits above everything */}
+          <CursorGlow />
+
           <CookieConsent />
           <ChatWidget />
         </LanguageProvider>

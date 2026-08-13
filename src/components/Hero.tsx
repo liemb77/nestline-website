@@ -12,11 +12,27 @@ export default function Hero() {
   const { lang } = useLanguage();
   const tx = t[lang].hero;
 
-  const orbY      = useTransform(scrollYProgress, [0, 1], ["0%",  "-30%"]);
-  const orbScale  = useTransform(scrollYProgress, [0, 1], [1,      0.75]);
-  const orbOpacity= useTransform(scrollYProgress, [0, 0.7],[1,     0]);
   const textY     = useTransform(scrollYProgress, [0, 1], ["0%",  "-12%"]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.4],[1,   0]);
+  const blobOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+
+  // Liquid glass blobs — each scrubs from its resting position to a different
+  // spot/scale as you scroll through the hero, same mechanic as the orb before,
+  // just three independent shapes instead of one.
+  const b1X = useTransform(scrollYProgress, [0, 1], [0, 90]);
+  const b1Y = useTransform(scrollYProgress, [0, 1], [0, 140]);
+  const b1S = useTransform(scrollYProgress, [0, 1], [1, 1.25]);
+
+  const b2X = useTransform(scrollYProgress, [0, 1], [0, -110]);
+  const b2Y = useTransform(scrollYProgress, [0, 1], [0, -120]);
+  const b2S = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
+
+  // b3 is centered via a baked-in -220px offset (half its 440px size) rather
+  // than a CSS translate(-50%,-50%), so it can share the style object with the
+  // scroll-driven x/y motion values without the two fighting over `transform`.
+  const b3X = useTransform(scrollYProgress, [0, 1], [-220, -100]);
+  const b3Y = useTransform(scrollYProgress, [0, 1], [-220, -320]);
+  const b3S = useTransform(scrollYProgress, [0, 1], [1, 1.4]);
 
   const container = {
     hidden: {},
@@ -34,19 +50,20 @@ export default function Hero() {
   return (
     <section ref={ref} className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
 
-      {/* Orb */}
-      <motion.div
-        style={{ y: orbY, scale: orbScale, opacity: orbOpacity }}
-        className="absolute inset-0 flex items-center justify-center pointer-events-none"
-      >
-        <div className="animate-blob relative">
-          <div className="absolute rounded-full" style={{ inset: "-80px", background: "radial-gradient(circle, rgba(0,232,135,0.12) 0%, rgba(0,194,255,0.06) 50%, transparent 75%)", filter: "blur(60px)" }} />
-          <div className="w-[480px] h-[480px] sm:w-[600px] sm:h-[600px] rounded-full relative"
-            style={{ background: "radial-gradient(circle at 36% 34%, rgba(180,255,220,0.95) 0%, rgba(0,232,135,0.85) 18%, rgba(0,194,255,0.6) 45%, rgba(0,60,180,0.4) 68%, rgba(0,5,20,0.95) 88%)", boxShadow: "0 0 120px rgba(0,232,135,0.3), 0 0 250px rgba(0,232,135,0.12), inset 0 0 80px rgba(0,0,0,0.5)" }}>
-            <div className="absolute rounded-full" style={{ top: "11%", left: "16%", width: "28%", height: "20%", background: "rgba(255,255,255,0.28)", filter: "blur(10px)" }} />
-            <div className="absolute rounded-full" style={{ top: "60%", right: "12%", width: "18%", height: "14%", background: "rgba(0,194,255,0.25)", filter: "blur(16px)" }} />
-          </div>
-        </div>
+      {/* Liquid glass blobs — scroll-scrubbed background */}
+      <motion.div style={{ opacity: blobOpacity }} className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          style={{ x: b1X, y: b1Y, scale: b1S, top: "-180px", left: "-140px", width: "620px", height: "620px" }}
+          className="blob blob-green"
+        />
+        <motion.div
+          style={{ x: b2X, y: b2Y, scale: b2S, right: "-160px", bottom: "-220px", width: "680px", height: "680px" }}
+          className="blob blob-white"
+        />
+        <motion.div
+          style={{ x: b3X, y: b3Y, scale: b3S, top: "32%", left: "42%", width: "440px", height: "440px" }}
+          className="blob blob-green-soft"
+        />
       </motion.div>
 
       {/* Content */}

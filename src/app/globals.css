@@ -9,6 +9,10 @@
   --border-hover: rgba(255, 255, 255, 0.14);
   --green: #00e887;
   --green-dim: rgba(0, 232, 135, 0.12);
+  /* Deep "Rolex green" — used for the liquid-glass blob background and cursor-light
+     grid reveal only. Kept separate from --green (used everywhere else for buttons,
+     badges, focus states) so existing contrast/readability isn't affected. */
+  --green-deep: #00573f;
   --cyan: #00c2ff;
   --amber: #f59e0b;
   --text: #ffffff;
@@ -143,4 +147,46 @@ body::after {
 .divider {
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+}
+
+/* ── Liquid glass blobs (Hero background) ── */
+.blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(70px);
+  opacity: 0.55;
+  pointer-events: none;
+}
+.blob-green {
+  background: radial-gradient(circle at 35% 35%, rgba(46,230,166,0.62), var(--green-deep) 60%, transparent 75%);
+}
+.blob-white {
+  background: radial-gradient(circle at 60% 40%, rgba(255,255,255,0.12), rgba(255,255,255,0.03) 55%, transparent 75%);
+}
+.blob-green-soft {
+  background: radial-gradient(circle at 50% 50%, rgba(46,230,166,0.75), rgba(46,230,166,0.25) 45%, transparent 72%);
+}
+
+/* ── Cursor-follow light + hidden grid reveal ── */
+.cursor-glow, .grid-reveal {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.cursor-glow.active, .grid-reveal.active { opacity: 1; }
+.cursor-glow {
+  background: radial-gradient(circle 320px at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.10), rgba(255,255,255,0) 65%);
+}
+.grid-reveal {
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.07) 0 1px, transparent 1px 64px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.07) 0 1px, transparent 1px 64px);
+  -webkit-mask-image: radial-gradient(circle 280px at var(--mx, 50%) var(--my, 50%), #000 0%, transparent 72%);
+  mask-image: radial-gradient(circle 280px at var(--mx, 50%) var(--my, 50%), #000 0%, transparent 72%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .cursor-glow, .grid-reveal { display: none; }
 }
