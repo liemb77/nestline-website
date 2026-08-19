@@ -59,7 +59,7 @@ const plans: PricingPlan[] = [
     badgeLabel: "Limited — 3 to 5 spots only",
     badgeIcon: <Zap className="w-3 h-3" fill="currentColor" />,
     ctaLabel: "Claim Your Spot",
-    ctaHref: "https://cal.com/liem-blouin/discovery?overlayCalendar=true",
+    ctaHref: "https://book.nestlineautomation.ca/",
   },
   {
     id: "growth",
@@ -76,7 +76,7 @@ const plans: PricingPlan[] = [
     ],
     comingSoon: true,
     ctaLabel: "Book a Call",
-    ctaHref: "https://cal.com/liem-blouin/discovery?overlayCalendar=true",
+    ctaHref: "https://book.nestlineautomation.ca/",
   },
 ];
 

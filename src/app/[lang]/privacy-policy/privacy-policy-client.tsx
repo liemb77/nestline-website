@@ -26,7 +26,7 @@ const content = {
       },
       {
         title: '5. Who We Share It With',
-        body: 'We use the following third-party service providers who may process your information on our behalf:\n\n• Cal.com, appointment booking\n• Resend, transactional and outreach emails\n• Railway, infrastructure hosting\n• Apify, lead research (business contact information from public sources)\n\nAll providers are bound by their own privacy policies and data protection agreements.',
+        body: 'We use the following third-party service providers who may process your information on our behalf:\n\n• Microsoft Bookings, appointment booking\n• Resend, transactional and outreach emails\n• Railway, infrastructure hosting\n• Apify, lead research (business contact information from public sources)\n\nAll providers are bound by their own privacy policies and data protection agreements.',
       },
       {
         title: '6. How Long We Keep It',
@@ -77,7 +77,7 @@ const content = {
       },
       {
         title: '5. Avec qui nous les partageons',
-        body: 'Nous faisons appel aux fournisseurs de services tiers suivants qui peuvent traiter vos renseignements en notre nom :\n\n• Cal.com, prise de rendez-vous\n• Resend, courriels transactionnels et de prospection\n• Railway, hébergement d\'infrastructure\n• Apify, recherche de prospects (coordonnées d\'entreprises provenant de sources publiques)\n\nTous les fournisseurs sont soumis à leurs propres politiques de confidentialité.',
+        body: 'Nous faisons appel aux fournisseurs de services tiers suivants qui peuvent traiter vos renseignements en notre nom :\n\n• Microsoft Bookings, prise de rendez-vous\n• Resend, courriels transactionnels et de prospection\n• Railway, hébergement d\'infrastructure\n• Apify, recherche de prospects (coordonnées d\'entreprises provenant de sources publiques)\n\nTous les fournisseurs sont soumis à leurs propres politiques de confidentialité.',
       },
       {
         title: '6. Durée de conservation',

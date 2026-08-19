@@ -110,7 +110,7 @@ export default function WebsitesClient() {
               </motion.p>
 
               <motion.a custom={3} variants={itemVariants}
-                href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noopener noreferrer"
+                href="https://book.nestlineautomation.ca/" target="_blank" rel="noopener noreferrer"
                
                 className="group flex items-center gap-2.5 px-7 py-4 rounded-full btn-primary text-sm font-bold mt-2">
                 {tx.heroCta}
@@ -206,7 +206,7 @@ export default function WebsitesClient() {
                     <CardFooter>
                       <Button asChild className="w-full rounded-xl bg-[#2ee6a6] text-[#050505] font-bold hover:bg-[#2ee6a6]/90"
                         style={{ boxShadow: "0 0 30px rgba(46,230,166,0.3)" }}>
-                        <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noopener noreferrer">
+                        <a href="https://book.nestlineautomation.ca/" target="_blank" rel="noopener noreferrer">
                           {tx.standard.cta}<ArrowRight className="ml-2 size-4" />
                         </a>
                       </Button>
@@ -229,7 +229,7 @@ export default function WebsitesClient() {
                     <span className="text-[#2ee6a6] font-bold">{tx.bundleHighlight}</span>
                   </p>
                 </div>
-                <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noopener noreferrer"
+                <a href="https://book.nestlineautomation.ca/" target="_blank" rel="noopener noreferrer"
                   className="shrink-0 text-xs font-bold px-4 py-2 rounded-full bg-[#2ee6a6] text-[#050505] hover:bg-[#2ee6a6]/90 transition-colors whitespace-nowrap">
                   {tx.bundleCta} →
                 </a>
@@ -238,7 +238,7 @@ export default function WebsitesClient() {
               <motion.p initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ duration: 0.7, delay: 0.5 }}
                 className="text-center text-xs text-white/20 mt-6 leading-relaxed">
                 {tx.footerNote}{" "}
-                <a href="https://cal.com/liem-blouin/discovery?overlayCalendar=true" target="_blank" rel="noopener noreferrer"
+                <a href="https://book.nestlineautomation.ca/" target="_blank" rel="noopener noreferrer"
                   className="text-[#2ee6a6]/60 hover:text-[#2ee6a6] hover:underline transition-colors">
                   {tx.footerLink}
                 </a>

@@ -76,7 +76,7 @@ export default function Navbar() {
           </button>
 
           <a
-            href="https://cal.com/liem-blouin/discovery?overlayCalendar=true"
+            href="https://book.nestlineautomation.ca/"
             target="_blank" rel="noopener noreferrer"
             className="hidden md:inline-flex items-center px-5 py-2.5 rounded-full btn-primary text-sm font-bold"
           >
@@ -124,7 +124,7 @@ export default function Navbar() {
                 <span style={{ opacity: lang === "fr" ? 1 : 0.4 }}>FR</span>
               </button>
               <a
-                href="https://cal.com/liem-blouin/discovery?overlayCalendar=true"
+                href="https://book.nestlineautomation.ca/"
                 target="_blank" rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}
                 className="mt-1 flex justify-center py-3 rounded-full btn-primary text-sm font-bold"

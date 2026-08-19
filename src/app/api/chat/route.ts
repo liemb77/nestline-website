@@ -6,7 +6,7 @@ import { isRateLimited, getClientIp } from "@/lib/rateLimit";
 const MAX_MESSAGE_LENGTH = 1000;
 const MAX_HISTORY_TURNS = 6;
 
-const BOOKING_LINK = "https://cal.com/liem-blouin/discovery?overlayCalendar=true";
+const BOOKING_LINK = "https://book.nestlineautomation.ca/";
 
 // Language is forced from the site's own /en vs /fr route (passed by the
 // frontend), never inferred from the message text. Detection-based language
